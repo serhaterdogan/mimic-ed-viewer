@@ -1,0 +1,1001 @@
+subject_id,stay_id,complaint,seq_num,icd_code,icd_version_x,icd_title,icd_version_y,diagnosis
+10000032,32952584,Hypotension,1.0,4589,9.0,HYPOTENSION NOS,9.0,"Hypotension, unspecified"
+10000032,32952584,Hypotension,2.0,07070,9.0,UNSPECIFIED VIRAL HEPATITIS C WITHOUT HEPATIC COMA,9.0,Unspecified viral hepatitis C without hepatic coma
+10000032,32952584,Hypotension,3.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10000032,33258284,"Abd pain, Abdominal distention",1.0,5728,9.0,"OTH SEQUELA, CHR LIV DIS",9.0,Other sequelae of chronic liver disease
+10000032,33258284,"Abd pain, Abdominal distention",2.0,78959,9.0,OTHER ASCITES,9.0,Other ascites
+10000032,33258284,"Abd pain, Abdominal distention",3.0,07070,9.0,UNSPECIFIED VIRAL HEPATITIS C WITHOUT HEPATIC COMA,9.0,Unspecified viral hepatitis C without hepatic coma
+10000032,33258284,"Abd pain, Abdominal distention",4.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10000032,35968195,"n/v/d, Abd pain",1.0,5715,9.0,CIRRHOSIS OF LIVER NOS,9.0,Cirrhosis of liver without mention of alcohol
+10000032,35968195,"n/v/d, Abd pain",2.0,78900,9.0,ABDOMINAL PAIN UNSPEC SITE,9.0,"Abdominal pain, unspecified site"
+10000032,35968195,"n/v/d, Abd pain",3.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10000032,38112554,Abdominal distention,1.0,78959,9.0,OTHER ASCITES,9.0,Other ascites
+10000032,38112554,Abdominal distention,2.0,07070,9.0,UNSPECIFIED VIRAL HEPATITIS C WITHOUT HEPATIC COMA,9.0,Unspecified viral hepatitis C without hepatic coma
+10000032,38112554,Abdominal distention,3.0,5715,9.0,CIRRHOSIS OF LIVER NOS,9.0,Cirrhosis of liver without mention of alcohol
+10000032,38112554,Abdominal distention,4.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10000032,39399961,"Abdominal distention, Abd pain, LETHAGIC",1.0,78097,9.0,ALTERED MENTAL STATUS ,9.0,Altered mental status
+10000032,39399961,"Abdominal distention, Abd pain, LETHAGIC",2.0,34830,9.0,"ENCEPHALOPATHY, UNSPECIFIED",9.0,"Encephalopathy, unspecified"
+10000084,35203156,"Confusion, Hallucinations",1.0,R531,10.0,Weakness,10.0,Weakness
+10000084,35203156,"Confusion, Hallucinations",2.0,G20,10.0,Parkinson's disease,10.0,Parkinson's disease
+10000084,36954971,"Altered mental status, B Pedal edema",1.0,R4182,10.0,"Altered mental status, unspecified",10.0,"Altered mental status, unspecified"
+10000084,36954971,"Altered mental status, B Pedal edema",2.0,F0390,10.0,Unspecified dementia without behavioral disturbance,10.0,"Unspecified dementia, unspecified severity, without behavioral disturbance, psychotic disturbance, mood disturbance, and anxiety"
+10000108,32522732,L CHEEK ABSCESS,1.0,7822,9.0,LOCAL SUPRFICIAL SWELLNG,9.0,"Localized superficial swelling, mass, or lump"
+10000108,36533795,"LEFT CHEEK SWELLING, Abscess",1.0,5283,9.0,CELLULITIS/ABSCESS MOUTH,9.0,Cellulitis and abscess of oral soft tissues
+10000108,39513268,L FACIAL SWELLING,1.0,5283,9.0,CELLULITIS/ABSCESS MOUTH,9.0,Cellulitis and abscess of oral soft tissues
+10000115,30295111,Suture removal,1.0,S0181XD,10.0,"Laceration w/o foreign body of oth part of head, subs encntr",10.0,"Laceration without foreign body of other part of head, subsequent encounter"
+10000115,30295111,Suture removal,2.0,V00131D,10.0,"Fall from skateboard, subsequent encounter",10.0,"Fall from skateboard, subsequent encounter"
+10000115,38081480,"Laceration, s/p Fall",1.0,S025XXA,10.0,"Fracture of tooth (traumatic), init for clos fx",10.0,"Fracture of tooth (traumatic), initial encounter for closed fracture"
+10000115,38081480,"Laceration, s/p Fall",2.0,S0181XA,10.0,"Laceration w/o foreign body of oth part of head, init encntr",10.0,"Laceration without foreign body of other part of head, initial encounter"
+10000115,38081480,"Laceration, s/p Fall",3.0,W1789XA,10.0,"Other fall from one level to another, initial encounter",10.0,"Other fall from one level to another, initial encounter"
+10000117,30632130,Head injury,1.0,S098XXA,10.0,"Other specified injuries of head, initial encounter",10.0,"Other specified injuries of head, initial encounter"
+10000117,30632130,Head injury,2.0,S01111A,10.0,"Laceration w/o fb of right eyelid and periocular area, init",10.0,"Laceration without foreign body of right eyelid and periocular area, initial encounter"
+10000117,30632130,Head injury,3.0,W228XXA,10.0,"Striking against or struck by other objects, init encntr",10.0,"Striking against or struck by other objects, initial encounter"
+10000117,32642808,Throat foreign body sensation,1.0,R1310,10.0,"Dysphagia, unspecified",10.0,"Dysphagia, unspecified"
+10000117,33176849,L Hip pain,1.0,S72092A,10.0,"Oth fracture of head and neck of left femur, init",10.0,"Other fracture of head and neck of left femur, initial encounter for closed fracture"
+10000117,33176849,L Hip pain,2.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10000178,31721172,R Foot pain,1.0,M109,10.0,"Gout, unspecified",10.0,"Gout, unspecified"
+10000248,35106839,ANEMIA S/P FALL,1.0,2860,9.0,CONG FACTOR VIII DIORD,9.0,Congenital factor VIII disorder
+10000248,35106839,ANEMIA S/P FALL,2.0,9222,9.0,CONTUSION ABDOMINAL WALL,9.0,Contusion of abdominal wall
+10000248,35106839,ANEMIA S/P FALL,3.0,E8854,9.0,FALL FROM SNOWBOARD,9.0,Fall from snowboard
+10000248,35106839,ANEMIA S/P FALL,4.0,E0032,9.0,"ACTIVITIES INVOLVING SNOW (ALPINE) (DOWNHILL) SKIING, SNOW BOARDING, SLEDDING,TOBOGGANING AND SNOW TUBING",9.0,"Activities involving snow (alpine) (downhill) skiing, snow boarding, sledding, tobogganing and snow tubing"
+10000285,36555703,Abd pain,1.0,K5289,10.0,Other specified noninfective gastroenteritis and colitis,10.0,Other specified noninfective gastroenteritis and colitis
+10000285,36555703,Abd pain,2.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10000285,36555703,Abd pain,3.0,E7800,10.0,"Pure hypercholesterolemia, unspecified",10.0,"Pure hypercholesterolemia, unspecified"
+10000285,36555703,Abd pain,4.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10000285,37909301,LUQ abd pain,1.0,R1012,10.0,Left upper quadrant pain,10.0,Left upper quadrant pain
+10000473,33267868,ILI,1.0,J189,10.0,"Pneumonia, unspecified organism",10.0,"Pneumonia, unspecified organism"
+10000473,33267868,ILI,2.0,R531,10.0,Weakness,10.0,Weakness
+10000473,33267868,ILI,3.0,R509,10.0,"Fever, unspecified",10.0,"Fever, unspecified"
+10000492,34094600,Vomiting,1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10000492,34094600,Vomiting,2.0,R112,10.0,"Nausea with vomiting, unspecified",10.0,"Nausea with vomiting, unspecified"
+10000507,31021946,ETOH,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10000526,31939255,ILI,1.0,J111,10.0,Flu due to unidentified influenza virus w oth resp manifest,10.0,Influenza due to unidentified influenza virus with other respiratory manifestations
+10000635,31767754,Dizziness,1.0,R42,10.0,Dizziness and giddiness,10.0,Dizziness and giddiness
+10000635,31767754,Dizziness,2.0,E119,10.0,Type 2 diabetes mellitus without complications,10.0,Type 2 diabetes mellitus without complications
+10000635,31767754,Dizziness,3.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10000635,31767754,Dizziness,4.0,E780,10.0,Pure hypercholesterolemia,10.0,Pure hypercholesterolemia
+10000635,38135254,"L Shoulder pain, Visual changes",1.0,R238,10.0,Other skin changes,10.0,Other skin changes
+10000635,38135254,"L Shoulder pain, Visual changes",2.0,M25512,10.0,Pain in left shoulder,10.0,Pain in left shoulder
+10000635,38135254,"L Shoulder pain, Visual changes",3.0,E119,10.0,Type 2 diabetes mellitus without complications,10.0,Type 2 diabetes mellitus without complications
+10000764,35420907,s/p Fall,1.0,8020,9.0,NASAL BONE FX-CLOSED,9.0,Closed fracture of nasal bones
+10000764,35420907,s/p Fall,2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10000764,35420907,s/p Fall,2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10000764,35420907,s/p Fall,3.0,V065,9.0,TETANUS-DIPHT. TD DT,9.0,Need for prophylactic vaccination and inoculation against tetanus-diphtheria [Td] (DT)
+10000764,35420907,s/p Fall,4.0,7847,9.0,EPISTAXIS,9.0,Epistaxis
+10000891,37006387,"Abnormal labs, Calf pain",1.0,R252,10.0,Cramp and spasm,10.0,Cramp and spasm
+10000891,37006387,"Abnormal labs, Calf pain",2.0,M79662,10.0,Pain in left lower leg,10.0,Pain in left lower leg
+10000891,37006387,"Abnormal labs, Calf pain",3.0,M79661,10.0,Pain in right lower leg,10.0,Pain in right lower leg
+10000898,30017875,Chest pain,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10000935,32845079,WEAKNESS,1.0,78703,9.0,VOMITING,9.0,Vomiting alone
+10000935,32845079,WEAKNESS,2.0,78079,9.0,OTHER MALAISE AND FATIGUE,9.0,Other malaise and fatigue
+10000935,32845079,WEAKNESS,3.0,7823,9.0,EDEMA,9.0,Edema
+10000935,35197384,VOMITING AND/OR NAUSEA,1.0,5738,9.0,LIVER DISORDERS NEC,9.0,Other specified disorders of liver
+10000935,37059738,L LEG SWELLING,1.0,72981,9.0,SWELLING OF LIMB,9.0,Swelling of limb
+10000935,37059738,L LEG SWELLING,2.0,1629,9.0,MAL NEO BRONCH/LUNG NOS,9.0,"Malignant neoplasm of bronchus and lung, unspecified"
+10000935,37290428,"""HEAD IS NUMB""",1.0,311,9.0,DEPRESSIVE DISORDER,9.0,"Depressive disorder, not elsewhere classified"
+10000935,37290428,"""HEAD IS NUMB""",2.0,V6284,9.0,SUICIDAL IDEATION,9.0,Suicidal ideation
+10000935,37290428,"""HEAD IS NUMB""",3.0,V1011,9.0,HX-BRONCHOGENIC MALIGNAN,9.0,Personal history of malignant neoplasm of bronchus and lung
+10000935,37499077,DYSPNEA,1.0,78605,9.0,SHORTNESS OF BREATH,9.0,Shortness of breath
+10000951,35942449,R Ankle pain,1.0,S93401A,10.0,"Sprain of unspecified ligament of right ankle, init encntr",10.0,"Sprain of unspecified ligament of right ankle, initial encounter"
+10000951,35942449,R Ankle pain,2.0,W109XXA,10.0,"Fall (on) (from) unspecified stairs and steps, init encntr",10.0,"Fall (on) (from) unspecified stairs and steps, initial encounter"
+10000980,30449161,Hypoglycemia,1.0,E11649,10.0,Type 2 diabetes mellitus with hypoglycemia without coma,10.0,Type 2 diabetes mellitus with hypoglycemia without coma
+10000980,30449161,Hypoglycemia,2.0,Z7901,10.0,Long term (current) use of anticoagulants,10.0,Long term (current) use of anticoagulants
+10000980,30905710,DYSPNEA,1.0,4280,9.0,"CONGESTIVE HEART FAILURE, UNSPEC",9.0,"Congestive heart failure, unspecified"
+10000980,30905710,DYSPNEA,2.0,486,9.0,"PNEUMONIA,ORGANISM UNSPECIFIED",9.0,"Pneumonia, organism unspecified"
+10000980,30905710,DYSPNEA,3.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10000980,30905710,DYSPNEA,4.0,V5861,9.0,LONG TERM USE ANTIGOAGULANT,9.0,Long-term (current) use of anticoagulants
+10000980,30905710,DYSPNEA,5.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10000980,30905710,DYSPNEA,6.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10000980,31236252,Dyspnea,1.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10000980,31236252,Dyspnea,2.0,I509,10.0,"Heart failure, unspecified",10.0,"Heart failure, unspecified"
+10000980,31236252,Dyspnea,3.0,J189,10.0,"Pneumonia, unspecified organism",10.0,"Pneumonia, unspecified organism"
+10000980,31499674,Dyspnea,1.0,I509,10.0,"Heart failure, unspecified",10.0,"Heart failure, unspecified"
+10000980,33706525,L Foot pain,1.0,7295,9.0,PAIN IN LIMB,9.0,Pain in limb
+10000980,33706525,L Foot pain,2.0,72981,9.0,SWELLING OF LIMB,9.0,Swelling of limb
+10000980,33706525,L Foot pain,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10000980,33706525,L Foot pain,4.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10000980,34277585,SOB,1.0,4111,9.0,INTERMED CORONARY SYND,9.0,Intermediate coronary syndrome
+10000980,34277585,SOB,2.0,78609,9.0,RESPIRATORY ABNORM NEC,9.0,Other respiratory abnormalities
+10000980,34277585,SOB,3.0,41400,9.0,"CAD UNSPEC VESSEL, NATIVE OR GRAFT",9.0,"Coronary atherosclerosis of unspecified type of vessel, native or graft"
+10000980,34277585,SOB,4.0,25001,9.0,DIABETES UNCOMPL JUVEN,9.0,"Diabetes mellitus without mention of complication, type I [juvenile type], not stated as uncontrolled"
+10000980,34277585,SOB,5.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10000980,35392246,Dyspnea,1.0,4280,9.0,"CONGESTIVE HEART FAILURE, UNSPEC",9.0,"Congestive heart failure, unspecified"
+10000980,35392246,Dyspnea,2.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10000980,36263569,R FOOT BOIL,1.0,7295,9.0,PAIN IN LIMB,9.0,Pain in limb
+10000980,36263569,R FOOT BOIL,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10000980,36263569,R FOOT BOIL,3.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10000980,36263569,R FOOT BOIL,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10000980,36549081,Dyspnea,1.0,I509,10.0,"Heart failure, unspecified",10.0,"Heart failure, unspecified"
+10000980,36549081,Dyspnea,2.0,E1122,10.0,Type 2 diabetes mellitus w diabetic chronic kidney disease,10.0,Type 2 diabetes mellitus with diabetic chronic kidney disease
+10000980,36549081,Dyspnea,3.0,N184,10.0,"Chronic kidney disease, stage 4 (severe)",10.0,"Chronic kidney disease, stage 4 (severe)"
+10000980,36549081,Dyspnea,4.0,Z794,10.0,Long term (current) use of insulin,10.0,Long term (current) use of insulin
+10000980,36549081,Dyspnea,5.0,Z7901,10.0,Long term (current) use of anticoagulants,10.0,Long term (current) use of anticoagulants
+10000980,38221815,L Leg numbness,1.0,45342,9.0,ACUTE VENOUS EMBOLISM AND THROMBOSIS OF DEEP VESSELS OF DISTAL LOWER EXTREMITY,9.0,Acute venous embolism and thrombosis of deep vessels of distal lower extremity
+10000980,38221815,L Leg numbness,2.0,2859,9.0,ANEMIA NOS,9.0,"Anemia, unspecified"
+10000980,39129310,Anemia,1.0,D6489,10.0,Other specified anemias,10.0,Other specified anemias
+10000980,39129310,Anemia,2.0,R0609,10.0,Other forms of dyspnea,10.0,Other forms of dyspnea
+10000995,38052562,Rectal pain,1.0,K644,10.0,Residual hemorrhoidal skin tags,10.0,Residual hemorrhoidal skin tags
+10000995,38052562,Rectal pain,2.0,K6289,10.0,Other specified diseases of anus and rectum,10.0,Other specified diseases of anus and rectum
+10001016,33253193,RIGHT ARM SWELLING,1.0,81305,9.0,FX RADIUS HEAD-CLOSED,9.0,Closed fracture of head of radius
+10001016,33253193,RIGHT ARM SWELLING,2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10001016,33253193,RIGHT ARM SWELLING,2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10001038,34301067,ILI,1.0,07999,9.0,UNSPEC VIRAL INFECTION,9.0,Unspecified viral infection
+10001122,33218129,"Chest pain, Headache",1.0,7840,9.0,HEADACHE,9.0,Headache
+10001122,33218129,"Chest pain, Headache",2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10001122,33218129,"Chest pain, Headache",3.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10001122,38942470,HEADACHE,1.0,7840,9.0,HEADACHE,9.0,Headache
+10001122,38942470,HEADACHE,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10001122,38942470,HEADACHE,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10001122,38942470,HEADACHE,4.0,7291,9.0,MYALGIA AND MYOSITIS NOS,9.0,"Myalgia and myositis, unspecified"
+10001176,39677610,FEVER,1.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10001176,39677610,FEVER,2.0,7862,9.0,COUGH,9.0,Cough
+10001176,39677610,FEVER,3.0,78605,9.0,SHORTNESS OF BREATH,9.0,Shortness of breath
+10001176,39677610,FEVER,4.0,79902,9.0,HYPOXEMIA,9.0,Hypoxemia
+10001176,39677610,FEVER,5.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10001176,39677610,FEVER,6.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10001176,39677610,FEVER,7.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10001217,39300221,PICC LINE INFECTION,1.0,V5881,9.0,REMOVAL VASCULAR CATHETER,9.0,Fitting and adjustment of vascular catheter
+10001217,39866888,LEFT HAND PAINS,1.0,78079,9.0,OTHER MALAISE AND FATIGUE,9.0,Other malaise and fatigue
+10001217,39866888,LEFT HAND PAINS,2.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10001336,32309930,Abnormal labs,1.0,R102,10.0,Pelvic and perineal pain,10.0,Pelvic and perineal pain
+10001338,35880522,RLQ PAIN ,1.0,78903,9.0,ABDOMINAL PAIN RLQ,9.0,"Abdominal pain, right lower quadrant"
+10001338,36472815,L Foot numbness,1.0,R202,10.0,Paresthesia of skin,10.0,Paresthesia of skin
+10001338,37474338,"L Foot injury, Ped struck",1.0,S9031XA,10.0,"Contusion of right foot, initial encounter",10.0,"Contusion of right foot, initial encounter"
+10001338,37474338,"L Foot injury, Ped struck",2.0,V0310XA,10.0,"Ped on foot injured pick-up truck, pk-up/van in traf, init",10.0,"Pedestrian on foot injured in collision with car, pick-up truck or van in traffic accident, initial encounter"
+10001401,31249803,"Abd pain, Nausea, Hypotension, Abdominal distention",1.0,K5660,10.0,Unspecified intestinal obstruction,10.0,Unspecified intestinal obstruction
+10001401,37237892,Dyspnea,1.0,I2699,10.0,Other pulmonary embolism without acute cor pulmonale,10.0,Other pulmonary embolism without acute cor pulmonale
+10001401,37607159,"Abd pain, Transfer",1.0,R1031,10.0,Right lower quadrant pain,10.0,Right lower quadrant pain
+10001401,37607159,"Abd pain, Transfer",2.0,R1032,10.0,Left lower quadrant pain,10.0,Left lower quadrant pain
+10001401,38405263,Hematuria,1.0,R319,10.0,"Hematuria, unspecified",10.0,"Hematuria, unspecified"
+10001523,30640309,VOMITING/DIAHRREA,1.0,78701,9.0,NAUSEA WITH VOMITING,9.0,Nausea with vomiting
+10001523,30640309,VOMITING/DIAHRREA,2.0,78791,9.0,DIARRHEA,9.0,Diarrhea
+10001574,32170854,FINGER LACERATION,1.0,8830,9.0,OPEN WOUND OF FINGER,9.0,"Open wound of finger(s), without mention of complication"
+10001574,32170854,FINGER LACERATION,2.0,E9208,9.0,ACC-CUTTING INSTRUM NEC,9.0,Accidents caused by other specified cutting and piercing instruments or objects
+10001629,34377937,___,1.0,V1585,9.0,PERSONAL HISTORY OF CONTACT WITH AND (SUSPECTED) EXPOSURE TO POTENTIALLY HAZARDOUSBODY FLUIDS,9.0,Personal history of contact with and (suspected) exposure to potentially hazardous body fluids
+10001658,35951549,"Abd pain, Vaginal bleeding",1.0,59080,9.0,PYELONEPHRITIS NOS,9.0,"Pyelonephritis, unspecified"
+10001667,33673933,"Slurred speech, Transfer",1.0,I639,10.0,"Cerebral infarction, unspecified",10.0,"Cerebral infarction, unspecified"
+10001725,33693488,Eye pain,1.0,H16001,10.0,"Unspecified corneal ulcer, right eye",10.0,"Unspecified corneal ulcer, right eye"
+10001725,33693488,Eye pain,2.0,H53143,10.0,"Visual discomfort, bilateral",10.0,"Visual discomfort, bilateral"
+10001757,30596003,Presyncope,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10001851,32304855,"s/p Fall, ON COUMADIN",1.0,9100,9.0,ABRASION HEAD,9.0,"Abrasion or friction burn of face, neck, and scalp except eye, without mention of infection"
+10001851,32304855,"s/p Fall, ON COUMADIN",2.0,E8801,9.0,FALL FROM SIDEWALK CURB,9.0,Accidental fall on or from sidewalk curb
+10001851,32304855,"s/p Fall, ON COUMADIN",2.0,E8801,9.0,FALL FROM SIDEWALK CURB,10.0,Alpha-1-antitrypsin deficiency
+10001851,32304855,"s/p Fall, ON COUMADIN",3.0,V5861,9.0,LONG TERM USE ANTIGOAGULANT,9.0,Long-term (current) use of anticoagulants
+10001860,36652782,C2 FX,1.0,80502,9.0,FX C2 VERTEBRA-CLOSED,9.0,Closed fracture of second cervical vertebra
+10001860,36652782,C2 FX,2.0,E8846,9.0,FALL FROM COMMODE,9.0,Accidental fall from commode
+10001860,36652782,C2 FX,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10001860,36652782,C2 FX,4.0,V5861,9.0,LONG TERM USE ANTIGOAGULANT,9.0,Long-term (current) use of anticoagulants
+10001877,37038627,LEFT KNEE PAIN,1.0,92411,9.0,CONTUSION OF KNEE,9.0,Contusion of knee
+10001877,37038627,LEFT KNEE PAIN,2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10001877,37038627,LEFT KNEE PAIN,2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10001884,31306678,Hypoxia,1.0,J45901,10.0,Unspecified asthma with (acute) exacerbation,10.0,Unspecified asthma with (acute) exacerbation
+10001884,31742950,Dyspnea,1.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,33281437,CP/SOB,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10001884,33281437,CP/SOB,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10001884,33281437,CP/SOB,3.0,49390,9.0,"ASTHMA, UNSPECIFIED",9.0,"Asthma, unspecified type, unspecified"
+10001884,33478776,"Dyspnea, Fatigue",1.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,34226385,Dyspnea,1.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10001884,34226385,Dyspnea,2.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,34226385,Dyspnea,3.0,I2510,10.0,Athscl heart disease of native coronary artery w/o ang pctrs,10.0,Atherosclerotic heart disease of native coronary artery without angina pectoris
+10001884,34719194,"Dyspnea, Productive cough, Hemoptysis",1.0,J189,10.0,"Pneumonia, unspecified organism",10.0,"Pneumonia, unspecified organism"
+10001884,34719194,"Dyspnea, Productive cough, Hemoptysis",2.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,35217179,"Dyspnea, Atrial fibrillation",1.0,I4891,10.0,Unspecified atrial fibrillation,10.0,Unspecified atrial fibrillation
+10001884,35217179,"Dyspnea, Atrial fibrillation",2.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,35329716,Dyspnea,1.0,R0602,10.0,Shortness of breath,10.0,Shortness of breath
+10001884,36086547,Dyspnea,1.0,49392,9.0,"ASTHMA, UNSPECIFIED, WITH ACUTE EXACERBATION",9.0,"Asthma, unspecified type, with (acute) exacerbation"
+10001884,36086547,Dyspnea,2.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10001884,37398076,CHEST PAIN (CARDIAC FEATURES),1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10001884,37398076,CHEST PAIN (CARDIAC FEATURES),2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10001884,37461620,Chest pain,1.0,R079,10.0,"Chest pain, unspecified",10.0,"Chest pain, unspecified"
+10001884,37461620,Chest pain,2.0,E119,10.0,Type 2 diabetes mellitus without complications,10.0,Type 2 diabetes mellitus without complications
+10001884,37461620,Chest pain,3.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10001884,37461620,Chest pain,4.0,E780,10.0,Pure hypercholesterolemia,10.0,Pure hypercholesterolemia
+10001884,37641024,"Abnormal labs, BRBPR, Dyspnea on exertion",1.0,K922,10.0,"Gastrointestinal hemorrhage, unspecified",10.0,"Gastrointestinal hemorrhage, unspecified"
+10001884,37641024,"Abnormal labs, BRBPR, Dyspnea on exertion",2.0,D62,10.0,Acute posthemorrhagic anemia,10.0,Acute posthemorrhagic anemia
+10001884,37641024,"Abnormal labs, BRBPR, Dyspnea on exertion",3.0,Z7901,10.0,Long term (current) use of anticoagulants,10.0,Long term (current) use of anticoagulants
+10001884,37691489,"Weakness, Cough",1.0,F441,10.0,Dissociative fugue,10.0,Dissociative fugue
+10001884,37691489,"Weakness, Cough",2.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10001884,38021228,"Chest pain, Dyspnea, Asthma exacerbation",1.0,R079,10.0,"Chest pain, unspecified",10.0,"Chest pain, unspecified"
+10001884,38021228,"Chest pain, Dyspnea, Asthma exacerbation",2.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,38056159,Dyspnea,1.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,38056159,Dyspnea,2.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10001884,38261474,"Dyspnea, Chest pain",1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10001884,38261474,"Dyspnea, Chest pain",2.0,79431,9.0,ABNORM ELECTROCARDIOGRAM,9.0,Nonspecific abnormal electrocardiogram [ECG] [EKG]
+10001884,38343289,PNEUMONIA,1.0,49121,9.0,"OBSTRUCTIVE CHR. BRONCHITIS,WITH ACUTE EXACERBATION",9.0,Obstructive chronic bronchitis with (acute) exacerbation
+10001884,38343289,PNEUMONIA,2.0,486,9.0,"PNEUMONIA,ORGANISM UNSPECIFIED",9.0,"Pneumonia, organism unspecified"
+10001884,38708413,"Dyspnea, Cough",1.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10001884,38708413,"Dyspnea, Cough",2.0,R05,10.0,Cough,10.0,Cough
+10001884,38708413,"Dyspnea, Cough",3.0,E876,10.0,Hypokalemia,10.0,Hypokalemia
+10001884,39739775,Dyspnea,1.0,J441,10.0,Chronic obstructive pulmonary disease w (acute) exacerbation,10.0,Chronic obstructive pulmonary disease with (acute) exacerbation
+10001884,39739775,Dyspnea,2.0,R312,10.0,Other microscopic hematuria,10.0,Other microscopic hematuria
+10001919,37651999,R Arm swelling,1.0,I82B11,10.0,Acute embolism and thrombosis of right subclavian vein,10.0,Acute embolism and thrombosis of right subclavian vein
+10001919,37651999,R Arm swelling,2.0,M7989,10.0,Other specified soft tissue disorders,10.0,Other specified soft tissue disorders
+10001919,37651999,R Arm swelling,3.0,C169,10.0,"Malignant neoplasm of stomach, unspecified",10.0,"Malignant neoplasm of stomach, unspecified"
+10002011,31567702,"CHIPPED TOOTH, Dizziness",1.0,7804,9.0,VERTIGO/DIZZINESS,9.0,Dizziness and giddiness
+10002011,31567702,"CHIPPED TOOTH, Dizziness",2.0,87363,9.0,"TOOTH (BROKEN) (FRACTURED) (DUE TO TRAUMA), WITHOUT MENTION OF COMPLICATION",9.0,"Open wound of tooth (broken) (fractured) (due to trauma), without mention of complication"
+10002011,31567702,"CHIPPED TOOTH, Dizziness",3.0,E916,9.0,STRUCK BY FALLING OBJECT,9.0,Struck accidentally by falling object
+10002012,38333639,HEAD INJURY,1.0,8500,9.0,CONCUSSION W/O COMA,9.0,Concussion with no loss of consciousness
+10002012,38333639,HEAD INJURY,2.0,E9179,9.0,STRUCK BY OBJECT OR PERSON WITH OR WITHOUT FALL,9.0,Other accident caused by striking against or being struck accidentally by objects or persons
+10002013,30061882,LEFT CW PAIN,1.0,41091,9.0,"MYOCARDIAL INFARCTION NOS, INIT EPISODE OF CARE",9.0,"Acute myocardial infarction of unspecified site, initial episode of care"
+10002013,31103536,Toe pain,1.0,L03031,10.0,Cellulitis of right toe,10.0,Cellulitis of right toe
+10002013,31103536,Toe pain,2.0,E119,10.0,Type 2 diabetes mellitus without complications,10.0,Type 2 diabetes mellitus without complications
+10002013,31103536,Toe pain,3.0,Z794,10.0,Long term (current) use of insulin,10.0,Long term (current) use of insulin
+10002013,31103536,Toe pain,4.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10002013,34931809,"Chest pain, Wound eval",1.0,R079,10.0,"Chest pain, unspecified",10.0,"Chest pain, unspecified"
+10002013,38018015,Chest pain,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10002013,38018015,Chest pain,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10002013,38018015,Chest pain,3.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10002013,38018015,Chest pain,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002013,39290684,Chest pain,1.0,R0789,10.0,Other chest pain,10.0,Other chest pain
+10002013,39298309,CHEST HEAVINESS/R ARM PAIN,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10002013,39298309,CHEST HEAVINESS/R ARM PAIN,2.0,5939,9.0,RENAL & URETERAL DIS NOS,9.0,Unspecified disorder of kidney and ureter
+10002013,39407760,R Flank pain,1.0,25011,9.0,DIAB KETOACIDOSIS IDDM,9.0,"Diabetes with ketoacidosis, type I [juvenile type], not stated as uncontrolled"
+10002013,39748704,"L Foot pain, Wound eval",1.0,E10621,10.0,Type 1 diabetes mellitus with foot ulcer,10.0,Type 1 diabetes mellitus with foot ulcer
+10002013,39748704,"L Foot pain, Wound eval",2.0,L97529,10.0,Non-pressure chronic ulcer oth prt left foot w unsp severity,10.0,Non-pressure chronic ulcer of other part of left foot with unspecified severity
+10002013,39748704,"L Foot pain, Wound eval",3.0,Z794,10.0,Long term (current) use of insulin,10.0,Long term (current) use of insulin
+10002013,39748704,"L Foot pain, Wound eval",4.0,L03116,10.0,Cellulitis of left lower limb,10.0,Cellulitis of left lower limb
+10002131,34163344,Hip pain,1.0,I82412,10.0,Acute embolism and thrombosis of left femoral vein,10.0,Acute embolism and thrombosis of left femoral vein
+10002131,34163344,Hip pain,2.0,E876,10.0,Hypokalemia,10.0,Hypokalemia
+10002157,31887902,Abd pain,1.0,0088,9.0,VIRAL ENTERITIS NOS,9.0,"Intestinal infection due to other organism, not elsewhere classified"
+10002167,31294688,N/V,1.0,78701,9.0,NAUSEA WITH VOMITING,9.0,Nausea with vomiting
+10002167,31852949,"Back pain, Foot numbness",1.0,M545,10.0,Low back pain,10.0,Low back pain
+10002177,37215132,"ILI, Sore throat, Cough",1.0,J069,10.0,"Acute upper respiratory infection, unspecified",10.0,"Acute upper respiratory infection, unspecified"
+10002221,31957018,"Back pain, R Flank pain, R Leg pain",1.0,R531,10.0,Weakness,10.0,Weakness
+10002221,31957018,"Back pain, R Flank pain, R Leg pain",2.0,M549,10.0,"Dorsalgia, unspecified",10.0,"Dorsalgia, unspecified"
+10002221,31957018,"Back pain, R Flank pain, R Leg pain",3.0,R1031,10.0,Right lower quadrant pain,10.0,Right lower quadrant pain
+10002221,31957018,"Back pain, R Flank pain, R Leg pain",4.0,M5126,10.0,"Other intervertebral disc displacement, lumbar region",10.0,"Other intervertebral disc displacement, lumbar region"
+10002221,34276625,Chest pain,1.0,41519,9.0,PULM EMBOLISM/INFARCT,9.0,Other pulmonary embolism and infarction
+10002221,34276625,Chest pain,2.0,496,9.0,CHRONIC AIRWAY OBSTRUCTION,9.0,"Chronic airway obstruction, not elsewhere classified"
+10002221,36955479,"R Leg pain, R Pulseless foot",1.0,M79661,10.0,Pain in right lower leg,10.0,Pain in right lower leg
+10002221,39502404,Dyspnea,1.0,R0602,10.0,Shortness of breath,10.0,Shortness of breath
+10002221,39502404,Dyspnea,2.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10002315,33941204,SI,1.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10002315,33941204,SI,2.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10002348,37579402,"Headache, Transfer",1.0,G9389,10.0,Other specified disorders of brain,10.0,Other specified disorders of brain
+10002428,32007337,"DIARRHEA,FEVER",1.0,78791,9.0,DIARRHEA,9.0,Diarrhea
+10002428,32007337,"DIARRHEA,FEVER",2.0,5589,9.0,NONINF GASTROENTERIT NEC,9.0,Other and unspecified noninfectious gastroenteritis and colitis
+10002428,32007337,"DIARRHEA,FEVER",3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002428,32007337,"DIARRHEA,FEVER",4.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10002428,32822973,LETHARGY/SOB,1.0,51881,9.0,ACUTE RESPIRATORY FAILURE,9.0,Acute respiratory failure
+10002428,32822973,LETHARGY/SOB,2.0,5119,9.0,PLEURAL EFFUSION NOS,9.0,Unspecified pleural effusion
+10002428,32822973,LETHARGY/SOB,3.0,486,9.0,"PNEUMONIA,ORGANISM UNSPECIFIED",9.0,"Pneumonia, organism unspecified"
+10002428,32822973,LETHARGY/SOB,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002428,33227245,LARYNGITIS/SOB WITH TALKING,1.0,7862,9.0,COUGH,9.0,Cough
+10002428,33227245,LARYNGITIS/SOB WITH TALKING,2.0,46400,9.0,"ACUTE LARYNGITIS, WITHOUT MENTION OF OBSTRUCTION",9.0,Acute laryngitis without mention of obstruction
+10002428,33978784,RESP ARREST,1.0,78009,9.0,SEMICOMA/STUPOR,9.0,Other alteration of consciousness
+10002428,33978784,RESP ARREST,2.0,7991,9.0,RESPIRATORY FAILURE,9.0,Respiratory arrest
+10002428,34982171,LEFT HIP FX,1.0,8208,9.0,FX NECK OF FEMUR NOS-CL,9.0,Closed fracture of unspecified part of neck of femur
+10002428,34982171,LEFT HIP FX,2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10002428,34982171,LEFT HIP FX,2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10002428,37376268,BRBPR,1.0,K922,10.0,"Gastrointestinal hemorrhage, unspecified",10.0,"Gastrointestinal hemorrhage, unspecified"
+10002428,38216551,"s/p Fall, L Shoulder pain",1.0,H5713,10.0,"Ocular pain, bilateral",10.0,"Ocular pain, bilateral"
+10002428,38216551,"s/p Fall, L Shoulder pain",2.0,E039,10.0,"Hypothyroidism, unspecified",10.0,"Hypothyroidism, unspecified"
+10002428,38216551,"s/p Fall, L Shoulder pain",3.0,M3500,10.0,"Sicca syndrome, unspecified",10.0,"Sjogren syndrome, unspecified"
+10002430,31293660,SOB,1.0,I509,10.0,"Heart failure, unspecified",10.0,"Heart failure, unspecified"
+10002430,37303323,"Head injury, s/p Fall",1.0,S0101XA,10.0,"Laceration without foreign body of scalp, initial encounter",10.0,"Laceration without foreign body of scalp, initial encounter"
+10002430,37303323,"Head injury, s/p Fall",2.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10002430,37303323,"Head injury, s/p Fall",3.0,I4891,10.0,Unspecified atrial fibrillation,10.0,Unspecified atrial fibrillation
+10002430,37303323,"Head injury, s/p Fall",4.0,Z7901,10.0,Long term (current) use of anticoagulants,10.0,Long term (current) use of anticoagulants
+10002443,33425241,"Chest pain, Transfer",1.0,I313,10.0,Pericardial effusion (noninflammatory),10.0,Pericardial effusion (noninflammatory)
+10002443,33425241,"Chest pain, Transfer",2.0,I314,10.0,Cardiac tamponade,10.0,Cardiac tamponade
+10002528,34929026,"Lethargy, Transfer",1.0,R5383,10.0,Other fatigue,10.0,Other fatigue
+10002528,34929026,"Lethargy, Transfer",2.0,R4182,10.0,"Altered mental status, unspecified",10.0,"Altered mental status, unspecified"
+10002528,38992246,Psych eval,1.0,R531,10.0,Weakness,10.0,Weakness
+10002545,32978366,L Flank pain,1.0,O26892,10.0,"Oth pregnancy related conditions, second trimester",10.0,"Other specified pregnancy related conditions, second trimester"
+10002545,32978366,L Flank pain,2.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10002545,32978366,L Flank pain,3.0,Z3A24,10.0,24 weeks gestation of pregnancy,10.0,24 weeks gestation of pregnancy
+10002557,30719233,"Vaginal bleeding, Lower abdominal pain",1.0,N938,10.0,Other specified abnormal uterine and vaginal bleeding,10.0,Other specified abnormal uterine and vaginal bleeding
+10002557,30719233,"Vaginal bleeding, Lower abdominal pain",2.0,Z98890,10.0,Other specified postprocedural states,10.0,Other specified postprocedural states
+10002557,30719233,"Vaginal bleeding, Lower abdominal pain",3.0,Z952,10.0,Presence of prosthetic heart valve,10.0,Presence of prosthetic heart valve
+10002557,31555596,HEMATURIA/RLQ PAIN,1.0,78903,9.0,ABDOMINAL PAIN RLQ,9.0,"Abdominal pain, right lower quadrant"
+10002557,31555596,HEMATURIA/RLQ PAIN,2.0,5920,9.0,CALCULUS OF KIDNEY,9.0,Calculus of kidney
+10002557,31555596,HEMATURIA/RLQ PAIN,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002557,33171946,Lower abdominal pain,1.0,T83128A,10.0,"Displacement of oth urinary devices and implants, init",10.0,"Displacement of other urinary devices and implants, initial encounter"
+10002557,33171946,Lower abdominal pain,2.0,Y838,10.0,"Oth surgical procedures cause abn react/compl, w/o misadvnt",10.0,"Other surgical procedures as the cause of abnormal reaction of the patient, or of later complication, without mention of misadventure at the time of the procedure"
+10002557,33171946,Lower abdominal pain,3.0,Y9289,10.0,Oth places as the place of occurrence of the external cause,10.0,Other specified places as the place of occurrence of the external cause
+10002557,34239171,LUQ abd pain,1.0,5758,9.0,DIS OF GALLBLADDER NEC,9.0,Other specified disorders of gallbladder
+10002557,34239171,LUQ abd pain,2.0,7906,9.0,ABN BLOOD CHEMISTRY NEC,9.0,Other abnormal blood chemistry
+10002557,37647686,Hematuria,1.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10002557,38116216,Wound eval,1.0,99811,9.0,HEMORR COMPLIC PROCEDURE,9.0,Hemorrhage complicating a procedure
+10002557,38116216,Wound eval,2.0,E8799,9.0,ABN REACT-PROCEDURE NOS,9.0,"Unspecified procedure as the cause of abnormal reaction of patient, or of later complication, without mention of misadventure at time of procedure"
+10002557,38524547,Urinary retention,1.0,N390,10.0,"Urinary tract infection, site not specified",10.0,"Urinary tract infection, site not specified"
+10002557,38897285,Wound eval,1.0,V6759,9.0,FOLLOW-UP EXAM NEC,9.0,Other follow-up examination
+10002557,39026568,ABD PAIN,1.0,5921,9.0,CALCULUS OF URETER,9.0,Calculus of ureter
+10002557,39824070,Rash,1.0,B372,10.0,Candidiasis of skin and nail,10.0,Candidiasis of skin and nail
+10002559,35772220,INFLUENZA LIKE ILLNESS,1.0,78064,9.0,CHILLS (WITHOUT FEVER),9.0,Chills (without fever)
+10002563,36308013,"Constipation, N/V",1.0,K5900,10.0,"Constipation, unspecified",10.0,"Constipation, unspecified"
+10002563,36308013,"Constipation, N/V",2.0,R1110,10.0,"Vomiting, unspecified",10.0,"Vomiting, unspecified"
+10002563,36308013,"Constipation, N/V",3.0,F1290,10.0,"Cannabis use, unspecified, uncomplicated",10.0,"Cannabis use, unspecified, uncomplicated"
+10002661,31370284,"COUGH, NAUSEA",1.0,7862,9.0,COUGH,9.0,Cough
+10002661,34195932,ABD PAIN,1.0,78904,9.0,ABDOMINAL PAIN LLQ,9.0,"Abdominal pain, left lower quadrant"
+10002694,30749833,RIGHT HAND SWELLING,1.0,72981,9.0,SWELLING OF LIMB,9.0,Swelling of limb
+10002751,30518692,ABD PAIN,1.0,78907,9.0,ABDOMINAL PAIN GENERALIZED,9.0,"Abdominal pain, generalized"
+10002751,31506444,SYNCOPE/PRESYNCOPE,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10002751,31506444,SYNCOPE/PRESYNCOPE,2.0,8730,9.0,OPEN WOUND OF SCALP,9.0,"Open wound of scalp, without mention of complication"
+10002751,31506444,SYNCOPE/PRESYNCOPE,3.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10002751,31506444,SYNCOPE/PRESYNCOPE,3.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10002751,34356942,ABD PAIN,1.0,78901,9.0,ABDOMINAL PAIN RUQ,9.0,"Abdominal pain, right upper quadrant"
+10002751,37740361,ABD PAIN,1.0,78907,9.0,ABDOMINAL PAIN GENERALIZED,9.0,"Abdominal pain, generalized"
+10002751,37740361,ABD PAIN,2.0,78701,9.0,NAUSEA WITH VOMITING,9.0,Nausea with vomiting
+10002755,31312310,MID ABD PAIN/SPINE PAIN,1.0,7245,9.0,BACKACHE NOS,9.0,"Backache, unspecified"
+10002755,32945903,"Altered mental status, s/p Fall, Transfer",1.0,R4182,10.0,"Altered mental status, unspecified",10.0,"Altered mental status, unspecified"
+10002755,32945903,"Altered mental status, s/p Fall, Transfer",2.0,S12200A,10.0,"Unsp disp fx of third cervical vertebra, init for clos fx",10.0,"Unspecified displaced fracture of third cervical vertebra, initial encounter for closed fracture"
+10002755,32945903,"Altered mental status, s/p Fall, Transfer",3.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10002755,38039347,"Constipation, Abd pain",1.0,56400,9.0,UNSPECIFIED CONSTIPATION,9.0,"Constipation, unspecified"
+10002755,38039347,"Constipation, Abd pain",2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002755,39551021,TRAUMATIC BACK/SPINE INJURY,1.0,7242,9.0,LUMBAGO,9.0,Lumbago
+10002755,39551021,TRAUMATIC BACK/SPINE INJURY,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002769,30527790,LOWER EXTREMITY INJURY,1.0,9597,9.0,LOWER LEG INJURY NOS,9.0,"Knee, leg, ankle, and foot injury"
+10002769,30527790,LOWER EXTREMITY INJURY,2.0,E9278,9.0,OTHER OVEREXERTION AND STRENUOUS AND REPETIVE MOVEMENTS OR LOADS,9.0,Other overexertion and strenuous and repetitive movements or loads
+10002769,30527790,LOWER EXTREMITY INJURY,3.0,70719,9.0,ULCER OF OTHER PART OF LOWER LIMB,9.0,Ulcer of other part of lower limb
+10002769,30527790,LOWER EXTREMITY INJURY,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10002769,30527790,LOWER EXTREMITY INJURY,5.0,V5861,9.0,LONG TERM USE ANTIGOAGULANT,9.0,Long-term (current) use of anticoagulants
+10002769,33232311,ELEVATED INR,1.0,79092,9.0,ABNORMAL COAGULATION PROFILE,9.0,Abnormal coagulation profile
+10002769,33232311,ELEVATED INR,2.0,E9342,9.0,ADV EFF ANTICOAGULANTS,9.0,Anticoagulants causing adverse effects in therapeutic use
+10002769,33927820,PRESCRIPTION REFILL,1.0,Z760,10.0,Encounter for issue of repeat prescription,10.0,Encounter for issue of repeat prescription
+10002769,33927820,PRESCRIPTION REFILL,2.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10002800,39700270,"Abd pain, Dental pain, Pregnant",1.0,O26893,10.0,"Oth pregnancy related conditions, third trimester",10.0,"Other specified pregnancy related conditions, third trimester"
+10002800,39700270,"Abd pain, Dental pain, Pregnant",2.0,K0889,10.0,Other specified disorders of teeth and supporting structures,10.0,Other specified disorders of teeth and supporting structures
+10002800,39700270,"Abd pain, Dental pain, Pregnant",3.0,Z3A34,10.0,34 weeks gestation of pregnancy,10.0,34 weeks gestation of pregnancy
+10002804,31360254,L HAND INJURY,1.0,81344,9.0,FX LOW RADIUS W ULNA-CL,9.0,Closed fracture of lower end of radius with ulna
+10002804,31360254,L HAND INJURY,2.0,E8801,9.0,FALL FROM SIDEWALK CURB,9.0,Accidental fall on or from sidewalk curb
+10002804,31360254,L HAND INJURY,2.0,E8801,9.0,FALL FROM SIDEWALK CURB,10.0,Alpha-1-antitrypsin deficiency
+10002804,34847774,Finger laceration,1.0,S61210A,10.0,"Laceration w/o fb of r idx fngr w/o damage to nail, init",10.0,"Laceration without foreign body of right index finger without damage to nail, initial encounter"
+10002804,34847774,Finger laceration,2.0,W25XXXA,10.0,"Contact with sharp glass, initial encounter",10.0,"Contact with sharp glass, initial encounter"
+10002804,37929952,LEFT ARM PAIN,1.0,9592,9.0,SHLDR/UPPER ARM INJ NOS,9.0,Shoulder and upper arm injury
+10002804,37929952,LEFT ARM PAIN,2.0,E8809,9.0,FALL ON STAIR/STEP NEC,9.0,Accidental fall on or from other stairs or steps
+10002804,37929952,LEFT ARM PAIN,2.0,E8809,9.0,FALL ON STAIR/STEP NEC,10.0,"Other disorders of plasma-protein metabolism, not elsewhere classified"
+10002807,34934098,Abd pain,1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10002852,39437048,Pelvic pain,1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10002869,32134085,Palpitations,1.0,R0602,10.0,Shortness of breath,10.0,Shortness of breath
+10002869,32134085,Palpitations,2.0,R002,10.0,Palpitations,10.0,Palpitations
+10002900,35871482,R Leg pain,1.0,M545,10.0,Low back pain,10.0,Low back pain
+10002930,30193781,"ETOH, Hallucinations",1.0,F10239,10.0,"Alcohol dependence with withdrawal, unspecified",10.0,"Alcohol dependence with withdrawal, unspecified"
+10002930,30193781,"ETOH, Hallucinations",2.0,D72829,10.0,"Elevated white blood cell count, unspecified",10.0,"Elevated white blood cell count, unspecified"
+10002930,30193781,"ETOH, Hallucinations",3.0,F28,10.0,Oth psych disorder not due to a sub or known physiol cond,10.0,Other psychotic disorder not due to a substance or known physiological condition
+10002930,31579293,"ETOH, Hypoglycemia",1.0,2512,9.0,HYPOGLYCEMIA NOS,9.0,"Hypoglycemia, unspecified"
+10002930,31579293,"ETOH, Hypoglycemia",2.0,07070,9.0,UNSPECIFIED VIRAL HEPATITIS C WITHOUT HEPATIC COMA,9.0,Unspecified viral hepatitis C without hepatic coma
+10002930,31579293,"ETOH, Hypoglycemia",3.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10002930,32272346,Hypoglycemia,1.0,E162,10.0,"Hypoglycemia, unspecified",10.0,"Hypoglycemia, unspecified"
+10002930,32272346,Hypoglycemia,2.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10002930,32272346,Hypoglycemia,3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10002930,35114287,SI,1.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10002930,35114287,SI,2.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10002930,35114287,SI,3.0,S0090XA,10.0,"Unsp superficial injury of unsp part of head, init encntr",10.0,"Unspecified superficial injury of unspecified part of head, initial encounter"
+10002930,35114287,SI,4.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10002930,35540249,SI,1.0,311,9.0,DEPRESSIVE DISORDER,9.0,"Depressive disorder, not elsewhere classified"
+10002930,35540249,SI,2.0,V6284,9.0,SUICIDAL IDEATION,9.0,Suicidal ideation
+10002930,35540249,SI,3.0,V600,9.0,LACK OF HOUSING,9.0,Lack of housing
+10002930,35540249,SI,3.0,V600,9.0,LACK OF HOUSING,10.0,Driver of heavy transport vehicle injured in collision with pedestrian or animal in nontraffic accident
+10002930,38615683,Psychiatric hold,1.0,2989,9.0,PSYCHOSIS NOS,9.0,Unspecified psychosis
+10002930,39266792,"Head injury, Neck pain, s/p Fall",1.0,M542,10.0,Cervicalgia,10.0,Cervicalgia
+10002930,39266792,"Head injury, Neck pain, s/p Fall",2.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10002930,39266792,"Head injury, Neck pain, s/p Fall",3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10002930,39910144,SI,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10002930,39910144,SI,2.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10002930,39910144,SI,3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10002976,32602179,"Abnormal labs, N/V, Weakness",1.0,E1165,10.0,Type 2 diabetes mellitus with hyperglycemia,10.0,Type 2 diabetes mellitus with hyperglycemia
+10002976,32602179,"Abnormal labs, N/V, Weakness",2.0,Z794,10.0,Long term (current) use of insulin,10.0,Long term (current) use of insulin
+10002976,38227149,L Wrist pain,1.0,M79642,10.0,Pain in left hand,10.0,Pain in left hand
+10003019,30480460,Melena,1.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10003019,30480460,Melena,2.0,20280,9.0,LYMPHOMA NEC UNSPEC SITE,9.0,"Other malignant lymphomas, unspecified site, extranodal and solid organ sites"
+10003019,30480460,Melena,3.0,135,9.0,SARCOIDOSIS,9.0,Sarcoidosis
+10003019,31055530,BACK PAIN,1.0,73313,9.0,PATHOLOGIC FX VERTEBRAE,9.0,Pathologic fracture of vertebrae
+10003019,31055530,BACK PAIN,2.0,4320,9.0,NONTRAUM EXTRADURAL HEM,9.0,Nontraumatic extradural hemorrhage
+10003019,31055530,BACK PAIN,3.0,135,9.0,SARCOIDOSIS,9.0,Sarcoidosis
+10003019,31133531,Fever,1.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10003019,31591237,SEVERE ABD PAIN,1.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10003019,33010597,"Fever, Cough",1.0,28800,9.0,"NEUTROPENIA, UNSPECIFIED ",9.0,"Neutropenia, unspecified"
+10003019,33010597,"Fever, Cough",2.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10003019,34451930,Syncope,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10003019,36822909,"s/p Fall, Laceration, Head injury",1.0,8730,9.0,OPEN WOUND OF SCALP,9.0,"Open wound of scalp, without mention of complication"
+10003019,36822909,"s/p Fall, Laceration, Head injury",2.0,95901,9.0,HEAD INJURY UNSPECIFIED,9.0,"Head injury, unspecified"
+10003019,36822909,"s/p Fall, Laceration, Head injury",3.0,E8881,9.0,FALL RESULTING IN STRIKING AGAINST OTHER OBJECT,9.0,Fall resulting in striking against other object
+10003019,36822909,"s/p Fall, Laceration, Head injury",3.0,E8881,9.0,FALL RESULTING IN STRIKING AGAINST OTHER OBJECT,10.0,Metabolic syndrome
+10003019,36822909,"s/p Fall, Laceration, Head injury",4.0,E0092,9.0,ACTIVITY INVOLVING AEROBIC AND STEP EXERCISE,9.0,Activity involving aerobic and step exercise
+10003019,36822909,"s/p Fall, Laceration, Head injury",5.0,2859,9.0,ANEMIA NOS,9.0,"Anemia, unspecified"
+10003019,36822909,"s/p Fall, Laceration, Head injury",6.0,20280,9.0,LYMPHOMA NEC UNSPEC SITE,9.0,"Other malignant lymphomas, unspecified site, extranodal and solid organ sites"
+10003019,37423986,FEVER/MS CHANGES,1.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10003019,37423986,FEVER/MS CHANGES,2.0,78097,9.0,ALTERED MENTAL STATUS ,9.0,Altered mental status
+10003052,39164067,s/p Fall,1.0,7812,9.0,ABNORMALITY OF GAIT,9.0,Abnormality of gait
+10003052,39164067,s/p Fall,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003052,39164067,s/p Fall,3.0,41401,9.0,CAD NATIVE CORONARY VESSEL,9.0,Coronary atherosclerosis of native coronary artery
+10003137,31949628,Finger laceration,1.0,S61210A,10.0,"Laceration w/o fb of r idx fngr w/o damage to nail, init",10.0,"Laceration without foreign body of right index finger without damage to nail, initial encounter"
+10003137,31949628,Finger laceration,2.0,W260XXA,10.0,"Contact with knife, initial encounter",10.0,"Contact with knife, initial encounter"
+10003137,37049557,Sore throat,1.0,J029,10.0,"Acute pharyngitis, unspecified",10.0,"Acute pharyngitis, unspecified"
+10003137,39628693,"Fever, Sore throat",1.0,B349,10.0,"Viral infection, unspecified",10.0,"Viral infection, unspecified"
+10003137,39960176,Back pain,1.0,M545,10.0,Low back pain,10.0,Low back pain
+10003199,32427856,"Headache, Neck pain",1.0,M542,10.0,Cervicalgia,10.0,Cervicalgia
+10003199,32427856,"Headache, Neck pain",2.0,R51,10.0,Headache,10.0,Headache
+10003199,32427856,"Headache, Neck pain",3.0,E7800,10.0,"Pure hypercholesterolemia, unspecified",10.0,"Pure hypercholesterolemia, unspecified"
+10003199,32427856,"Headache, Neck pain",4.0,E039,10.0,"Hypothyroidism, unspecified",10.0,"Hypothyroidism, unspecified"
+10003199,39219866,S/P FALL,1.0,82300,9.0,FX UPPER END TIBIA-CLOSE,9.0,Closed fracture of upper end of tibia alone
+10003199,39219866,S/P FALL,2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10003199,39219866,S/P FALL,2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10003203,34201656,R SHOULDER INJURY,1.0,81209,9.0,FX UPPER HUMERUS NEC-CL,9.0,Other closed fracture of upper end of humerus
+10003203,34201656,R SHOULDER INJURY,2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10003203,34201656,R SHOULDER INJURY,2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10003255,39788393,CP,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10003255,39788393,CP,2.0,72888,9.0,RHABDOMYOLYSIS,9.0,Rhabdomyolysis
+10003299,31931401,Hemoptysis,1.0,R918,10.0,Other nonspecific abnormal finding of lung field,10.0,Other nonspecific abnormal finding of lung field
+10003299,32908139,"s/p Fall, Weakness",1.0,R531,10.0,Weakness,10.0,Weakness
+10003299,32908139,"s/p Fall, Weakness",2.0,I639,10.0,"Cerebral infarction, unspecified",10.0,"Cerebral infarction, unspecified"
+10003299,32967983,Sore throat,1.0,J029,10.0,"Acute pharyngitis, unspecified",10.0,"Acute pharyngitis, unspecified"
+10003299,33704632,Hypokalemia,1.0,E876,10.0,Hypokalemia,10.0,Hypokalemia
+10003299,33780565,BRBPR,1.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10003299,33821726,"Head injury, s/p Fall",1.0,S0003XA,10.0,"Contusion of scalp, initial encounter",10.0,"Contusion of scalp, initial encounter"
+10003299,33821726,"Head injury, s/p Fall",2.0,W108XXA,10.0,"Fall (on) (from) other stairs and steps, initial encounter",10.0,"Fall (on) (from) other stairs and steps, initial encounter"
+10003299,33821726,"Head injury, s/p Fall",3.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10003299,33821726,"Head injury, s/p Fall",4.0,E119,10.0,Type 2 diabetes mellitus without complications,10.0,Type 2 diabetes mellitus without complications
+10003299,33821726,"Head injury, s/p Fall",5.0,E785,10.0,"Hyperlipidemia, unspecified",10.0,"Hyperlipidemia, unspecified"
+10003299,39680380,"L Weakness, Unsteady gait",1.0,43491,9.0,CEREBRAL ART OCCLUS W/INFARCT,9.0,"Cerebral artery occlusion, unspecified with cerebral infarction"
+10003299,39680380,"L Weakness, Unsteady gait",2.0,72989,9.0,MUSCSKEL SYMPT LIMB NEC,9.0,Other musculoskeletal symptoms referable to limbs
+10003385,36930268,Rectal pain,1.0,L03317,10.0,Cellulitis of buttock,10.0,Cellulitis of buttock
+10003400,33347721,ELEVATED INR,1.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10003400,33347721,ELEVATED INR,2.0,79092,9.0,ABNORMAL COAGULATION PROFILE,9.0,Abnormal coagulation profile
+10003400,33347721,ELEVATED INR,3.0,42731,9.0,ATRIAL FIBRILLATION,9.0,Atrial fibrillation
+10003400,33347721,ELEVATED INR,4.0,V5861,9.0,LONG TERM USE ANTIGOAGULANT,9.0,Long-term (current) use of anticoagulants
+10003400,33678912,"Tachycardia, Hypoxia",1.0,42731,9.0,ATRIAL FIBRILLATION,9.0,Atrial fibrillation
+10003400,33678912,"Tachycardia, Hypoxia",2.0,79092,9.0,ABNORMAL COAGULATION PROFILE,9.0,Abnormal coagulation profile
+10003400,34922474,Rectal pain,1.0,5693,9.0,RECTAL & ANAL HEMORRHAGE,9.0,Hemorrhage of rectum and anus
+10003400,34922474,Rectal pain,2.0,1541,9.0,MALIGNANT NEOPL RECTUM,9.0,Malignant neoplasm of rectum
+10003400,34922474,Rectal pain,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003400,34948767,"Hematuria, Dysuria",1.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10003400,34948767,"Hematuria, Dysuria",2.0,56941,9.0,RECTAL & ANAL ULCER,9.0,Ulcer of anus and rectum
+10003400,36976997,Altered mental status,1.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10003400,36976997,Altered mental status,2.0,78097,9.0,ALTERED MENTAL STATUS ,9.0,Altered mental status
+10003412,34771885,Dyspnea,1.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10003412,39419453,SI,1.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10003412,39419453,SI,2.0,F4310,10.0,"Post-traumatic stress disorder, unspecified",10.0,"Post-traumatic stress disorder, unspecified"
+10003412,39419453,SI,3.0,X58XXXA,10.0,"Exposure to other specified factors, initial encounter",10.0,"Exposure to other specified factors, initial encounter"
+10003412,39419453,SI,4.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10003502,30066775,HEADACHE,1.0,486,9.0,"PNEUMONIA,ORGANISM UNSPECIFIED",9.0,"Pneumonia, organism unspecified"
+10003502,30066775,HEADACHE,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003502,30066775,HEADACHE,3.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10003502,30961148,"Bradycardia, Transfer",1.0,R001,10.0,"Bradycardia, unspecified",10.0,"Bradycardia, unspecified"
+10003502,31406460,HA,1.0,7840,9.0,HEADACHE,9.0,Headache
+10003502,31406460,HA,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003502,31406460,HA,3.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10003502,34087506,H/A,1.0,42789,9.0,CARDIAC DYSRHYTHMIAS NEC,9.0,Other specified cardiac dysrhythmias
+10003502,37339372,GENERAL WEAKNESS,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10003502,37339372,GENERAL WEAKNESS,2.0,41092,9.0,"MYOCARDIAL INFARCTION NOS, SUBSEQUENT EPISODE OF CARE",9.0,"Acute myocardial infarction of unspecified site, subsequent episode of care"
+10003502,39889460,Weakness,1.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10003502,39889460,Weakness,2.0,71946,9.0,JOINT PAIN-L/LEG,9.0,"Pain in joint, lower leg"
+10003637,30011135,Rectal pain,1.0,566,9.0,ABCESS OF ANAL & RECTAL REGIONS,9.0,Abscess of anal and rectal regions
+10003637,30011135,Rectal pain,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003637,30011135,Rectal pain,3.0,41400,9.0,"CAD UNSPEC VESSEL, NATIVE OR GRAFT",9.0,"Coronary atherosclerosis of unspecified type of vessel, native or graft"
+10003637,30289867,"Rectal pain, Buttock pain",1.0,K610,10.0,Anal abscess,10.0,Anal abscess
+10003637,30289867,"Rectal pain, Buttock pain",2.0,K604,10.0,Rectal fistula,10.0,Rectal fistula
+10003637,31429096,Hypotension,1.0,N179,10.0,"Acute kidney failure, unspecified",10.0,"Acute kidney failure, unspecified"
+10003637,31429096,Hypotension,2.0,I959,10.0,"Hypotension, unspecified",10.0,"Hypotension, unspecified"
+10003731,33140339,L Leg injury,1.0,6826,9.0,CELLULITIS OF LEG,9.0,"Cellulitis and abscess of leg, except foot"
+10003731,33140339,L Leg injury,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003731,39321369,EPISTAXIS,1.0,7847,9.0,EPISTAXIS,9.0,Epistaxis
+10003731,39321369,EPISTAXIS,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10003731,39321369,EPISTAXIS,3.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10003757,31574552,"s/p Fall, Transfer",1.0,S066X0A,10.0,"Traum subrac hem w/o loss of consciousness, init",10.0,"Traumatic subarachnoid hemorrhage without loss of consciousness, initial encounter"
+10003757,31574552,"s/p Fall, Transfer",2.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10003757,31574552,"s/p Fall, Transfer",3.0,I959,10.0,"Hypotension, unspecified",10.0,"Hypotension, unspecified"
+10003757,31574552,"s/p Fall, Transfer",4.0,J189,10.0,"Pneumonia, unspecified organism",10.0,"Pneumonia, unspecified organism"
+10003770,37167672,"MVC, Headache",1.0,7840,9.0,HEADACHE,9.0,Headache
+10003770,37167672,"MVC, Headache",2.0,E8121,9.0,MV COLLISION NOS-PASNGR,9.0,Other motor vehicle traffic accident involving collision with motor vehicle injuring passenger in motor vehicle other than motorcycle
+10003842,31694993,"OD,SI",1.0,9694,9.0,POIS-BENZODIAZEPINE TRAN,9.0,Poisoning by benzodiazepine-based tranquilizers
+10003842,31694993,"OD,SI",2.0,E8532,9.0,ACC POISN-BENZDIAZ TRANQ,9.0,Accidental poisoning by benzodiazepine-based tranquilizers
+10003842,31694993,"OD,SI",3.0,30000,9.0,ANXIETY STATE NOS,9.0,"Anxiety state, unspecified"
+10003956,36506816,"Anxiety, Psych eval",1.0,2989,9.0,PSYCHOSIS NOS,9.0,Unspecified psychosis
+10004103,33175728,LEFT LOWER QUADRANT PAIN,1.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10004235,38926302,S/P ARREST,1.0,5849,9.0,"ACUTE KIDNEY FAILURE, UNSPECIFIED",9.0,"Acute kidney failure, unspecified"
+10004235,38926302,S/P ARREST,2.0,2762,9.0,ACIDOSIS,9.0,Acidosis
+10004235,38926302,S/P ARREST,3.0,7850,9.0,TACHYCARDIA NOS,9.0,"Tachycardia, unspecified"
+10004235,38926302,S/P ARREST,4.0,78550,9.0,SHOCK NOS,9.0,"Shock, unspecified"
+10004309,34900459,R Inguinal pain,1.0,L03115,10.0,Cellulitis of right lower limb,10.0,Cellulitis of right lower limb
+10004309,34900459,R Inguinal pain,2.0,L02415,10.0,Cutaneous abscess of right lower limb,10.0,Cutaneous abscess of right lower limb
+10004322,33930752,Weakness,1.0,R531,10.0,Weakness,10.0,Weakness
+10004322,33930752,Weakness,2.0,J189,10.0,"Pneumonia, unspecified organism",10.0,"Pneumonia, unspecified organism"
+10004322,35404395,BEHAVIOURAL ISSUES,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10004322,35404395,BEHAVIOURAL ISSUES,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10004322,35404395,BEHAVIOURAL ISSUES,3.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10004322,36579193,Altered mental status,1.0,A419,10.0,"Sepsis, unspecified organism",10.0,"Sepsis, unspecified organism"
+10004322,36579193,Altered mental status,2.0,N390,10.0,"Urinary tract infection, site not specified",10.0,"Urinary tract infection, site not specified"
+10004322,39353632,PYSCH EVAL,1.0,R339,10.0,"Retention of urine, unspecified",10.0,"Retention of urine, unspecified"
+10004322,39353632,PYSCH EVAL,2.0,E860,10.0,Dehydration,10.0,Dehydration
+10004322,39353632,PYSCH EVAL,3.0,N179,10.0,"Acute kidney failure, unspecified",10.0,"Acute kidney failure, unspecified"
+10004371,38482952,R TOE EVAL,1.0,6869,9.0,LOCAL SKIN INFECTION NOS,9.0,Unspecified local infection of skin and subcutaneous tissue
+10004405,32415724,"Chest pain, Hypertension",1.0,R0789,10.0,Other chest pain,10.0,Other chest pain
+10004405,32415724,"Chest pain, Hypertension",2.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10004439,34840402,PED STRUCK,1.0,920,9.0,"CONTUSION OF FACE, SCALP, & NECK EXCEPT EYE(S)",9.0,"Contusion of face, scalp, and neck except eye(s)"
+10004439,34840402,PED STRUCK,2.0,E9179,9.0,STRUCK BY OBJECT OR PERSON WITH OR WITHOUT FALL,9.0,Other accident caused by striking against or being struck accidentally by objects or persons
+10004439,34840402,PED STRUCK,3.0,92231,9.0,BACK CONTUSION,9.0,Contusion of back
+10004457,32405286,? AORTIC DISECTION,1.0,71941,9.0,JOINT PAIN-SHLDER,9.0,"Pain in joint, shoulder region"
+10004457,32405286,? AORTIC DISECTION,2.0,79439,9.0,ABN CARDIOVASC STUDY NEC,9.0,Other nonspecific abnormal results of function study of cardiovascular system
+10004457,32405286,? AORTIC DISECTION,3.0,41400,9.0,"CAD UNSPEC VESSEL, NATIVE OR GRAFT",9.0,"Coronary atherosclerosis of unspecified type of vessel, native or graft"
+10004457,32405286,? AORTIC DISECTION,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10004512,38443151,Rectal pain,1.0,5650,9.0,ANAL FISSURE,9.0,Anal fissure
+10004587,34606009,Vomiting,1.0,B2790,10.0,"Infectious mononucleosis, unspecified without complication",10.0,"Infectious mononucleosis, unspecified without complication"
+10004587,38992952,"Dysuria, Fever, UTI, Transfer",1.0,N390,10.0,"Urinary tract infection, site not specified",10.0,"Urinary tract infection, site not specified"
+10004606,31133875,"Diarrhea, Melena",1.0,K922,10.0,"Gastrointestinal hemorrhage, unspecified",10.0,"Gastrointestinal hemorrhage, unspecified"
+10004606,32299132,"Abd pain, Melena",1.0,K922,10.0,"Gastrointestinal hemorrhage, unspecified",10.0,"Gastrointestinal hemorrhage, unspecified"
+10004606,32299132,"Abd pain, Melena",2.0,D649,10.0,"Anemia, unspecified",10.0,"Anemia, unspecified"
+10004606,33581387,"Altered mental status, Hypertension, Seizure",1.0,R569,10.0,Unspecified convulsions,10.0,Unspecified convulsions
+10004606,34549994,"Seizure, Weakness",1.0,G40909,10.0,"Epilepsy, unsp, not intractable, without status epilepticus",10.0,"Epilepsy, unspecified, not intractable, without status epilepticus"
+10004606,34549994,"Seizure, Weakness",2.0,R531,10.0,Weakness,10.0,Weakness
+10004606,34549994,"Seizure, Weakness",3.0,I2510,10.0,Athscl heart disease of native coronary artery w/o ang pctrs,10.0,Atherosclerotic heart disease of native coronary artery without angina pectoris
+10004606,36394557,"Presyncope, s/p Fall",1.0,D649,10.0,"Anemia, unspecified",10.0,"Anemia, unspecified"
+10004648,39392756,VAGINAL BLEEDING,1.0,6238,9.0,NONINFLAM DIS VAGINA NEC,9.0,Other specified noninflammatory disorders of vagina
+10004648,39392756,VAGINAL BLEEDING,2.0,6259,9.0,FEM GENITAL SYMPTOMS NOS,9.0,Unspecified symptom associated with female genital organs
+10004719,36819102,R Leg pain,1.0,I82441,10.0,Acute embolism and thrombosis of right tibial vein,10.0,Acute embolism and thrombosis of right tibial vein
+10004720,34161260,"s/p Fall, R Wrist pain, R Wrist injury",1.0,81344,9.0,FX LOW RADIUS W ULNA-CL,9.0,Closed fracture of lower end of radius with ulna
+10004720,34161260,"s/p Fall, R Wrist pain, R Wrist injury",2.0,E8859,9.0,"FALL FROM OTHER SLIPPING,TRIPPING,STUMBLING",9.0,"Fall from other slipping, tripping, or stumbling"
+10004720,34161260,"s/p Fall, R Wrist pain, R Wrist injury",3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10004720,34391979,"Cardiac arrest, Transfer",1.0,R092,10.0,Respiratory arrest,10.0,Respiratory arrest
+10004720,34391979,"Cardiac arrest, Transfer",2.0,J9383,10.0,Other pneumothorax,10.0,Other pneumothorax
+10004749,31790611,RLQ PAIN,1.0,78903,9.0,ABDOMINAL PAIN RLQ,9.0,"Abdominal pain, right lower quadrant"
+10004789,35571188,Lower back pain,1.0,M5431,10.0,"Sciatica, right side",10.0,"Sciatica, right side"
+10004835,30890383,ILI,1.0,07999,9.0,UNSPEC VIRAL INFECTION,9.0,Unspecified viral infection
+10004835,31908431,Back pain,1.0,7242,9.0,LUMBAGO,9.0,Lumbago
+10004835,38766247,"Ataxia, Dizziness",1.0,R42,10.0,Dizziness and giddiness,10.0,Dizziness and giddiness
+10005001,34832537,RUQ abdominal pain,1.0,R1011,10.0,Right upper quadrant pain,10.0,Right upper quadrant pain
+10005001,34832537,RUQ abdominal pain,2.0,R0789,10.0,Other chest pain,10.0,Other chest pain
+10005001,37768472,Abd pain,1.0,R1013,10.0,Epigastric pain,10.0,Epigastric pain
+10005001,37768472,Abd pain,2.0,R1011,10.0,Right upper quadrant pain,10.0,Right upper quadrant pain
+10005001,37768472,Abd pain,3.0,N839,10.0,"Noninflammatory disord of ovary, fallop & broad ligmt, unsp",10.0,"Noninflammatory disorder of ovary, fallopian tube and broad ligament, unspecified"
+10005001,37768472,Abd pain,4.0,K769,10.0,"Liver disease, unspecified",10.0,"Liver disease, unspecified"
+10005024,30375901,"Abd pain, Melena, Transfer",1.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10005024,30375901,"Abd pain, Melena, Transfer",2.0,1519,9.0,MALIG NEOPL STOMACH NOS,9.0,"Malignant neoplasm of stomach, unspecified site"
+10005024,30375901,"Abd pain, Melena, Transfer",3.0,07070,9.0,UNSPECIFIED VIRAL HEPATITIS C WITHOUT HEPATIC COMA,9.0,Unspecified viral hepatitis C without hepatic coma
+10005158,33732829,"SI, Psych eval",1.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10005219,30617137,RLQ abdominal pain,1.0,78903,9.0,ABDOMINAL PAIN RLQ,9.0,"Abdominal pain, right lower quadrant"
+10005236,35991939,"Transfer, R Hip fracture",1.0,S72001A,10.0,"Fracture of unsp part of neck of right femur, init",10.0,"Fracture of unspecified part of neck of right femur, initial encounter for closed fracture"
+10005236,35991939,"Transfer, R Hip fracture",2.0,W010XXA,10.0,"Fall same lev from slip/trip w/o strike against object, init",10.0,"Fall on same level from slipping, tripping and stumbling without subsequent striking against object, initial encounter"
+10005246,32335503,"Decreased PO intake, Hallucinations",1.0,R630,10.0,Anorexia,10.0,Anorexia
+10005246,32335503,"Decreased PO intake, Hallucinations",2.0,R440,10.0,Auditory hallucinations,10.0,Auditory hallucinations
+10005246,32335503,"Decreased PO intake, Hallucinations",3.0,Q909,10.0,"Down syndrome, unspecified",10.0,"Down syndrome, unspecified"
+10005246,32335503,"Decreased PO intake, Hallucinations",4.0,E7800,10.0,"Pure hypercholesterolemia, unspecified",10.0,"Pure hypercholesterolemia, unspecified"
+10005271,33920165,Syncope,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10005303,32459569,Wound eval,1.0,L0501,10.0,Pilonidal cyst with abscess,10.0,Pilonidal cyst with abscess
+10005308,30479244,"R Ankle injury, s/p Fall",1.0,S8251XA,10.0,"Disp fx of medial malleolus of right tibia, init for clos fx",10.0,"Displaced fracture of medial malleolus of right tibia, initial encounter for closed fracture"
+10005308,30479244,"R Ankle injury, s/p Fall",2.0,S82831A,10.0,"Oth fracture of upper and lower end of right fibula, init",10.0,"Other fracture of upper and lower end of right fibula, initial encounter for closed fracture"
+10005308,30479244,"R Ankle injury, s/p Fall",3.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10005329,32044805,Abscess,1.0,475,9.0,PERITONSILLAR ABCESS,9.0,Peritonsillar abscess
+10005357,32463778,"Abscess, Transfer",1.0,N611,10.0,Abscess of the breast and nipple,10.0,Abscess of the breast and nipple
+10005357,32463778,"Abscess, Transfer",2.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10005357,32463778,"Abscess, Transfer",3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10005357,39573555,"Abscess, Buttock pain",1.0,L0231,10.0,Cutaneous abscess of buttock,10.0,Cutaneous abscess of buttock
+10005368,35971695,Right sided abdominal pain,1.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10005428,32968415,Abd pain,1.0,K8020,10.0,Calculus of gallbladder w/o cholecystitis w/o obstruction,10.0,Calculus of gallbladder without cholecystitis without obstruction
+10005439,34148663,Abd pain,1.0,K5289,10.0,Other specified noninfective gastroenteritis and colitis,10.0,Other specified noninfective gastroenteritis and colitis
+10005439,34148663,Abd pain,2.0,R1013,10.0,Epigastric pain,10.0,Epigastric pain
+10005439,36540491,"GROIN PAIN, DIZZINESS",1.0,2893,9.0,LYMPHADENITIS NOS,9.0,"Lymphadenitis, unspecified, except mesenteric"
+10005439,36540491,"GROIN PAIN, DIZZINESS",2.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10005439,38083592,"L Knee injury, L Knee pain",1.0,M25562,10.0,Pain in left knee,10.0,Pain in left knee
+10005439,38083592,"L Knee injury, L Knee pain",2.0,W541XXA,10.0,"Struck by dog, initial encounter",10.0,"Struck by dog, initial encounter"
+10005439,38083592,"L Knee injury, L Knee pain",3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10005464,33455046,Palpitations,1.0,R002,10.0,Palpitations,10.0,Palpitations
+10005464,33455046,Palpitations,2.0,I2510,10.0,Athscl heart disease of native coronary artery w/o ang pctrs,10.0,Atherosclerotic heart disease of native coronary artery without angina pectoris
+10005474,37584239,Abd pain,1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10005475,30411985,Sore throat,1.0,7841,9.0,THROAT PAIN,9.0,Throat pain
+10005565,32604480,NEAR SYCOPE/ABDOMINAL PAIN,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10005565,32604480,NEAR SYCOPE/ABDOMINAL PAIN,2.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10005565,32604480,NEAR SYCOPE/ABDOMINAL PAIN,3.0,41400,9.0,"CAD UNSPEC VESSEL, NATIVE OR GRAFT",9.0,"Coronary atherosclerosis of unspecified type of vessel, native or graft"
+10005565,32604480,NEAR SYCOPE/ABDOMINAL PAIN,4.0,2449,9.0,HYPOTHYROIDISM NOS,9.0,Unspecified acquired hypothyroidism
+10005605,34999321,Constipation,1.0,56211,9.0,DIVERTICULITIS OF COLON,9.0,Diverticulitis of colon (without mention of hemorrhage)
+10005605,34999321,Constipation,2.0,56400,9.0,UNSPECIFIED CONSTIPATION,9.0,"Constipation, unspecified"
+10005605,37491911,Lower abdominal pain,1.0,56211,9.0,DIVERTICULITIS OF COLON,9.0,Diverticulitis of colon (without mention of hemorrhage)
+10005606,32917694,"Dizziness, Hematemesis",1.0,K922,10.0,"Gastrointestinal hemorrhage, unspecified",10.0,"Gastrointestinal hemorrhage, unspecified"
+10005606,33502017,s/p Fall,1.0,S12300A,10.0,"Unsp disp fx of fourth cervical vertebra, init for clos fx",10.0,"Unspecified displaced fracture of fourth cervical vertebra, initial encounter for closed fracture"
+10005606,33502017,s/p Fall,2.0,W1789XA,10.0,"Other fall from one level to another, initial encounter",10.0,"Other fall from one level to another, initial encounter"
+10005618,30863370,ANKLE PAIN,1.0,71947,9.0,JOINT PAIN-ANKLE,9.0,"Pain in joint, ankle and foot"
+10005618,32923694,"s/p Fall, Laceration",1.0,87342,9.0,OPEN WOUND OF FOREHEAD,9.0,"Open wound of forehead, without mention of complication"
+10005618,32923694,"s/p Fall, Laceration",2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10005618,32923694,"s/p Fall, Laceration",2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10005618,32923694,"s/p Fall, Laceration",3.0,V037,9.0,TETANUS TOXOID INOCULAT,9.0,Need for prophylactic vaccination and inoculation against tetanus toxoid alone
+10005618,33927489,INCREASE HEADACHE,1.0,33920,9.0,"POST-TRAUMATIC HEADACHE, UNSPECIFIED",9.0,"Post-traumatic headache, unspecified"
+10005618,33927489,INCREASE HEADACHE,2.0,9089,9.0,LATE EFFECT INJURY NOS,9.0,Late effect of unspecified injury
+10005618,33927489,INCREASE HEADACHE,3.0,E9293,9.0,LATE EFF ACCIDENTAL FALL,9.0,Late effects of accidental fall
+10005725,33792053,L Ear pain,1.0,H6121,10.0,"Impacted cerumen, right ear",10.0,"Impacted cerumen, right ear"
+10005725,33792053,L Ear pain,2.0,H6122,10.0,"Impacted cerumen, left ear",10.0,"Impacted cerumen, left ear"
+10005725,35341094,DECREASED HEARING,1.0,H6121,10.0,"Impacted cerumen, right ear",10.0,"Impacted cerumen, right ear"
+10005725,35341094,DECREASED HEARING,2.0,H6122,10.0,"Impacted cerumen, left ear",10.0,"Impacted cerumen, left ear"
+10005725,36441267,UNKNOWN-CC,1.0,R5383,10.0,Other fatigue,10.0,Other fatigue
+10005725,37010737,Fatigue,1.0,R5381,10.0,Other malaise,10.0,Other malaise
+10005749,32603903,Hyperglycemia,1.0,E11649,10.0,Type 2 diabetes mellitus with hypoglycemia without coma,10.0,Type 2 diabetes mellitus with hypoglycemia without coma
+10005749,34739735,Elevated D-dimer,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10005749,34739735,Elevated D-dimer,2.0,42731,9.0,ATRIAL FIBRILLATION,9.0,Atrial fibrillation
+10005749,34739735,Elevated D-dimer,3.0,V420,9.0,KIDNEY TRANSPLANT STATUS,9.0,Kidney replaced by transplant
+10005749,34739735,Elevated D-dimer,3.0,V420,9.0,KIDNEY TRANSPLANT STATUS,10.0,Car driver injured in collision with two- or three-wheeled motor vehicle in nontraffic accident
+10005749,34739735,Elevated D-dimer,4.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10005858,34503980,L KNEE PAIN,1.0,78079,9.0,OTHER MALAISE AND FATIGUE,9.0,Other malaise and fatigue
+10005858,34549715,"Dyspnea, Leg swelling",1.0,R0600,10.0,"Dyspnea, unspecified",10.0,"Dyspnea, unspecified"
+10005858,39055405,CHILLS,1.0,99859,9.0,OTHER POST-OP INFECTION,9.0,Other postoperative infection
+10005858,39055405,CHILLS,2.0,E8799,9.0,ABN REACT-PROCEDURE NOS,9.0,"Unspecified procedure as the cause of abnormal reaction of patient, or of later complication, without mention of misadventure at time of procedure"
+10005866,30225689,Right sided abdominal pain,1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10005866,30804580,"Abd pain, N/V",1.0,K5660,10.0,Unspecified intestinal obstruction,10.0,Unspecified intestinal obstruction
+10005866,31023359,"Abd pain, N/V",1.0,R1031,10.0,Right lower quadrant pain,10.0,Right lower quadrant pain
+10005866,31023359,"Abd pain, N/V",2.0,R112,10.0,"Nausea with vomiting, unspecified",10.0,"Nausea with vomiting, unspecified"
+10005866,31023359,"Abd pain, N/V",3.0,K7460,10.0,Unspecified cirrhosis of liver,10.0,Unspecified cirrhosis of liver
+10005866,31023359,"Abd pain, N/V",4.0,B1920,10.0,Unspecified viral hepatitis C without hepatic coma,10.0,Unspecified viral hepatitis C without hepatic coma
+10005866,31121963,"Chest pain, N/V",1.0,R1013,10.0,Epigastric pain,10.0,Epigastric pain
+10005866,31121963,"Chest pain, N/V",2.0,R079,10.0,"Chest pain, unspecified",10.0,"Chest pain, unspecified"
+10005866,31806264,"Abd pain, Right sided abdominal pain",1.0,K56609,10.0,"Unsp intestnl obst, unsp as to partial versus complete obst",10.0,"Unspecified intestinal obstruction, unspecified as to partial versus complete obstruction"
+10005866,32281632,Abd pain,1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10005866,32537287,"Abd pain, Diarrhea, Vomiting",1.0,I81,10.0,Portal vein thrombosis,10.0,Portal vein thrombosis
+10005866,34558830,"Abd pain, LEAKING ASCITES",1.0,5531,9.0,UMBILICAL HERNIA,9.0,Umbilical hernia without mention of obstruction or gangrene
+10005866,35681380,RLQ abdominal pain,1.0,R1031,10.0,Right lower quadrant pain,10.0,Right lower quadrant pain
+10005909,32719751,L Leg DVT,,,,,,
+10005991,35853287,Dizziness,1.0,7810,9.0,ABN INVOLUN MOVEMENT NEC,9.0,Abnormal involuntary movements
+10005991,35853287,Dizziness,2.0,V681,9.0,ISSUE REPEAT PRESCRIPT,9.0,Issue of repeat prescriptions
+10005991,35853287,Dizziness,2.0,V681,9.0,ISSUE REPEAT PRESCRIPT,10.0,Passenger in heavy transport vehicle injured in noncollision transport accident in nontraffic accident
+10005991,35853287,Dizziness,3.0,30000,9.0,ANXIETY STATE NOS,9.0,"Anxiety state, unspecified"
+10005991,35853287,Dizziness,4.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10006023,35267322,Chest pain,1.0,78659,9.0,CHEST PAIN NEC,9.0,Other chest pain
+10006023,39057551,"Abd pain, Dizziness, Headache",1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10006023,39057551,"Abd pain, Dizziness, Headache",2.0,R509,10.0,"Fever, unspecified",10.0,"Fever, unspecified"
+10006023,39057551,"Abd pain, Dizziness, Headache",3.0,R51,10.0,Headache,10.0,Headache
+10006023,39057551,"Abd pain, Dizziness, Headache",4.0,R42,10.0,Dizziness and giddiness,10.0,Dizziness and giddiness
+10006029,39399575,"Fever, Jaundice, Transfer",1.0,R17,10.0,Unspecified jaundice,10.0,Unspecified jaundice
+10006095,31737636,"Fever, ILI",1.0,R509,10.0,"Fever, unspecified",10.0,"Fever, unspecified"
+10006196,35792563,ABSCESS,1.0,6850,9.0,PILONIDAL CYST W ABSCESS,9.0,Pilonidal cyst with abscess
+10006269,30006372,"Fever, Headache",1.0,A879,10.0,"Viral meningitis, unspecified",10.0,"Viral meningitis, unspecified"
+10006296,35122725,Nasal injury,1.0,95909,9.0,INJURY FACE & NECK,9.0,Injury of face and neck
+10006296,35122725,Nasal injury,2.0,7847,9.0,EPISTAXIS,9.0,Epistaxis
+10006296,35122725,Nasal injury,3.0,E9170,9.0,STRUCK IN SPORTS WITHOUT FALL,9.0,Striking against or struck accidentally by objects or persons in sports
+10006296,35122725,Nasal injury,4.0,E0076,9.0,ACTIVITIES INVOLVING BASKETBALL,9.0,Activities involving basketball
+10006368,36293519,BRBPR,1.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10006368,36293519,BRBPR,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10006395,37471229,Confusion,1.0,R410,10.0,"Disorientation, unspecified",10.0,"Disorientation, unspecified"
+10006395,37471229,Confusion,2.0,A539,10.0,"Syphilis, unspecified",10.0,"Syphilis, unspecified"
+10006395,37471229,Confusion,3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10006431,30068485,"Abd pain, N/V",1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10006431,32843796,Abnormal labs,1.0,E860,10.0,Dehydration,10.0,Dehydration
+10006431,32920128,"Abd pain, N/V",1.0,K8590,10.0,"Acute pancreatitis without necrosis or infection, unsp",10.0,"Acute pancreatitis without necrosis or infection, unspecified"
+10006431,36983527,n/v/d,1.0,R112,10.0,"Nausea with vomiting, unspecified",10.0,"Nausea with vomiting, unspecified"
+10006431,36983527,n/v/d,2.0,R197,10.0,"Diarrhea, unspecified",10.0,"Diarrhea, unspecified"
+10006457,30156474,Dizziness,1.0,78079,9.0,OTHER MALAISE AND FATIGUE,9.0,Other malaise and fatigue
+10006457,30156474,Dizziness,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10006457,30156474,Dizziness,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10006457,30553048,Hypoglycemia,1.0,E11649,10.0,Type 2 diabetes mellitus with hypoglycemia without coma,10.0,Type 2 diabetes mellitus with hypoglycemia without coma
+10006457,30553048,Hypoglycemia,2.0,Z7984,10.0,Long term (current) use of oral hypoglycemic drugs,10.0,Long term (current) use of oral hypoglycemic drugs
+10006457,30553048,Hypoglycemia,3.0,Z8673,10.0,"Prsnl hx of TIA (TIA), and cereb infrc w/o resid deficits",10.0,"Personal history of transient ischemic attack (TIA), and cerebral infarction without residual deficits"
+10006457,32250477,"Abd pain, Headache, Lightheaded, N/V",1.0,R42,10.0,Dizziness and giddiness,10.0,Dizziness and giddiness
+10006457,32250477,"Abd pain, Headache, Lightheaded, N/V",2.0,R1084,10.0,Generalized abdominal pain,10.0,Generalized abdominal pain
+10006457,32250477,"Abd pain, Headache, Lightheaded, N/V",3.0,R112,10.0,"Nausea with vomiting, unspecified",10.0,"Nausea with vomiting, unspecified"
+10006457,32250477,"Abd pain, Headache, Lightheaded, N/V",4.0,R51,10.0,Headache,10.0,Headache
+10006457,32296708,LIGHTHEADED,1.0,7804,9.0,VERTIGO/DIZZINESS,9.0,Dizziness and giddiness
+10006457,32296708,LIGHTHEADED,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10006457,32296708,LIGHTHEADED,3.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10006457,32823644,R Ankle pain,1.0,M109,10.0,"Gout, unspecified",10.0,"Gout, unspecified"
+10006457,38900309,ILI,1.0,J111,10.0,Flu due to unidentified influenza virus w oth resp manifest,10.0,Influenza due to unidentified influenza virus with other respiratory manifestations
+10006457,38900309,ILI,2.0,R079,10.0,"Chest pain, unspecified",10.0,"Chest pain, unspecified"
+10006457,39217179,"L Hip pain, Lower abdominal pain",1.0,71945,9.0,JOINT PAIN-PELVIS,9.0,"Pain in joint, pelvic region and thigh"
+10006457,39217179,"L Hip pain, Lower abdominal pain",2.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10006457,39217179,"L Hip pain, Lower abdominal pain",3.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10006457,39217179,"L Hip pain, Lower abdominal pain",4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10006457,39354813,"L Flank pain, N/V",1.0,R109,10.0,Unspecified abdominal pain,10.0,Unspecified abdominal pain
+10006457,39354813,"L Flank pain, N/V",2.0,R112,10.0,"Nausea with vomiting, unspecified",10.0,"Nausea with vomiting, unspecified"
+10006457,39354813,"L Flank pain, N/V",3.0,R42,10.0,Dizziness and giddiness,10.0,Dizziness and giddiness
+10006501,30575291,C/P,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10006513,30604009,LLQ abdominal pain,1.0,5921,9.0,CALCULUS OF URETER,9.0,Calculus of ureter
+10006513,30604009,LLQ abdominal pain,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10006513,32710701,L Knee pain,1.0,M10062,10.0,"Idiopathic gout, left knee",10.0,"Idiopathic gout, left knee"
+10006513,36961170,LUQ abdominal pain,1.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10006513,37010943,"Fever, L Knee pain",1.0,M13862,10.0,"Other specified arthritis, left knee",10.0,"Other specified arthritis, left knee"
+10006513,37010943,"Fever, L Knee pain",2.0,N179,10.0,"Acute kidney failure, unspecified",10.0,"Acute kidney failure, unspecified"
+10006513,37136797,L Knee pain,1.0,M25562,10.0,Pain in left knee,10.0,Pain in left knee
+10006513,37136797,L Knee pain,2.0,M109,10.0,"Gout, unspecified",10.0,"Gout, unspecified"
+10006513,38169836,LLQ abdominal pain,1.0,R1032,10.0,Left lower quadrant pain,10.0,Left lower quadrant pain
+10006533,30998409,"Chest pain, Elevated D-dimer",1.0,R079,10.0,"Chest pain, unspecified",10.0,"Chest pain, unspecified"
+10006580,32259573,"Neck pain, Med refill",1.0,7231,9.0,CERVICALGIA,9.0,Cervicalgia
+10006630,32503780,Lower abdominal pain,1.0,N8320,10.0,Unspecified ovarian cysts,10.0,Unspecified ovarian cysts
+10006630,33405132,Headache,1.0,G43909,10.0,"Migraine, unsp, not intractable, without status migrainosus",10.0,"Migraine, unspecified, not intractable, without status migrainosus"
+10006630,34164534,R Knee injury,1.0,71946,9.0,JOINT PAIN-L/LEG,9.0,"Pain in joint, lower leg"
+10006630,34164534,R Knee injury,2.0,E8888,9.0,OTHER FALL,9.0,Other fall
+10006630,34911682,Depression,1.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10006630,34911682,Depression,2.0,R4581,10.0,Low self-esteem,10.0,Low self-esteem
+10006630,36421590,L Ear pain,1.0,S098XXA,10.0,"Other specified injuries of head, initial encounter",10.0,"Other specified injuries of head, initial encounter"
+10006630,36421590,L Ear pain,2.0,X58XXXA,10.0,"Exposure to other specified factors, initial encounter",10.0,"Exposure to other specified factors, initial encounter"
+10006640,35182547,Right sided abdominal pain,1.0,R1011,10.0,Right upper quadrant pain,10.0,Right upper quadrant pain
+10006692,38394624,Hypertension,1.0,6826,9.0,CELLULITIS OF LEG,9.0,"Cellulitis and abscess of leg, except foot"
+10006692,38394624,Hypertension,2.0,79431,9.0,ABNORM ELECTROCARDIOGRAM,9.0,Nonspecific abnormal electrocardiogram [ECG] [EKG]
+10006692,38394624,Hypertension,3.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10006716,34291584,Back pain,1.0,7245,9.0,BACKACHE NOS,9.0,"Backache, unspecified"
+10006820,31746216,"DVT, GIB",1.0,45340,9.0,ACUTE VENOUS EMBOLISM AND THROMBOSIS OF UNSPECIFIED DEEP VESSELS OF LOWER EXTREMITY,9.0,Acute venous embolism and thrombosis of unspecified deep vessels of lower extremity
+10006825,30199228,Hallucinations,1.0,F29,10.0,Unsp psychosis not due to a substance or known physiol cond,10.0,Unspecified psychosis not due to a substance or known physiological condition
+10006825,31338303,"SI, Psych eval",1.0,V6284,9.0,SUICIDAL IDEATION,9.0,Suicidal ideation
+10006972,39055566,ETOH,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10007032,38690471,Dizziness,1.0,H8111,10.0,"Benign paroxysmal vertigo, right ear",10.0,"Benign paroxysmal vertigo, right ear"
+10007032,38690471,Dizziness,2.0,E780,10.0,Pure hypercholesterolemia,10.0,Pure hypercholesterolemia
+10007032,38690471,Dizziness,3.0,Z7982,10.0,Long term (current) use of aspirin,10.0,Long term (current) use of aspirin
+10007058,38967799,"Chest pain, Transfer",1.0,I7100,10.0,Dissection of unspecified site of aorta,10.0,Dissection of unspecified site of aorta
+10007058,38967799,"Chest pain, Transfer",2.0,I214,10.0,Non-ST elevation (NSTEMI) myocardial infarction,10.0,Non-ST elevation (NSTEMI) myocardial infarction
+10007089,38373331,R Foot pain,1.0,M722,10.0,Plantar fascial fibromatosis,10.0,Plantar fascial fibromatosis
+10007134,37321299,RUN OVER,1.0,S2239XA,10.0,"Fracture of one rib, unsp side, init for clos fx",10.0,"Fracture of one rib, unspecified side, initial encounter for closed fracture"
+10007134,37321299,RUN OVER,2.0,V0300XA,10.0,"Ped on foot injured pick-up truck, pk-up/van nontraf, init",10.0,"Pedestrian on foot injured in collision with car, pick-up truck or van in nontraffic accident, initial encounter"
+10007143,37176288,Finger laceration,1.0,S61412A,10.0,"Laceration without foreign body of left hand, init encntr",10.0,"Laceration without foreign body of left hand, initial encounter"
+10007143,37176288,Finger laceration,2.0,W260XXA,10.0,"Contact with knife, initial encounter",10.0,"Contact with knife, initial encounter"
+10007174,31736367,"s/p Fall, L Knee pain",1.0,71916,9.0,HEMARTHROSIS-L/LEG,9.0,"Hemarthrosis, lower leg"
+10007174,31736367,"s/p Fall, L Knee pain",2.0,E9342,9.0,ADV EFF ANTICOAGULANTS,9.0,Anticoagulants causing adverse effects in therapeutic use
+10007174,31736367,"s/p Fall, L Knee pain",3.0,41401,9.0,CAD NATIVE CORONARY VESSEL,9.0,Coronary atherosclerosis of native coronary artery
+10007174,31736367,"s/p Fall, L Knee pain",4.0,V4582,9.0,PTCA STATUS,9.0,Percutaneous transluminal coronary angioplasty status
+10007174,31736367,"s/p Fall, L Knee pain",5.0,V1255,9.0,PERSONAL HISTORY OF PULMONARY EMBOLISM,9.0,Personal history of pulmonary embolism
+10007174,32690555,L HAND RASH,1.0,9953,9.0,"ALLERGY, UNSPECIFIED",9.0,"Allergy, unspecified, not elsewhere classified"
+10007174,32690555,L HAND RASH,2.0,E9479,9.0,ADV EFF MEDICINAL NOS,9.0,Unspecified drug or medicinal substance causing adverse effects in therapeutic use
+10007174,37517780,"L Leg swelling, L Leg pain",1.0,6826,9.0,CELLULITIS OF LEG,9.0,"Cellulitis and abscess of leg, except foot"
+10007174,38139366,"Abd pain, Diarrhea",1.0,78903,9.0,ABDOMINAL PAIN RLQ,9.0,"Abdominal pain, right lower quadrant"
+10007174,38139366,"Abd pain, Diarrhea",2.0,78791,9.0,DIARRHEA,9.0,Diarrhea
+10007174,38139366,"Abd pain, Diarrhea",3.0,42731,9.0,ATRIAL FIBRILLATION,9.0,Atrial fibrillation
+10007174,38139366,"Abd pain, Diarrhea",4.0,V5861,9.0,LONG TERM USE ANTIGOAGULANT,9.0,Long-term (current) use of anticoagulants
+10007232,31557804,Epistaxis,1.0,R040,10.0,Epistaxis,10.0,Epistaxis
+10007232,31834433,Epistaxis,1.0,R040,10.0,Epistaxis,10.0,Epistaxis
+10007266,33103757,"Depression, SI",1.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10007266,33103757,"Depression, SI",2.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10007326,39778858,VOMITING BLOOD,1.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10007462,30182283,R FOOT PAIN,1.0,25080,9.0,DIAB W MANIF NEC ADULT,9.0,"Diabetes with other specified manifestations, type II or unspecified type, not stated as uncontrolled"
+10007462,30182283,R FOOT PAIN,2.0,6869,9.0,LOCAL SKIN INFECTION NOS,9.0,Unspecified local infection of skin and subcutaneous tissue
+10007462,34572020,FOOT PAIN,,,,,,
+10007611,31792019,"PREG, VAG BLEEDING",1.0,63492,9.0,SPON ABORT UNCOMPL-COMP,9.0,"Spontaneous abortion, without mention of complication, complete"
+10007795,34807453,"Abd pain, Back pain",1.0,78904,9.0,ABDOMINAL PAIN LLQ,9.0,"Abdominal pain, left lower quadrant"
+10007795,39441314,?INFECTION,1.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10007795,39441314,?INFECTION,2.0,V103,9.0,HX OF BREAST MALIGNANCY,9.0,Personal history of malignant neoplasm of breast
+10007795,39441314,?INFECTION,2.0,V103,9.0,HX OF BREAST MALIGNANCY,10.0,Person boarding or alighting a pedal cycle injured in collision with pedestrian or animal
+10007920,31176964,Abd pain,1.0,5770,9.0,ACUTE PANCREATITIS,9.0,Acute pancreatitis
+10007920,31176964,Abd pain,2.0,2768,9.0,HYPOKALEMIA,9.0,Hypopotassemia
+10007920,31176964,Abd pain,3.0,30500,9.0,ALCOHOL ABUSE-UNSPEC,9.0,"Alcohol abuse, unspecified"
+10007920,31629138,M/S CHANGES,1.0,78009,9.0,SEMICOMA/STUPOR,9.0,Other alteration of consciousness
+10007920,31629138,M/S CHANGES,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10007920,31629138,M/S CHANGES,3.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10007920,32676936,ETOH,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10007920,32676936,ETOH,2.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10007920,32676936,ETOH,3.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10007920,32676936,ETOH,4.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10007920,32879051,Detox,1.0,F1020,10.0,"Alcohol dependence, uncomplicated",10.0,"Alcohol dependence, uncomplicated"
+10007920,32879051,Detox,2.0,B20,10.0,Human immunodeficiency virus [HIV] disease,10.0,Human immunodeficiency virus [HIV] disease
+10007920,34035158,Detox,1.0,30390,9.0,ALCOH DEP NEC/NOS-UNSPEC,9.0,"Other and unspecified alcohol dependence, unspecified"
+10007920,34035158,Detox,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10007920,34035158,Detox,3.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10007920,34185981,AH,1.0,R440,10.0,Auditory hallucinations,10.0,Auditory hallucinations
+10007920,34185981,AH,2.0,B009,10.0,"Herpesviral infection, unspecified",10.0,"Herpesviral infection, unspecified"
+10007920,34185981,AH,3.0,E875,10.0,Hyperkalemia,10.0,Hyperkalemia
+10007920,34185981,AH,4.0,F1910,10.0,"Other psychoactive substance abuse, uncomplicated",10.0,"Other psychoactive substance abuse, uncomplicated"
+10007920,35707287,"Hypotension, Overdose",1.0,72888,9.0,RHABDOMYOLYSIS,9.0,Rhabdomyolysis
+10007920,35707287,"Hypotension, Overdose",2.0,78079,9.0,OTHER MALAISE AND FATIGUE,9.0,Other malaise and fatigue
+10007920,35707287,"Hypotension, Overdose",3.0,7810,9.0,ABN INVOLUN MOVEMENT NEC,9.0,Abnormal involuntary movements
+10007920,35707287,"Hypotension, Overdose",4.0,4589,9.0,HYPOTENSION NOS,9.0,"Hypotension, unspecified"
+10007920,37324577,ETOH,1.0,30500,9.0,ALCOHOL ABUSE-UNSPEC,9.0,"Alcohol abuse, unspecified"
+10007920,37324577,ETOH,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10007920,37964681,"ETOH, Depression",1.0,30500,9.0,ALCOHOL ABUSE-UNSPEC,9.0,"Alcohol abuse, unspecified"
+10007920,37964681,"ETOH, Depression",2.0,3079,9.0,SPECIAL SYMPTOM NEC/NOS,9.0,"Other and unspecified special symptoms or syndromes, not elsewhere classified"
+10007920,39172365,S/P FALL,1.0,9221,9.0,CONTUSION OF CHEST WALL,9.0,Contusion of chest wall
+10007920,39172365,S/P FALL,2.0,92411,9.0,CONTUSION OF KNEE,9.0,Contusion of knee
+10007920,39172365,S/P FALL,3.0,E8801,9.0,FALL FROM SIDEWALK CURB,9.0,Accidental fall on or from sidewalk curb
+10007920,39172365,S/P FALL,3.0,E8801,9.0,FALL FROM SIDEWALK CURB,10.0,Alpha-1-antitrypsin deficiency
+10007920,39172365,S/P FALL,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10007920,39172365,S/P FALL,5.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10007920,39288237,ETOH,1.0,30391,9.0,ALCOH DEP NEC/NOS-CONTIN,9.0,"Other and unspecified alcohol dependence, continuous"
+10007920,39288237,ETOH,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10007920,39288237,ETOH,3.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10007928,39661025,VOMITING BLOOD,1.0,5780,9.0,HEMATEMESIS,9.0,Hematemesis
+10007949,32485750,Lower abdominal pain,1.0,O26891,10.0,"Oth pregnancy related conditions, first trimester",10.0,"Other specified pregnancy related conditions, first trimester"
+10007949,32485750,Lower abdominal pain,2.0,R1030,10.0,"Lower abdominal pain, unspecified",10.0,"Lower abdominal pain, unspecified"
+10007949,32485750,Lower abdominal pain,3.0,Z3A00,10.0,Weeks of gestation of pregnancy not specified,10.0,Weeks of gestation of pregnancy not specified
+10008064,37388980,Chest pain,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10008064,37388980,Chest pain,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10008064,37388980,Chest pain,3.0,V4586,9.0,BARIATRIC SURGERY STATUS ,9.0,Bariatric surgery status
+10008072,30970946,Hand injury,1.0,9146,9.0,FOREIGN BODY HAND,9.0,"Superficial foreign body (splinter) of hand(s) except finger(s) alone, without major open wound and without mention of infection"
+10008072,30970946,Hand injury,2.0,E9289,9.0,ACCIDENT NOS,9.0,Unspecified accident
+10008245,31143749,Pelvic pain,1.0,S32391A,10.0,"Oth fracture of right ilium, init encntr for closed fracture",10.0,"Other fracture of right ilium, initial encounter for closed fracture"
+10008245,31143749,Pelvic pain,2.0,X58XXXA,10.0,"Exposure to other specified factors, initial encounter",10.0,"Exposure to other specified factors, initial encounter"
+10008257,31157107,Nose pain,1.0,78499,9.0,OTHER SYMPTOMS INVOLVING HEAD AND NECK,9.0,Other symptoms involving head and neck
+10008304,30872939,"MALAISE,N/V",1.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10008304,30872939,"MALAISE,N/V",2.0,78701,9.0,NAUSEA WITH VOMITING,9.0,Nausea with vomiting
+10008304,30872939,"MALAISE,N/V",3.0,25001,9.0,DIABETES UNCOMPL JUVEN,9.0,"Diabetes mellitus without mention of complication, type I [juvenile type], not stated as uncontrolled"
+10008304,35990983,"Fever, N/V, BODY PAIN",1.0,78060,9.0,"FEVER, UNSPECIFIED",9.0,"Fever, unspecified"
+10008304,35990983,"Fever, N/V, BODY PAIN",2.0,07999,9.0,UNSPEC VIRAL INFECTION,9.0,Unspecified viral infection
+10008408,39545119,Hand Redness,1.0,6824,9.0,CELLULITIS OF HAND,9.0,"Cellulitis and abscess of hand, except fingers and thumb"
+10008493,38396967,Chest pain,1.0,J189,10.0,"Pneumonia, unspecified organism",10.0,"Pneumonia, unspecified organism"
+10008493,38396967,Chest pain,2.0,R0781,10.0,Pleurodynia,10.0,Pleurodynia
+10008561,33590152,L ELBOW  WRIST INJ,1.0,81305,9.0,FX RADIUS HEAD-CLOSED,9.0,Closed fracture of head of radius
+10008561,33590152,L ELBOW  WRIST INJ,2.0,9593,9.0,ELB/FOREARM/WRST INJ NOS,9.0,"Elbow, forearm, and wrist injury"
+10008561,33590152,L ELBOW  WRIST INJ,3.0,E8881,9.0,FALL RESULTING IN STRIKING AGAINST OTHER OBJECT,9.0,Fall resulting in striking against other object
+10008561,33590152,L ELBOW  WRIST INJ,3.0,E8881,9.0,FALL RESULTING IN STRIKING AGAINST OTHER OBJECT,10.0,Metabolic syndrome
+10008561,33590152,L ELBOW  WRIST INJ,4.0,E0030,9.0,ACTIVITIES INVOLVING ICE SKATING,9.0,Activities involving ice skating
+10008647,34901812,"SDH, Syncope, Transfer",1.0,I6201,10.0,Nontraumatic acute subdural hemorrhage,10.0,Nontraumatic acute subdural hemorrhage
+10008647,34901812,"SDH, Syncope, Transfer",2.0,R55,10.0,Syncope and collapse,10.0,Syncope and collapse
+10008647,34901812,"SDH, Syncope, Transfer",3.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10008742,31537977,Transfer,1.0,I472,10.0,Ventricular tachycardia,10.0,Ventricular tachycardia
+10008751,33011073,H/A,1.0,3314,9.0,OBSTRUCTIV HYDROCEPHALUS,9.0,Obstructive hydrocephalus
+10008751,33011073,H/A,2.0,V452,9.0,VENTRICULAR SHUNT STATUS,9.0,Presence of cerebrospinal fluid drainage device
+10008751,33011073,H/A,2.0,V452,9.0,VENTRICULAR SHUNT STATUS,10.0,Person on outside of car injured in collision with railway train or railway vehicle in nontraffic accident
+10008751,37443832,SHUNT EVAL,1.0,99675,9.0,"DUE TO NERVOUS SYSTEM DEVICE,IMPLANT, GRAFT",9.0,"Other complications due to nervous system device, implant, and graft"
+10008751,37443832,SHUNT EVAL,2.0,E8788,9.0,ABN REACT-SURG PROC NEC,9.0,"Other specified surgical operations and procedures causing abnormal patient reaction, or later complication, without mention of misadventure at time of operation"
+10008751,37443832,SHUNT EVAL,3.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10008751,37443832,SHUNT EVAL,4.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10008751,37443832,SHUNT EVAL,5.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10008799,34467499,"Dysuria, Hematuria",1.0,7881,9.0,DYSURIA,9.0,Dysuria
+10008799,34467499,"Dysuria, Hematuria",2.0,61610,9.0,VAGINITIS NOS,9.0,"Vaginitis and vulvovaginitis, unspecified"
+10008816,30716111,VOMITING AND/OR NAUSEA,1.0,78097,9.0,ALTERED MENTAL STATUS ,9.0,Altered mental status
+10008816,30716111,VOMITING AND/OR NAUSEA,2.0,30300,9.0,AC ALCOHOL INTOX-UNSPEC,9.0,"Acute alcoholic intoxication in alcoholism, unspecified"
+10008816,30716111,VOMITING AND/OR NAUSEA,3.0,3079,9.0,SPECIAL SYMPTOM NEC/NOS,9.0,"Other and unspecified special symptoms or syndromes, not elsewhere classified"
+10008816,31342122,"Alcohol withdrawal, Seizure",1.0,F1010,10.0,"Alcohol abuse, uncomplicated",10.0,"Alcohol abuse, uncomplicated"
+10008816,31558895,ETOH,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,31758935,ETOH,1.0,R4182,10.0,"Altered mental status, unspecified",10.0,"Altered mental status, unspecified"
+10008816,31758935,ETOH,2.0,F10229,10.0,"Alcohol dependence with intoxication, unspecified",10.0,"Alcohol dependence with intoxication, unspecified"
+10008816,32543441,"Depression, Anxiety",1.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10008816,32543441,"Depression, Anxiety",2.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,32882263,EtOH detox,1.0,F10239,10.0,"Alcohol dependence with withdrawal, unspecified",10.0,"Alcohol dependence with withdrawal, unspecified"
+10008816,33242536,ETOH,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,33242536,ETOH,2.0,R4182,10.0,"Altered mental status, unspecified",10.0,"Altered mental status, unspecified"
+10008816,33247256,L Foot pain,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,33247256,L Foot pain,2.0,M79671,10.0,Pain in right foot,10.0,Pain in right foot
+10008816,33521511,"Overdose, Depression",1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,33521511,"Overdose, Depression",2.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10008816,33521511,"Overdose, Depression",3.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10008816,33521511,"Overdose, Depression",4.0,T50992A,10.0,"Poisoning by oth drug/meds/biol subst, self-harm, init",10.0,"Poisoning by other drugs, medicaments and biological substances, intentional self-harm, initial encounter"
+10008816,33521511,"Overdose, Depression",5.0,Y9289,10.0,Oth places as the place of occurrence of the external cause,10.0,Other specified places as the place of occurrence of the external cause
+10008816,34104963,Unable to ambulate,1.0,R262,10.0,"Difficulty in walking, not elsewhere classified",10.0,"Difficulty in walking, not elsewhere classified"
+10008816,34104963,Unable to ambulate,2.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,34104963,Unable to ambulate,3.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10008816,34104963,Unable to ambulate,4.0,S0090XA,10.0,"Unsp superficial injury of unsp part of head, init encntr",10.0,"Unspecified superficial injury of unspecified part of head, initial encounter"
+10008816,34104963,Unable to ambulate,5.0,W1830XA,10.0,"Fall on same level, unspecified, initial encounter",10.0,"Fall on same level, unspecified, initial encounter"
+10008816,34104963,Unable to ambulate,6.0,F1910,10.0,"Other psychoactive substance abuse, uncomplicated",10.0,"Other psychoactive substance abuse, uncomplicated"
+10008816,34156352,"Cough, EtOH detox",1.0,R05,10.0,Cough,10.0,Cough
+10008816,34156352,"Cough, EtOH detox",2.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,34352251,"Altered mental status, ETOH",1.0,F10229,10.0,"Alcohol dependence with intoxication, unspecified",10.0,"Alcohol dependence with intoxication, unspecified"
+10008816,34752113,"ETOH, Unable to ambulate",1.0,F1010,10.0,"Alcohol abuse, uncomplicated",10.0,"Alcohol abuse, uncomplicated"
+10008816,34752113,"ETOH, Unable to ambulate",2.0,R1030,10.0,"Lower abdominal pain, unspecified",10.0,"Lower abdominal pain, unspecified"
+10008816,34805689,Overdose,1.0,T43591A,10.0,"Poisoning by oth antipsychot/neurolept, accidental, init",10.0,"Poisoning by other antipsychotics and neuroleptics, accidental (unintentional), initial encounter"
+10008816,34805689,Overdose,2.0,T43621A,10.0,"Poisoning by amphetamines, accidental (unintentional), init",10.0,"Poisoning by amphetamines, accidental (unintentional), initial encounter"
+10008816,35051577,"ETOH, Unsteady gait",1.0,F1010,10.0,"Alcohol abuse, uncomplicated",10.0,"Alcohol abuse, uncomplicated"
+10008816,35186901,Lower back pain,1.0,S39012A,10.0,"Strain of muscle, fascia and tendon of lower back, init",10.0,"Strain of muscle, fascia and tendon of lower back, initial encounter"
+10008816,35186901,Lower back pain,2.0,X58XXXA,10.0,"Exposure to other specified factors, initial encounter",10.0,"Exposure to other specified factors, initial encounter"
+10008816,35483746,FOR EVAL,1.0,9916,9.0,HYPOTHERMIA,9.0,Hypothermia
+10008816,35483746,FOR EVAL,2.0,E9010,9.0,EXCESSIVE COLD: WEATHER,9.0,Accident due to excessive cold due to weather conditions
+10008816,35495639,OVERDOSE,1.0,9678,9.0,POIS-SEDATIVE/HYPNOT NEC,9.0,Poisoning by other sedatives and hypnotics
+10008816,35495639,OVERDOSE,2.0,96903,9.0,POISONING BY SELECTIVE SEROTONIN REUPTAKE INHIBITORS,9.0,Poisoning by selective serotonin reuptake inhibitors
+10008816,35495639,OVERDOSE,3.0,96909,9.0,POISONING BY OTHER ANTIDEPRESSANTS,9.0,Poisoning by other antidepressants
+10008816,35495639,OVERDOSE,4.0,9663,9.0,POIS-ANTICONVUL NEC/NOS,9.0,Poisoning by other and unspecified anticonvulsants
+10008816,35495639,OVERDOSE,5.0,96502,9.0,POISONING-METHADONE,9.0,Poisoning by methadone
+10008816,35495639,OVERDOSE,6.0,9800,9.0,TOXIC EFF ETHYL ALCOHOL,9.0,Toxic effect of ethyl alcohol
+10008816,35495639,OVERDOSE,7.0,E9502,9.0,SUICIDE-SEDAT/HYPNOTIC,9.0,Suicide and self-inflicted poisoning by other sedatives and hypnotics
+10008816,35495639,OVERDOSE,8.0,E9503,9.0,SUICIDE-PSYCHOTROPIC AGT,9.0,Suicide and self-inflicted poisoning by tranquilizers and other psychotropic agents
+10008816,35495639,OVERDOSE,9.0,E9504,9.0,SUICIDE-DRUG/MEDICIN NEC,9.0,Suicide and self-inflicted poisoning by other specified drugs and medicinal substances
+10008816,35499422,"ETOH, SI",1.0,R262,10.0,"Difficulty in walking, not elsewhere classified",10.0,"Difficulty in walking, not elsewhere classified"
+10008816,35499422,"ETOH, SI",2.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,35499422,"ETOH, SI",3.0,R45851,10.0,Suicidal ideations,10.0,Suicidal ideations
+10008816,35499422,"ETOH, SI",4.0,F329,10.0,"Major depressive disorder, single episode, unspecified",10.0,"Major depressive disorder, single episode, unspecified"
+10008816,35499422,"ETOH, SI",5.0,M542,10.0,Cervicalgia,10.0,Cervicalgia
+10008816,38164200,ETOH,1.0,F10229,10.0,"Alcohol dependence with intoxication, unspecified",10.0,"Alcohol dependence with intoxication, unspecified"
+10008816,38164200,ETOH,2.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10008816,38721066,ETOH,1.0,30500,9.0,ALCOHOL ABUSE-UNSPEC,9.0,"Alcohol abuse, unspecified"
+10008816,38721066,ETOH,2.0,9693,9.0,POISON-ANTIPSYCHOTIC NEC,9.0,"Poisoning by other antipsychotics, neuroleptics, and major tranquilizers"
+10008816,38721066,ETOH,3.0,E9803,9.0,UNDETERM POIS-PSYCHOTROP,9.0,"Poisoning by tranquilizers and other psychotropic agents, undetermined whether accidentally or purposely inflicted"
+10008816,39686016,Substance use,1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008816,39686016,Substance use,2.0,G40909,10.0,"Epilepsy, unsp, not intractable, without status epilepticus",10.0,"Epilepsy, unspecified, not intractable, without status epilepticus"
+10008816,39923608,"ETOH, Seizure",1.0,F10129,10.0,"Alcohol abuse with intoxication, unspecified",10.0,"Alcohol abuse with intoxication, unspecified"
+10008819,30329888,Abd pain,1.0,K436,10.0,"Other and unsp ventral hernia with obstruction, w/o gangrene",10.0,"Other and unspecified ventral hernia with obstruction, without gangrene"
+10008819,30329888,Abd pain,2.0,I10,10.0,Essential (primary) hypertension,10.0,Essential (primary) hypertension
+10008834,39570047,PED STRUCK/RUN OVER,1.0,9221,9.0,CONTUSION OF CHEST WALL,9.0,Contusion of chest wall
+10008834,39570047,PED STRUCK/RUN OVER,2.0,E8147,9.0,MV COLL W PEDEST-PEDEST,9.0,Motor vehicle traffic accident involving collision with pedestrian injuring pedestrian
+10008834,39570047,PED STRUCK/RUN OVER,3.0,92300,9.0,CONTUSION SHOULDER REG,9.0,Contusion of shoulder region
+10008834,39570047,PED STRUCK/RUN OVER,4.0,92410,9.0,CONTUSION OF LOWER LEG,9.0,Contusion of lower leg
+10008922,36242385,INFLUENZA LIKE ILLNESS,1.0,7862,9.0,COUGH,9.0,Cough
+10008922,36242385,INFLUENZA LIKE ILLNESS,2.0,7291,9.0,MYALGIA AND MYOSITIS NOS,9.0,"Myalgia and myositis, unspecified"
+10008922,36242385,INFLUENZA LIKE ILLNESS,3.0,7840,9.0,HEADACHE,9.0,Headache
+10008922,36242385,INFLUENZA LIKE ILLNESS,4.0,47819,9.0,OTHER DISEASE OF NASAL CAVITY AND SINUSES,9.0,Other disease of nasal cavity and sinuses
+10008922,36242385,INFLUENZA LIKE ILLNESS,5.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10008935,38870375,Vomiting,1.0,R1111,10.0,Vomiting without nausea,10.0,Vomiting without nausea
+10009021,31368873,RIGHT CHIN INFECTION,1.0,6869,9.0,LOCAL SKIN INFECTION NOS,9.0,Unspecified local infection of skin and subcutaneous tissue
+10009021,31368873,RIGHT CHIN INFECTION,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10009021,31368873,RIGHT CHIN INFECTION,3.0,07070,9.0,UNSPECIFIED VIRAL HEPATITIS C WITHOUT HEPATIC COMA,9.0,Unspecified viral hepatitis C without hepatic coma
+10009021,31368873,RIGHT CHIN INFECTION,4.0,V08,9.0,ASYMPTOMATIC HIV INFECTION,9.0,Asymptomatic human immunodeficiency virus [HIV] infection status
+10009021,37219258,ABSCESS TO RIGHT CHEEK,1.0,6820,9.0,CELLULITIS OF FACE,9.0,Cellulitis and abscess of face
+10009038,33647891,"Right sided abdominal pain, R Rib pain",1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10009038,33647891,"Right sided abdominal pain, R Rib pain",2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10009038,33647891,"Right sided abdominal pain, R Rib pain",3.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10009038,33647891,"Right sided abdominal pain, R Rib pain",4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10009038,38228904,EPIGASTRIC PAIN,1.0,78906,9.0,ABDOMINAL PAIN EPIGASTRIC,9.0,"Abdominal pain, epigastric"
+10009049,31628990,Chest pain,1.0,486,9.0,"PNEUMONIA,ORGANISM UNSPECIFIED",9.0,"Pneumonia, organism unspecified"
+10009117,32982437,"MVC, Transfer",1.0,S02401A,10.0,"Maxillary fracture, unspecified side, init",10.0,"Maxillary fracture, unspecified side, initial encounter for closed fracture"
+10009117,32982437,"MVC, Transfer",2.0,S023XXA,10.0,"Fracture of orbital floor, init encntr for closed fracture",10.0,"Fracture of orbital floor, initial encounter for closed fracture"
+10009117,32982437,"MVC, Transfer",3.0,V4752XA,10.0,"Driver of car injured in clsn w statnry object in traf, init",10.0,"Driver of other type car injured in collision with fixed or stationary object in traffic accident, initial encounter"
+10009117,32982437,"MVC, Transfer",4.0,S0121XA,10.0,"Laceration without foreign body of nose, initial encounter",10.0,"Laceration without foreign body of nose, initial encounter"
+10009129,38704546,"Thumb injury, Transfer",1.0,S68522A,10.0,"Partial traumatic trnsphal amputation of left thumb, init",10.0,"Partial traumatic transphalangeal amputation of left thumb, initial encounter"
+10009129,38704546,"Thumb injury, Transfer",2.0,W312XXA,10.0,"Contact w powered woodworking and forming machines, init",10.0,"Contact with powered woodworking and forming machines, initial encounter"
+10009194,31612067,R Shoulder pain,1.0,71831,9.0,RECUR DISLOCAT-SHLDER,9.0,"Recurrent dislocation of joint, shoulder region"
+10009194,37555818,R Shoulder pain,1.0,71831,9.0,RECUR DISLOCAT-SHLDER,9.0,"Recurrent dislocation of joint, shoulder region"
+10009194,38863908,"R  SHOULDER INJ, Human bite",1.0,83104,9.0,DISLOC ACROMIOCLAVIC-CL,9.0,Closed dislocation of acromioclavicular (joint)
+10009194,38863908,"R  SHOULDER INJ, Human bite",2.0,E8889,9.0,UNSPECIFIED FALL,9.0,Unspecified fall
+10009194,38863908,"R  SHOULDER INJ, Human bite",2.0,E8889,9.0,UNSPECIFIED FALL,10.0,Other specified metabolic disorders
+10009203,32673073,ABD PAIN,1.0,78904,9.0,ABDOMINAL PAIN LLQ,9.0,"Abdominal pain, left lower quadrant"
+10009203,34703067,URINARY RETENTION,1.0,78820,9.0,RETENTION URINE UNSPECIFIED,9.0,"Retention of urine, unspecified"
+10009286,34877558,"Myalgia, Sore throat",1.0,J029,10.0,"Acute pharyngitis, unspecified",10.0,"Acute pharyngitis, unspecified"
+10009286,34877558,"Myalgia, Sore throat",2.0,B349,10.0,"Viral infection, unspecified",10.0,"Viral infection, unspecified"
+10009286,34877558,"Myalgia, Sore throat",3.0,K029,10.0,"Dental caries, unspecified",10.0,"Dental caries, unspecified"
+10009286,36456671,ALTERED MENTAL STATUS,1.0,78097,9.0,ALTERED MENTAL STATUS ,9.0,Altered mental status
+10009286,39018404,ANXIETY,1.0,7802,9.0,SYNCOPE AND COLLAPSE,9.0,Syncope and collapse
+10009286,39018404,ANXIETY,2.0,30000,9.0,ANXIETY STATE NOS,9.0,"Anxiety state, unspecified"
+10009337,34034021,Eye redness,1.0,H01005,10.0,Unspecified blepharitis left lower eyelid,10.0,Unspecified blepharitis left lower eyelid
+10009337,34034021,Eye redness,2.0,H01002,10.0,Unspecified blepharitis right lower eyelid,10.0,Unspecified blepharitis right lower eyelid
+10009337,34034021,Eye redness,3.0,H01001,10.0,Unspecified blepharitis right upper eyelid,10.0,Unspecified blepharitis right upper eyelid
+10009513,30159579,Rectal pain,1.0,4554,9.0,EXT THROMBOS HEMORRHOID,9.0,External thrombosed hemorrhoids
+10009614,30780014,R UPPER QUADRANT AND RIGHT BACK,1.0,57450,9.0,CHOLEDOCHOLITHIASIS NOS,9.0,"Calculus of bile duct without mention of cholecystitis, without mention of obstruction"
+10009657,30089605,Rectal pain,1.0,56942,9.0,ANAL OR RECTAL PAIN,9.0,Anal or rectal pain
+10009657,32516982,N/V/D,1.0,78909,9.0,ABDOMINAL PAIN OTHER SPECIED,9.0,"Abdominal pain, other specified site"
+10009657,32516982,N/V/D,2.0,78701,9.0,NAUSEA WITH VOMITING,9.0,Nausea with vomiting
+10009657,32516982,N/V/D,3.0,78791,9.0,DIARRHEA,9.0,Diarrhea
+10009657,32700312,Rectal pain,1.0,566,9.0,ABCESS OF ANAL & RECTAL REGIONS,9.0,Abscess of anal and rectal regions
+10009657,32908032,PERIRECTAL PAIN,1.0,566,9.0,ABCESS OF ANAL & RECTAL REGIONS,9.0,Abscess of anal and rectal regions
+10009657,39352333,"Abscess, Rectal pain",1.0,566,9.0,ABCESS OF ANAL & RECTAL REGIONS,9.0,Abscess of anal and rectal regions
+10009759,30420037,Presyncope,1.0,R55,10.0,Syncope and collapse,10.0,Syncope and collapse
+10009759,30420037,Presyncope,2.0,E039,10.0,"Hypothyroidism, unspecified",10.0,"Hypothyroidism, unspecified"
+10009759,30420037,Presyncope,3.0,Z7901,10.0,Long term (current) use of anticoagulants,10.0,Long term (current) use of anticoagulants
+10009829,35786721,Neck pain,1.0,7231,9.0,CERVICALGIA,9.0,Cervicalgia
+10009829,35786721,Neck pain,2.0,25000,9.0,DIABETES UNCOMPL ADULT,9.0,"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled"
+10009829,35786721,Neck pain,3.0,V5867,9.0,LONG-TERM (CURRENT) USE OF INSULIN,9.0,Long-term (current) use of insulin
+10009829,35786721,Neck pain,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10009829,35786721,Neck pain,5.0,2720,9.0,HYPERCHOLESTEROLEMIA,9.0,Pure hypercholesterolemia
+10009866,37316180,LEFT ACHILLES PAIN,1.0,84509,9.0,SPRAIN OF ANKLE NEC,9.0,Other sprains and strains of ankle
+10009866,37316180,LEFT ACHILLES PAIN,2.0,E9288,9.0,ACCIDENT NEC,9.0,Other accidents
+10009866,37316180,LEFT ACHILLES PAIN,3.0,E0076,9.0,ACTIVITIES INVOLVING BASKETBALL,9.0,Activities involving basketball
+10010038,35896473,"Fever, Sore throat",1.0,J36,10.0,Peritonsillar abscess,10.0,Peritonsillar abscess
+10010038,35896473,"Fever, Sore throat",2.0,R509,10.0,"Fever, unspecified",10.0,"Fever, unspecified"
+10010038,35896473,"Fever, Sore throat",3.0,J029,10.0,"Acute pharyngitis, unspecified",10.0,"Acute pharyngitis, unspecified"
+10010053,32774737,VOMITING AND/OR NAUSEA,1.0,78906,9.0,ABDOMINAL PAIN EPIGASTRIC,9.0,"Abdominal pain, epigastric"
+10010053,32774737,VOMITING AND/OR NAUSEA,2.0,78701,9.0,NAUSEA WITH VOMITING,9.0,Nausea with vomiting
+10010053,32774737,VOMITING AND/OR NAUSEA,3.0,78791,9.0,DIARRHEA,9.0,Diarrhea
+10010053,37923385,"Headache, Vomiting",1.0,64303,9.0,MILD HYPEREMESIS-ANTEPAR,9.0,"Mild hyperemesis gravidarum, antepartum condition or complication"
+10010058,36125256,Chest pain,1.0,I7101,10.0,Dissection of thoracic aorta,10.0,Dissection of thoracic aorta
+10010058,36125256,Chest pain,2.0,I214,10.0,Non-ST elevation (NSTEMI) myocardial infarction,10.0,Non-ST elevation (NSTEMI) myocardial infarction
+10010058,36125256,Chest pain,3.0,R1013,10.0,Epigastric pain,10.0,Epigastric pain
+10010058,37239202,"Altered mental status, Failure to thrive",1.0,E860,10.0,Dehydration,10.0,Dehydration
+10010058,39919549,Respiratory distress,1.0,R570,10.0,Cardiogenic shock,10.0,Cardiogenic shock
+10010116,35249374,CYST,1.0,6850,9.0,PILONIDAL CYST W ABSCESS,9.0,Pilonidal cyst with abscess
+10010150,30931973,DIZZY,1.0,7851,9.0,PALPITATIONS,9.0,Palpitations
+10010150,30931973,DIZZY,2.0,78605,9.0,SHORTNESS OF BREATH,9.0,Shortness of breath
+10010150,35986727,FEELS DIZZY,1.0,38630,9.0,LABYRINTHITIS NOS,9.0,"Labyrinthitis, unspecified"
+10010158,32838330,Fatigue,1.0,R531,10.0,Weakness,10.0,Weakness
+10010226,33243051,ABDOMINAL PAIN,1.0,6253,9.0,DYSMENORRHEA,9.0,Dysmenorrhea
+10010226,36949803,RASH TO BACK,1.0,7821,9.0,NONSPECIF SKIN ERUPT NEC,9.0,Rash and other nonspecific skin eruption
+10010231,30826504,"Fever, Transfer",1.0,D709,10.0,"Neutropenia, unspecified",10.0,"Neutropenia, unspecified"
+10010231,30826504,"Fever, Transfer",2.0,R5081,10.0,Fever presenting with conditions classified elsewhere,10.0,Fever presenting with conditions classified elsewhere
+10010231,39117468,"Transfer, Abnormal labs",1.0,C9200,10.0,"Acute myeloblastic leukemia, not having achieved remission",10.0,"Acute myeloblastic leukemia, not having achieved remission"
+10010231,39192666,"Fever, Wound eval, Neutropenia",1.0,D709,10.0,"Neutropenia, unspecified",10.0,"Neutropenia, unspecified"
+10010231,39192666,"Fever, Wound eval, Neutropenia",2.0,R5081,10.0,Fever presenting with conditions classified elsewhere,10.0,Fever presenting with conditions classified elsewhere
+10010264,39570552,"Nausea, Melena",1.0,78791,9.0,DIARRHEA,9.0,Diarrhea
+10010374,39565996,LOWER BACK PAIN,1.0,7242,9.0,LUMBAGO,9.0,Lumbago
+10010393,30326236,Back pain,1.0,M549,10.0,"Dorsalgia, unspecified",10.0,"Dorsalgia, unspecified"
+10010393,30620690,Back pain,1.0,G8929,10.0,Other chronic pain,10.0,Other chronic pain
+10010393,30620690,Back pain,2.0,M545,10.0,Low back pain,10.0,Low back pain
+10010393,33538135,"Abd pain, Urinary retention, Transfer",1.0,R531,10.0,Weakness,10.0,Weakness
+10010393,34771814,"PAIN, SI",1.0,78907,9.0,ABDOMINAL PAIN GENERALIZED,9.0,"Abdominal pain, generalized"
+10010393,34771814,"PAIN, SI",2.0,6259,9.0,FEM GENITAL SYMPTOMS NOS,9.0,Unspecified symptom associated with female genital organs
+10010393,34771814,"PAIN, SI",3.0,311,9.0,DEPRESSIVE DISORDER,9.0,"Depressive disorder, not elsewhere classified"
+10010393,34771814,"PAIN, SI",4.0,V6284,9.0,SUICIDAL IDEATION,9.0,Suicidal ideation
+10010404,36453599,L Calf pain,1.0,L03116,10.0,Cellulitis of left lower limb,10.0,Cellulitis of left lower limb
+10010430,34504227,"Coffee ground emesis, Melena",1.0,K922,10.0,"Gastrointestinal hemorrhage, unspecified",10.0,"Gastrointestinal hemorrhage, unspecified"
+10010430,34504227,"Coffee ground emesis, Melena",2.0,K921,10.0,Melena,10.0,Melena
+10010430,37637822,Headache,1.0,R51,10.0,Headache,10.0,Headache
+10010440,30179229,LOWER EXTREMITY WEAKNESS,1.0,72989,9.0,MUSCSKEL SYMPT LIMB NEC,9.0,Other musculoskeletal symptoms referable to limbs
+10010440,30179229,LOWER EXTREMITY WEAKNESS,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10010440,30179229,LOWER EXTREMITY WEAKNESS,3.0,V4365,9.0,JOINT REPLACEMENT-KNEE,9.0,Knee joint replacement
+10010440,30179229,LOWER EXTREMITY WEAKNESS,4.0,V1254,9.0,"PERSONAL HISTORY OF TIA, AND CEREBRAL INFARCTION WITHOUT RESIDUAL DEFICITS",9.0,"Personal history of transient ischemic attack (TIA), and cerebral infarction without residual deficits"
+10010440,31303017,change ms,1.0,78097,9.0,ALTERED MENTAL STATUS ,9.0,Altered mental status
+10010440,37687568,Wound eval,1.0,99832,9.0,DISRUPTION OF EXTERNAL OPERATION (SURGICAL) WOUND,9.0,Disruption of external operation (surgical) wound
+10010440,37687568,Wound eval,2.0,E8788,9.0,ABN REACT-SURG PROC NEC,9.0,"Other specified surgical operations and procedures causing abnormal patient reaction, or later complication, without mention of misadventure at time of operation"
+10010440,37687568,Wound eval,3.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10010440,37687568,Wound eval,4.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10010440,37687568,Wound eval,5.0,2724,9.0,HYPERLIPIDEMIA NEC/NOS,9.0,Other and unspecified hyperlipidemia
+10010440,37687568,Wound eval,6.0,20300,9.0,"MULTIPLE MYELOMA, WITHOUT MENTION OF HAVING ACHIEVED REMISSION",9.0,"Multiple myeloma, without mention of having achieved remission"
+10010440,37931129,ABN LABS,1.0,5990,9.0,URIN TRACT INFECTION NOS,9.0,"Urinary tract infection, site not specified"
+10010440,37931129,ABN LABS,2.0,5789,9.0,GASTROINTEST HEMORR NOS,9.0,"Hemorrhage of gastrointestinal tract, unspecified"
+10010440,37931129,ABN LABS,3.0,28800,9.0,"NEUTROPENIA, UNSPECIFIED ",9.0,"Neutropenia, unspecified"
+10010440,37931129,ABN LABS,4.0,78009,9.0,SEMICOMA/STUPOR,9.0,Other alteration of consciousness
+10010471,31660580,s/p cardiac arrest,1.0,I469,10.0,"Cardiac arrest, cause unspecified",10.0,"Cardiac arrest, cause unspecified"
+10010471,35357090,"Weakness, Atrial fibrillation, Transfer",1.0,I4891,10.0,Unspecified atrial fibrillation,10.0,Unspecified atrial fibrillation
+10010485,35430491,REQUESTING LABS,1.0,Z0000,10.0,Encntr for general adult medical exam w/o abnormal findings,10.0,Encounter for general adult medical examination without abnormal findings
+10010635,31632808,CHEST PAIN,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10010638,34233892,Dizziness,1.0,7804,9.0,VERTIGO/DIZZINESS,9.0,Dizziness and giddiness
+10010638,34233892,Dizziness,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10010638,34328742,R RIB PAIN,1.0,78650,9.0,CHEST PAIN NOS,9.0,"Chest pain, unspecified"
+10010638,35217617,Headache,1.0,7840,9.0,HEADACHE,9.0,Headache
+10010638,35217617,Headache,2.0,4019,9.0,HYPERTENSION NOS,9.0,Unspecified essential hypertension
+10010638,35974202,"Dizziness, Nausea",1.0,7804,9.0,VERTIGO/DIZZINESS,9.0,Dizziness and giddiness
