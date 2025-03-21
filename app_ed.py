@@ -100,7 +100,9 @@ with tab3:
         st.write("Ortalama Değerler:")
         st.write(df_triage.mean(numeric_only=True))
         st.write("📈 Dağılım Grafikleri:")
-        st.line_chart(df_triage)
+        numeric_cols = df_triage.select_dtypes(include='number').columns
+        st.line_chart(df_triage[numeric_cols])
+
     else:
         st.info("Triyaj verisi bulunamadı.")
 
