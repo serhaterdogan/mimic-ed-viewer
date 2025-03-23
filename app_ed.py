@@ -74,8 +74,6 @@ if not df_summary.empty:
     }
     df_summary.rename(columns=pretty_columns, inplace=True)
 
-    st.write(f"👥 Hasta verisi satır sayısı (başlangıç): {len(patients_df)}")
-    st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
     st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
 
     page_size = 100
