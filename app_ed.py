@@ -48,7 +48,6 @@ def load_and_filter_data():
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
             st.write(f"🔹 anchor_age geçerli satır sayısı: {patients_df['anchor_age'].notna().sum()}")
-            # Yaş filtresi geçici olarak uygulanmıyor
 
         st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
 
@@ -81,20 +80,26 @@ st.subheader("Nöropsikiyatrik Hasta Özeti")
 df_summary = load_and_filter_data()
 
 if not df_summary.empty:
+    # Yalnızca belirli sütunları göster
+    selected_columns = [
+        "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
+        "marital_status", "race", "icd_code", "icd_title", "long_title"
+    ]
+    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
+
     pretty_columns = {
         "subject_id": "Hasta ID",
         "hadm_id": "Yatış ID",
+        "stay_id": "Klinik Kalış ID",
         "gender": "Cinsiyet",
         "anchor_age": "Yaş",
+        "marital_status": "Medeni Durum",
         "race": "Irk",
-        "arrival_transport": "Transfer Yolu",
-        "disposition": "Son Durum",
-        "intime": "ED Giriş Zamanı",
-        "outtime": "ED Çıkış Zamanı",
         "icd_code": "ICD Kodu",
+        "icd_title": "ICD Başlığı",
         "long_title": "Tanı Açıklaması"
     }
-    df_summary.rename(columns={k: v for k, v in pretty_columns.items() if k in df_summary.columns}, inplace=True)
+    df_summary.rename(columns=pretty_columns, inplace=True)
 
     st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
 
