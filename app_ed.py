@@ -42,13 +42,13 @@ def load_and_filter_data():
         if "anchor_age" not in patients_df.columns and "intime" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_datetime(patients_df["intime"], errors="coerce").dt.year - 1950
 
-        # Filtrele
         if gender_filter != "All" and "gender" in patients_df.columns:
             patients_df = patients_df[patients_df["gender"] == gender_filter]
 
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
-            patients_df = patients_df[(patients_df["anchor_age"] >= age_min) & (patients_df["anchor_age"] <= age_max)]
+            st.write(f"🔹 anchor_age geçerli satır sayısı: {patients_df['anchor_age'].notna().sum()}")
+            # Yaş filtresi geçici olarak uygulanmıyor
 
         st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
 
