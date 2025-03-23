@@ -22,10 +22,10 @@ if os.path.exists("data/neuro_psych_diagnoses.csv"):
 else:
     st.error("Tanı verisi dosyası bulunamadı!")
 
-if os.path.exists("data/admissions.csv"):
-    st.success("Admissions verisi bulundu.")
+if os.path.exists("data/patients.csv"):
+    st.success("Patients verisi bulundu.")
 else:
-    st.warning("Admissions verisi bulunamadı. anchor_age kullanılamayabilir.")
+    st.warning("Patients verisi bulunamadı. anchor_age kullanılamayabilir.")
 
 # Filtreler
 st.sidebar.header("Filtreler")
@@ -38,15 +38,14 @@ def load_and_filter_data():
     try:
         patients_df = pd.read_csv("data/neuro_psych_patients.csv")
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
-
-        admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
+        base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
 
         st.write(f"👥 Hasta verisi satır sayısı (başlangıç): {len(patients_df)}")
         st.write(f"🧠 Tanı verisi satır sayısı (başlangıç): {len(diagnoses_df)}")
 
-        if not admissions_df.empty:
-            admissions_df = admissions_df[["subject_id", "hadm_id", "anchor_age", "marital_status"]]
-            patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
+        if not base_patients_df.empty:
+            base_patients_df = base_patients_df[["subject_id", "anchor_age"]]
+            patients_df = pd.merge(patients_df, base_patients_df, on="subject_id", how="left")
 
         if gender_filter != "All" and "gender" in patients_df.columns:
             patients_df = patients_df[patients_df["gender"] == gender_filter]
