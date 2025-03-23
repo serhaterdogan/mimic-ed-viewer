@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import os
 
+# Set page config first
+st.set_page_config(page_title="ED Dashboard", layout="wide")
+st.title("Acil Servis (ED) Verileri")
+
 # Tanı: Dosya var mı? Örnek göster
 if os.path.exists("data/neuro_psych_patients.csv"):
     st.success("Veri dosyası bulundu.")
@@ -35,9 +39,6 @@ def get_filtered_data(path, gender_filter, age_min, age_max, icd_filter):
         st.error(f"CSV parça okuma hatası: {e}")
         return pd.DataFrame()
     return pd.concat(chunks, ignore_index=True) if chunks else pd.DataFrame()
-
-st.set_page_config(page_title="ED Dashboard", layout="wide")
-st.title("Acil Servis (ED) Verileri")
 
 # Filtreler
 st.sidebar.header("Filtreler")
