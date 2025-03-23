@@ -27,7 +27,7 @@ st.title("Acil Servis (ED) Verileri")
 st.sidebar.header("Filtreler")
 icd_filter = st.sidebar.text_input("ICD Kodu ile Filtrele", value="G30", key="icd_filter")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
-age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 20), key="age_slider")
+age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (65, 101), key="age_slider")
 
 # Nöropsikiyatrik Hasta Bilgileri Tablosu
 st.subheader("Nöropsikiyatrik Hasta Özeti")
