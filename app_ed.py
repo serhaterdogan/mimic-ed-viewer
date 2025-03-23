@@ -6,11 +6,27 @@ import os
 st.set_page_config(page_title="ED Dashboard", layout="wide")
 st.title("Acil Servis (ED) Verileri")
 
+# Hasta ve tanı verilerini yüklemeden önce boş filtre kutuları oluşturmak için değerleri çekelim
+def load_unique_filters():
+    admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
+    if not admissions_df.empty:
+        return {
+            "admission_type": sorted(admissions_df["admission_type"].dropna().unique().tolist()),
+            "admission_location": sorted(admissions_df["admission_location"].dropna().unique().tolist()),
+            "discharge_location": sorted(admissions_df["discharge_location"].dropna().unique().tolist()),
+        }
+    return {"admission_type": [], "admission_location": [], "discharge_location": []}
+
+filter_options = load_unique_filters()
+
 # Filtreler
 st.sidebar.header("Filtreler")
 icd_filter = st.sidebar.text_input("ICD Kodu veya Tanı Adı ile Filtrele", value="", key="icd_filter")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 90), key="age_slider")
+adm_type_filter = st.sidebar.selectbox("Yatış Türü", ["All"] + filter_options["admission_type"], key="adm_type")
+adm_loc_filter = st.sidebar.selectbox("Başvuru Yeri", ["All"] + filter_options["admission_location"], key="adm_loc")
+disch_loc_filter = st.sidebar.selectbox("Taburcu Yeri", ["All"] + filter_options["discharge_location"], key="disch_loc")
 
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
@@ -34,6 +50,15 @@ def load_and_filter_data():
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
             patients_df = patients_df[(patients_df["anchor_age"] >= age_min) & (patients_df["anchor_age"] <= age_max)]
+
+        if adm_type_filter != "All" and "admission_type" in patients_df.columns:
+            patients_df = patients_df[patients_df["admission_type"] == adm_type_filter]
+
+        if adm_loc_filter != "All" and "admission_location" in patients_df.columns:
+            patients_df = patients_df[patients_df["admission_location"] == adm_loc_filter]
+
+        if disch_loc_filter != "All" and "discharge_location" in patients_df.columns:
+            patients_df = patients_df[patients_df["discharge_location"] == disch_loc_filter]
 
         # ICD filtrelemesi
         if icd_filter:
