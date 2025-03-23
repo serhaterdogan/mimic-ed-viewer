@@ -2,13 +2,23 @@ import streamlit as st
 import pandas as pd
 import os
 
+# Tanı: Dosya var mı? Örnek göster
+if os.path.exists("data/neuro_psych_patients.csv"):
+    st.success("Veri dosyası bulundu.")
+    try:
+        sample_df = pd.read_csv("data/neuro_psych_patients.csv", nrows=5)
+        st.write("\n\n📋 Örnek Veri:", sample_df)
+    except Exception as e:
+        st.error(f"Dosya okunamadı: {e}")
+else:
+    st.error("Veri dosyası bulunamadı!")
+
 # Hafıza dostu CSV filtreleme fonksiyonu
 def get_filtered_data(path, gender_filter, age_min, age_max, icd_filter):
     chunks = []
     try:
         for chunk in pd.read_csv(path, chunksize=5000):
             if 'gender' in chunk.columns and 'anchor_age' in chunk.columns:
-                # Sayısal veri tipi dönüşümü
                 chunk["anchor_age"] = pd.to_numeric(chunk["anchor_age"], errors="coerce")
 
                 if gender_filter != "All":
