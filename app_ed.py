@@ -27,7 +27,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 st.sidebar.header("🔍 Filtreler")
 icd_filter = st.sidebar.text_input("ICD Kodu ile Filtrele", key="icd_filter")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
-age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 33), key="age_slider")
+age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 20), key="age_slider")
 
 # 🔍 Nöropsikiyatrik Hasta Bilgileri Tablosu
 with tab1:
