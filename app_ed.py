@@ -16,9 +16,9 @@ st.title("🏥 Acil Servis (ED) Verileri")
 
 # Sekmeler
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "🧾 Hasta Özeti",
+    "📟 Hasta Özeti",
     "📊 En Sık Tanılar",
-    "🩺 Triyaj Verileri",
+    "🪥 Triyaj Verileri",
     "⏱ Kalış Süresi",
     "🧠 Şikayet-Tanı"
 ])
@@ -29,32 +29,28 @@ icd_filter = st.sidebar.text_input("ICD Kodu ile Filtrele", key="icd_filter")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 33), key="age_slider")
 
-# 🔍 Genişletilmiş Hasta Bilgileri Tablosu
+# 🔍 Nöropsikiyatrik Hasta Bilgileri Tablosu
 with tab1:
-    st.subheader("🧾 Hasta Özeti Tablosu")
-    df_summary = get_data_csv("data/full_patient.csv")
+    st.subheader("📟 Nöropsikiyatrik Hasta Özeti")
+    df_summary = get_data_csv("data/neuro_psych_patients.csv")
     if not df_summary.empty:
         pretty_columns = {
             "subject_id": "Hasta ID",
             "hadm_id": "Yatış ID",
             "gender": "Cinsiyet",
-            "age": "Yaş",
+            "anchor_age": "Yaş",
             "race": "Irk",
-            "marital_status": "Medeni Durum",
-            "date_of_death": "Ölüm Tarihi",
-            "admission_type": "Geliş Tipi",
-            "admission_location": "Kabul Lokasyonu",
-            "discharge_location": "Çıkış Lokasyonu",
-            "icd_code": "ICD Kodu",
-            "diagnosis": "Tanı",
             "arrival_transport": "Transfer Yolu",
             "disposition": "Son Durum",
-            "ed_intime": "ED Giriş Zamanı",
-            "ed_outtime": "ED Çıkış Zamanı",
-            "hosp_admittime": "Hastane Giriş",
-            "hosp_dischtime": "Hastane Çıkış"
+            "intime": "ED Giriş Zamanı",
+            "outtime": "ED Çıkış Zamanı"
         }
         df_summary.rename(columns=pretty_columns, inplace=True)
+
+        # Filtre uygula
+        if gender_filter != "All":
+            df_summary = df_summary[df_summary["Cinsiyet"] == gender_filter]
+        df_summary = df_summary[(df_summary["Yaş"] >= age_min) & (df_summary["Yaş"] <= age_max)]
 
         st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
 
@@ -92,17 +88,16 @@ if not df_trend.empty:
 else:
     st.info("Zaman trend verisi bulunamadı.")
 
-# 🩺 Triyaj Verileri
+# 🪥 Triyaj Verileri
 df_triage = get_data_csv("data/triage.csv")
 with tab3:
-    st.subheader("🩺 Triyaj Bulguları")
+    st.subheader("🪥 Triyaj Bulguları")
     if not df_triage.empty:
         st.write("Ortalama Değerler:")
         st.write(df_triage.mean(numeric_only=True))
         st.write("📈 Dağılım Grafikleri:")
         numeric_cols = df_triage.select_dtypes(include='number').columns
         st.line_chart(df_triage[numeric_cols])
-
     else:
         st.info("Triyaj verisi bulunamadı.")
 
@@ -120,7 +115,7 @@ if not df_demo.empty:
     st.write("🚪 Giriş Tipi:")
     st.dataframe(df_demo['admission_type'].value_counts().rename_axis('Giriş Tipi').reset_index(name='Hasta Sayısı'))
 
-    st.write("🏁 Taburcu Lokasyonu:")
+    st.write("🌞 Taburcu Lokasyonu:")
     st.dataframe(df_demo['discharge_location'].value_counts().rename_axis('Taburcu Yeri').reset_index(name='Hasta Sayısı'))
 else:
     st.info("Demografik ve taburcu bilgileri için yeterli veri bulunamadı.")
