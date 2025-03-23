@@ -12,26 +12,31 @@ if os.path.exists("data/neuro_psych_patients.csv"):
     try:
         sample_df = pd.read_csv("data/neuro_psych_patients.csv", nrows=5)
         st.write("\n\n📋 Örnek Veri:", sample_df)
+        st.write("Sütunlar:", list(sample_df.columns))
     except Exception as e:
         st.error(f"Dosya okunamadı: {e}")
 else:
     st.error("Veri dosyası bulunamadı!")
 
-# Hafıza dostu CSV filtreleme fonksiyonu
+# Hafıza dostu CSV filtreleme fonksiyonu (anchor_age zorunlu değil)
 def get_filtered_data(path, gender_filter, age_min, age_max, icd_filter):
     chunks = []
     try:
         for chunk in pd.read_csv(path, chunksize=5000):
-            if 'gender' in chunk.columns and 'anchor_age' in chunk.columns:
-                chunk["anchor_age"] = pd.to_numeric(chunk["anchor_age"], errors="coerce")
-
+            if 'gender' in chunk.columns:
+                if 'anchor_age' in chunk.columns:
+                    chunk["anchor_age"] = pd.to_numeric(chunk["anchor_age"], errors="coerce")
+                    chunk = chunk[(chunk["anchor_age"] >= age_min) & (chunk["anchor_age"] <= age_max)]
                 if gender_filter != "All":
                     chunk = chunk[chunk["gender"] == gender_filter]
-                chunk = chunk[(chunk["anchor_age"] >= age_min) & (chunk["anchor_age"] <= age_max)]
 
+                # ICD filtresi esnek hale getirildi
                 if icd_filter:
-                    if 'icd_code' in chunk.columns:
-                        chunk = chunk[chunk['icd_code'].astype(str).str.contains(icd_filter, na=False)]
+                    possible_columns = ['icd_code', 'icd_title', 'diagnosis', 'long_title']
+                    for col in possible_columns:
+                        if col in chunk.columns:
+                            chunk = chunk[chunk[col].astype(str).str.contains(icd_filter, na=False, case=False)]
+                            break
 
                 if not chunk.empty:
                     chunks.append(chunk)
