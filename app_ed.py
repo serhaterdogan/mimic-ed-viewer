@@ -35,6 +35,7 @@ def load_and_filter_data():
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
         base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
         admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
+        triage_df = pd.read_csv("data/triage.csv") if os.path.exists("data/triage.csv") else pd.DataFrame()
 
         if not base_patients_df.empty:
             base_patients_df = base_patients_df[["subject_id", "anchor_age"]]
@@ -43,6 +44,10 @@ def load_and_filter_data():
         if not admissions_df.empty:
             admissions_df = admissions_df[["subject_id", "hadm_id", "admission_type", "admission_location", "discharge_location"]]
             patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
+
+        if not triage_df.empty and "chiefcomplaint" in triage_df.columns:
+            triage_df = triage_df[["subject_id", "stay_id", "chiefcomplaint"]]
+            patients_df = pd.merge(patients_df, triage_df, on=["subject_id", "stay_id"], how="left")
 
         if gender_filter != "All" and "gender" in patients_df.columns:
             patients_df = patients_df[patients_df["gender"] == gender_filter]
@@ -87,6 +92,7 @@ if not df_summary.empty:
     selected_columns = [
         "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
         "marital_status", "race", "admission_type", "admission_location", "discharge_location",
+        "chiefcomplaint",
         "icd_code", "icd_title", "long_title"
     ]
     df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
@@ -102,6 +108,7 @@ if not df_summary.empty:
         "admission_type": "Yatış Türü",
         "admission_location": "Başvuru Yeri",
         "discharge_location": "Taburcu Yeri",
+        "chiefcomplaint": "Hasta Şikayeti",
         "icd_code": "ICD Kodu",
         "icd_title": "ICD Başlığı",
         "long_title": "Tanı Açıklaması"
