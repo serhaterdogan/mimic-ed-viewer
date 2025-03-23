@@ -6,27 +6,6 @@ import os
 st.set_page_config(page_title="ED Dashboard", layout="wide")
 st.title("Acil Servis (ED) Verileri")
 
-# Örnek veri gösterimi
-if os.path.exists("data/neuro_psych_patients.csv"):
-    st.success("Hasta verisi bulundu.")
-    try:
-        sample_df = pd.read_csv("data/neuro_psych_patients.csv", nrows=5)
-        st.write("📋 Örnek Hasta Verisi:", sample_df)
-    except Exception as e:
-        st.error(f"Hasta verisi okunamadı: {e}")
-else:
-    st.error("Hasta verisi dosyası bulunamadı!")
-
-if os.path.exists("data/neuro_psych_diagnoses.csv"):
-    st.success("Tanı verisi bulundu.")
-else:
-    st.error("Tanı verisi dosyası bulunamadı!")
-
-if os.path.exists("data/patients.csv"):
-    st.success("Patients verisi bulundu.")
-else:
-    st.warning("Patients verisi bulunamadı. anchor_age kullanılamayabilir.")
-
 # Filtreler
 st.sidebar.header("Filtreler")
 icd_filter = st.sidebar.text_input("ICD Kodu veya Tanı Adı ile Filtrele", value="", key="icd_filter")
@@ -40,9 +19,6 @@ def load_and_filter_data():
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
         base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
 
-        st.write(f"👥 Hasta verisi satır sayısı (başlangıç): {len(patients_df)}")
-        st.write(f"🧠 Tanı verisi satır sayısı (başlangıç): {len(diagnoses_df)}")
-
         if not base_patients_df.empty:
             base_patients_df = base_patients_df[["subject_id", "anchor_age"]]
             patients_df = pd.merge(patients_df, base_patients_df, on="subject_id", how="left")
@@ -53,9 +29,6 @@ def load_and_filter_data():
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
             patients_df = patients_df[(patients_df["anchor_age"] >= age_min) & (patients_df["anchor_age"] <= age_max)]
-            st.write(f"🔹 anchor_age geçerli satır sayısı: {patients_df['anchor_age'].notna().sum()}")
-
-        st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
 
         # ICD filtrelemesi
         if icd_filter:
@@ -69,11 +42,7 @@ def load_and_filter_data():
             if not matched:
                 st.warning("Filtreleme için uygun tanı sütunu bulunamadı.")
 
-        st.write(f"🧠 Tanı verisi satır sayısı (filtre sonrası): {len(diagnoses_df)}")
-
         merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
-
-        st.write(f"🔎 Eşleşen toplam satır: {len(merged_df)}")
         return merged_df
 
     except Exception as e:
