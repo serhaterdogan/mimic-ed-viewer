@@ -23,23 +23,29 @@ def get_filtered_data(path, gender_filter, age_min, age_max, icd_filter):
     chunks = []
     try:
         for chunk in pd.read_csv(path, chunksize=5000):
-            if 'gender' in chunk.columns:
-                if 'anchor_age' in chunk.columns:
-                    chunk["anchor_age"] = pd.to_numeric(chunk["anchor_age"], errors="coerce")
-                    chunk = chunk[(chunk["anchor_age"] >= age_min) & (chunk["anchor_age"] <= age_max)]
-                if gender_filter != "All":
-                    chunk = chunk[chunk["gender"] == gender_filter]
+            # Cinsiyet filtresi
+            if gender_filter != "All" and "gender" in chunk.columns:
+                chunk = chunk[chunk["gender"] == gender_filter]
 
-                # ICD filtresi esnek hale getirildi
-                if icd_filter:
-                    possible_columns = ['icd_code', 'icd_title', 'diagnosis', 'long_title']
-                    for col in possible_columns:
-                        if col in chunk.columns:
-                            chunk = chunk[chunk[col].astype(str).str.contains(icd_filter, na=False, case=False)]
-                            break
+            # Yaş filtresi
+            if "anchor_age" in chunk.columns:
+                chunk["anchor_age"] = pd.to_numeric(chunk["anchor_age"], errors="coerce")
+                chunk = chunk[(chunk["anchor_age"] >= age_min) & (chunk["anchor_age"] <= age_max)]
 
-                if not chunk.empty:
-                    chunks.append(chunk)
+            # ICD filtresi
+            if icd_filter:
+                possible_columns = ['icd_code', 'icd_title', 'diagnosis', 'long_title']
+                icd_matched = False
+                for col in possible_columns:
+                    if col in chunk.columns:
+                        chunk = chunk[chunk[col].astype(str).str.contains(icd_filter, na=False, case=False)]
+                        icd_matched = True
+                        break
+                if not icd_matched:
+                    st.warning("Uygun ICD sütunu bulunamadı, filtre uygulanamadı.")
+
+            if not chunk.empty:
+                chunks.append(chunk)
     except Exception as e:
         st.error(f"CSV parça okuma hatası: {e}")
         return pd.DataFrame()
@@ -47,7 +53,7 @@ def get_filtered_data(path, gender_filter, age_min, age_max, icd_filter):
 
 # Filtreler
 st.sidebar.header("Filtreler")
-icd_filter = st.sidebar.text_input("ICD Kodu ile Filtrele", value="G30", key="icd_filter")
+icd_filter = st.sidebar.text_input("ICD Kodu veya Hastalık Adı ile Filtrele", value="", key="icd_filter")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 90), key="age_slider")
 
