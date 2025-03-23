@@ -29,6 +29,7 @@ gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 90), key="age_slider")
 
 # Hasta ve tanı verilerini yükle
+
 def load_and_filter_data():
     try:
         patients_df = pd.read_csv("data/neuro_psych_patients.csv")
@@ -39,8 +40,9 @@ def load_and_filter_data():
             patients_df["anchor_age"] = pd.to_datetime(patients_df["intime"], errors="coerce").dt.year - 1950
 
         # Filtrele
-        if gender_filter != "All":
+        if gender_filter != "All" and "gender" in patients_df.columns:
             patients_df = patients_df[patients_df["gender"] == gender_filter]
+
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
             patients_df = patients_df[(patients_df["anchor_age"] >= age_min) & (patients_df["anchor_age"] <= age_max)]
@@ -57,8 +59,10 @@ def load_and_filter_data():
             if not matched:
                 st.warning("Filtreleme için uygun tanı sütunu bulunamadı.")
 
-        # Hasta verisi ile eşleştir
-        merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id", "stay_id"], how="inner")
+        # Eşleşmeyi sadece subject_id üzerinden yap (daha genel eşleşme)
+        merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
+
+        st.write(f"🔎 Filtre sonrası veri sayısı: {len(merged_df)}")
         return merged_df
 
     except Exception as e:
