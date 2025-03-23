@@ -18,10 +18,15 @@ def load_and_filter_data():
         patients_df = pd.read_csv("data/neuro_psych_patients.csv")
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
         base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
+        admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
 
         if not base_patients_df.empty:
             base_patients_df = base_patients_df[["subject_id", "anchor_age"]]
             patients_df = pd.merge(patients_df, base_patients_df, on="subject_id", how="left")
+
+        if not admissions_df.empty:
+            admissions_df = admissions_df[["subject_id", "hadm_id", "admission_type", "admission_location", "discharge_location"]]
+            patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
 
         if gender_filter != "All" and "gender" in patients_df.columns:
             patients_df = patients_df[patients_df["gender"] == gender_filter]
@@ -56,7 +61,8 @@ df_summary = load_and_filter_data()
 if not df_summary.empty:
     selected_columns = [
         "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
-        "marital_status", "race", "icd_code", "icd_title", "long_title"
+        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
+        "icd_code", "icd_title", "long_title"
     ]
     df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
 
@@ -68,6 +74,9 @@ if not df_summary.empty:
         "anchor_age": "Yaş",
         "marital_status": "Medeni Durum",
         "race": "Irk",
+        "admission_type": "Yatış Türü",
+        "admission_location": "Başvuru Yeri",
+        "discharge_location": "Taburcu Yeri",
         "icd_code": "ICD Kodu",
         "icd_title": "ICD Başlığı",
         "long_title": "Tanı Açıklaması"
@@ -76,7 +85,7 @@ if not df_summary.empty:
 
     st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
 
-    page_size = 100
+    page_size = 50
     page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(len(df_summary) - 1) // page_size + 1, value=1, step=1)
     start_index = (page_number - 1) * page_size
     end_index = start_index + page_size
