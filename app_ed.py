@@ -35,6 +35,9 @@ def load_and_filter_data():
         patients_df = pd.read_csv("data/neuro_psych_patients.csv")
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
 
+        st.write(f"👥 Hasta verisi satır sayısı (başlangıç): {len(patients_df)}")
+        st.write(f"🧠 Tanı verisi satır sayısı (başlangıç): {len(diagnoses_df)}")
+
         # anchor_age hesapla (örnek amaçlı)
         if "anchor_age" not in patients_df.columns and "intime" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_datetime(patients_df["intime"], errors="coerce").dt.year - 1950
@@ -46,6 +49,8 @@ def load_and_filter_data():
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
             patients_df = patients_df[(patients_df["anchor_age"] >= age_min) & (patients_df["anchor_age"] <= age_max)]
+
+        st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
 
         # ICD filtrelemesi
         if icd_filter:
@@ -59,10 +64,12 @@ def load_and_filter_data():
             if not matched:
                 st.warning("Filtreleme için uygun tanı sütunu bulunamadı.")
 
-        # Eşleşmeyi sadece subject_id üzerinden yap (daha genel eşleşme)
+        st.write(f"🧠 Tanı verisi satır sayısı (filtre sonrası): {len(diagnoses_df)}")
+
+        # Eşleşmeyi sadece subject_id üzerinden yap
         merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
 
-        st.write(f"🔎 Filtre sonrası veri sayısı: {len(merged_df)}")
+        st.write(f"🔎 Eşleşen toplam satır: {len(merged_df)}")
         return merged_df
 
     except Exception as e:
