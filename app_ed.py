@@ -74,9 +74,11 @@ if not df_summary.empty:
     }
     df_summary.rename(columns=pretty_columns, inplace=True)
 
+    st.write(f"👥 Hasta verisi satır sayısı (başlangıç): {len(patients_df)}")
+    st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
     st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
 
-    page_size = 50
+    page_size = 100
     page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(len(df_summary) - 1) // page_size + 1, value=1, step=1)
     start_index = (page_number - 1) * page_size
     end_index = start_index + page_size
