@@ -22,6 +22,11 @@ if os.path.exists("data/neuro_psych_diagnoses.csv"):
 else:
     st.error("Tanı verisi dosyası bulunamadı!")
 
+if os.path.exists("data/admissions.csv"):
+    st.success("Admissions verisi bulundu.")
+else:
+    st.warning("Admissions verisi bulunamadı. anchor_age kullanılamayabilir.")
+
 # Filtreler
 st.sidebar.header("Filtreler")
 icd_filter = st.sidebar.text_input("ICD Kodu veya Tanı Adı ile Filtrele", value="", key="icd_filter")
@@ -29,24 +34,26 @@ gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 90), key="age_slider")
 
 # Hasta ve tanı verilerini yükle
-
 def load_and_filter_data():
     try:
         patients_df = pd.read_csv("data/neuro_psych_patients.csv")
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
 
+        admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
+
         st.write(f"👥 Hasta verisi satır sayısı (başlangıç): {len(patients_df)}")
         st.write(f"🧠 Tanı verisi satır sayısı (başlangıç): {len(diagnoses_df)}")
 
-        # anchor_age hesapla (örnek amaçlı)
-        if "anchor_age" not in patients_df.columns and "intime" in patients_df.columns:
-            patients_df["anchor_age"] = pd.to_datetime(patients_df["intime"], errors="coerce").dt.year - 1950
+        if not admissions_df.empty:
+            admissions_df = admissions_df[["subject_id", "hadm_id", "anchor_age", "marital_status"]]
+            patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
 
         if gender_filter != "All" and "gender" in patients_df.columns:
             patients_df = patients_df[patients_df["gender"] == gender_filter]
 
         if "anchor_age" in patients_df.columns:
             patients_df["anchor_age"] = pd.to_numeric(patients_df["anchor_age"], errors="coerce")
+            patients_df = patients_df[(patients_df["anchor_age"] >= age_min) & (patients_df["anchor_age"] <= age_max)]
             st.write(f"🔹 anchor_age geçerli satır sayısı: {patients_df['anchor_age'].notna().sum()}")
 
         st.write(f"👥 Hasta verisi satır sayısı (filtre sonrası): {len(patients_df)}")
@@ -65,7 +72,6 @@ def load_and_filter_data():
 
         st.write(f"🧠 Tanı verisi satır sayısı (filtre sonrası): {len(diagnoses_df)}")
 
-        # Eşleşmeyi sadece subject_id üzerinden yap
         merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
 
         st.write(f"🔎 Eşleşen toplam satır: {len(merged_df)}")
@@ -80,7 +86,6 @@ st.subheader("Nöropsikiyatrik Hasta Özeti")
 df_summary = load_and_filter_data()
 
 if not df_summary.empty:
-    # Yalnızca belirli sütunları göster
     selected_columns = [
         "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
         "marital_status", "race", "icd_code", "icd_title", "long_title"
@@ -103,7 +108,6 @@ if not df_summary.empty:
 
     st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
 
-    # Sayfalama
     page_size = 50
     page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(len(df_summary) - 1) // page_size + 1, value=1, step=1)
     start_index = (page_number - 1) * page_size
