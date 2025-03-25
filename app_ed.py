@@ -157,23 +157,23 @@ if not df_summary.empty:
 
     with st.expander("📋 Hasta Profili Detayı"):
         if not hasta_detay.empty:
-            hasta = hasta_detay.iloc[0]
-            st.markdown(f"""
-            <div style='padding: 10px; background-color: #f9f9f9; border-radius: 10px;'>
-                <h4>Hasta ID: {hasta['Hasta ID']}</h4>
-                <ul>
-                    <li><b>Yaş:</b> {hasta['Yaş']}</li>
-                    <li><b>Cinsiyet:</b> {hasta['Cinsiyet']}</li>
-                    <li><b>Irk:</b> {hasta['Irk']}</li>
-                    <li><b>Medeni Durum:</b> {hasta.get('Medeni Durum', 'Bilinmiyor')}</li>
-                    <li><b>Yatış Türü:</b> {hasta.get('Yatış Türü', 'Bilinmiyor')}</li>
-                    <li><b>Başvuru Yeri:</b> {hasta.get('Başvuru Yeri', 'Bilinmiyor')}</li>
-                    <li><b>Taburcu Yeri:</b> {hasta.get('Taburcu Yeri', 'Bilinmiyor')}</li>
-                    <li><b>Hasta Şikayeti:</b> {hasta.get('Hasta Şikayeti', 'Bilinmiyor')}</li>
-                    <li><b>Tanı:</b> {hasta.get('Tanı Açıklaması', 'Bilinmiyor')} ({hasta.get('ICD Kodu', '')})</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
+            for _, row in hasta_detay.iterrows():
+                st.markdown(f"""
+                <div style='padding: 10px; background-color: #f9f9f9; border-radius: 10px; margin-bottom: 10px;'>
+                    <h4>Hasta ID: {row['Hasta ID']} | Yatış ID: {row.get('Yatış ID', '-')}</h4>
+                    <ul>
+                        <li><b>Yaş:</b> {row.get('Yaş', '-')}</li>
+                        <li><b>Cinsiyet:</b> {row.get('Cinsiyet', '-')}</li>
+                        <li><b>Irk:</b> {row.get('Irk', '-')}</li>
+                        <li><b>Medeni Durum:</b> {row.get('Medeni Durum', '-')}</li>
+                        <li><b>Yatış Türü:</b> {row.get('Yatış Türü', '-')}</li>
+                        <li><b>Başvuru Yeri:</b> {row.get('Başvuru Yeri', '-')}</li>
+                        <li><b>Taburcu Yeri:</b> {row.get('Taburcu Yeri', '-')}</li>
+                        <li><b>Hasta Şikayeti:</b> {row.get('Hasta Şikayeti', '-')}</li>
+                        <li><b>Tanı:</b> {row.get('Tanı Açıklaması', '-')} ({row.get('ICD Kodu', '-')})</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
         else:
             st.write("Hasta bilgisi bulunamadı.")
         st.markdown("---")
@@ -182,6 +182,7 @@ if not df_summary.empty:
 
     # 📥 CSV olarak indirme özelliği
     csv_download = df_summary.to_csv(index=False).encode('utf-8')
-    st.download_button("📥 Filtrelenmiş Veriyi İndir", data=csv_download, file_name="filtrelenmis_hasta_verisi.csv", mime="text/csv")
+    st.download_button(
+"📥 Filtrelenmiş Veriyi İndir", data=csv_download, file_name="filtrelenmis_hasta_verisi.csv", mime="text/csv")
 else:
     st.warning("Filtrelere uygun veri bulunamadı.")
