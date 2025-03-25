@@ -27,6 +27,7 @@ age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 90), key="a
 adm_type_filter = st.sidebar.selectbox("Yatış Türü", ["All"] + filter_options["admission_type"], key="adm_type")
 adm_loc_filter = st.sidebar.selectbox("Başvuru Yeri", ["All"] + filter_options["admission_location"], key="adm_loc")
 disch_loc_filter = st.sidebar.selectbox("Taburcu Yeri", ["All"] + filter_options["discharge_location"], key="disch_loc")
+complaint_filter = st.sidebar.text_input("Şikayet (chiefcomplaint) içinde ara", value="", key="complaint_filter")
 
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
@@ -64,6 +65,9 @@ def load_and_filter_data():
 
         if disch_loc_filter != "All" and "discharge_location" in patients_df.columns:
             patients_df = patients_df[patients_df["discharge_location"] == disch_loc_filter]
+        
+        if complaint_filter and "chiefcomplaint" in patients_df.columns:
+            patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(complaint_filter, case=False, na=False)]
 
         # ICD filtrelemesi
         if icd_filter:
