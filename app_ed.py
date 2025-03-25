@@ -21,13 +21,28 @@ filter_options = load_unique_filters()
 
 # Filtreler
 st.sidebar.header("Filtreler")
+
+# ICD kodları dropdown için ICD başlıkları yükleniyor
+try:
+    diag_full = pd.read_csv("data/neuro_psych_diagnoses.csv")
+    icd_options = sorted(diag_full['long_title'].dropna().unique().tolist()) if 'long_title' in diag_full.columns else []
+except:
+    icd_options = []
 chiefcomplaint_filter = st.sidebar.text_input("Hasta Şikayeti ile Filtrele", value="", key="cc_filter", label_visibility="visible")
-icd_filter = st.sidebar.text_input("ICD Kodu veya Tanı Adı ile Filtrele", value="", key="icd_filter")
+icd_filter = st.sidebar.selectbox("Tanı Seçin (ICD Açıklaması)", [""] + icd_options, key="icd_filter_dropdown")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 18, 120, (18, 101), key="age_slider")
 adm_type_filter = st.sidebar.selectbox("Yatış Türü", ["All"] + filter_options["admission_type"], key="adm_type")
 adm_loc_filter = st.sidebar.selectbox("Başvuru Yeri", ["All"] + filter_options["admission_location"], key="adm_loc")
 disch_loc_filter = st.sidebar.selectbox("Taburcu Yeri", ["All"] + filter_options["discharge_location"], key="disch_loc")
+
+# Disposition filtrelemesi
+try:
+    edstays_df = pd.read_csv("data/neuro_psych_patients.csv")
+    disposition_options = sorted(edstays_df['disposition'].dropna().unique().tolist()) if 'disposition' in edstays_df.columns else []
+except:
+    disposition_options = []
+disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", disposition_options, default=disposition_options)
 
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
@@ -82,6 +97,9 @@ def load_and_filter_data():
             patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
 
         merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
+        if 'disposition' in patients_df.columns and disposition_filter:
+            patients_df = patients_df[patients_df['disposition'].isin(disposition_filter)]
+
         return merged_df
 
     except Exception as e:
@@ -129,5 +147,9 @@ if not df_summary.empty:
     start_index = (page_number - 1) * page_size
     end_index = start_index + page_size
     st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
+
+    # 📥 CSV olarak indirme özelliği
+    csv_download = df_summary.to_csv(index=False).encode('utf-8')
+    st.download_button("📥 Filtrelenmiş Veriyi İndir", data=csv_download, file_name="filtrelenmis_hasta_verisi.csv", mime="text/csv")
 else:
     st.warning("Filtrelere uygun veri bulunamadı.")
