@@ -154,9 +154,28 @@ if not df_summary.empty:
     end_index = start_index + page_size
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
-    with st.expander("📋 Hasta Profili Detayı"):
-        st.write(hasta_detay.reset_index(drop=True))
 
+    with st.expander("📋 Hasta Profili Detayı"):
+        if not hasta_detay.empty:
+            hasta = hasta_detay.iloc[0]
+            st.markdown(f"""
+            <div style='padding: 10px; background-color: #f9f9f9; border-radius: 10px;'>
+                <h4>Hasta ID: {hasta['Hasta ID']}</h4>
+                <ul>
+                    <li><b>Yaş:</b> {hasta['Yaş']}</li>
+                    <li><b>Cinsiyet:</b> {hasta['Cinsiyet']}</li>
+                    <li><b>Irk:</b> {hasta['Irk']}</li>
+                    <li><b>Medeni Durum:</b> {hasta.get('Medeni Durum', 'Bilinmiyor')}</li>
+                    <li><b>Yatış Türü:</b> {hasta.get('Yatış Türü', 'Bilinmiyor')}</li>
+                    <li><b>Başvuru Yeri:</b> {hasta.get('Başvuru Yeri', 'Bilinmiyor')}</li>
+                    <li><b>Taburcu Yeri:</b> {hasta.get('Taburcu Yeri', 'Bilinmiyor')}</li>
+                    <li><b>Hasta Şikayeti:</b> {hasta.get('Hasta Şikayeti', 'Bilinmiyor')}</li>
+                    <li><b>Tanı:</b> {hasta.get('Tanı Açıklaması', 'Bilinmiyor')} ({hasta.get('ICD Kodu', '')})</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.write("Hasta bilgisi bulunamadı.")
         st.markdown("---")
 
     st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
