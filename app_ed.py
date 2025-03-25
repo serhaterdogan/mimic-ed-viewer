@@ -27,7 +27,6 @@ age_min, age_max = st.sidebar.slider("Yaş Aralığı", 0, 120, (18, 90), key="a
 adm_type_filter = st.sidebar.selectbox("Yatış Türü", ["All"] + filter_options["admission_type"], key="adm_type")
 adm_loc_filter = st.sidebar.selectbox("Başvuru Yeri", ["All"] + filter_options["admission_location"], key="adm_loc")
 disch_loc_filter = st.sidebar.selectbox("Taburcu Yeri", ["All"] + filter_options["discharge_location"], key="disch_loc")
-complaint_filter = st.sidebar.text_input("Şikayet (chiefcomplaint) içinde ara", value="", key="complaint_filter")
 
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
@@ -65,9 +64,6 @@ def load_and_filter_data():
 
         if disch_loc_filter != "All" and "discharge_location" in patients_df.columns:
             patients_df = patients_df[patients_df["discharge_location"] == disch_loc_filter]
-
-        if complaint_filter and "chiefcomplaint" in patients_df.columns:
-            patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(complaint_filter, case=False, na=False)]
 
         # ICD filtrelemesi
         if icd_filter:
@@ -119,10 +115,13 @@ if not df_summary.empty:
     }
     df_summary.rename(columns=pretty_columns, inplace=True)
 
-    st.write(f"Toplam sonuç sayısı: {len(df_summary):,}")
+    total_rows = len(df_summary)
+    unique_patients = df_summary['Hasta ID'].nunique()
+
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
     page_size = 50
-    page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(len(df_summary) - 1) // page_size + 1, value=1, step=1)
+    page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(total_rows - 1) // page_size + 1, value=1, step=1)
     start_index = (page_number - 1) * page_size
     end_index = start_index + page_size
     st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
