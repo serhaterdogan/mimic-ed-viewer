@@ -152,6 +152,13 @@ if not df_summary.empty:
     page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(total_rows - 1) // page_size + 1, value=1, step=1)
     start_index = (page_number - 1) * page_size
     end_index = start_index + page_size
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
+    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
+    with st.expander("📋 Hasta Profili Detayı"):
+        st.write(hasta_detay.reset_index(drop=True))
+
+        st.markdown("---")
+
     st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
 
     # 📥 CSV olarak indirme özelliği
