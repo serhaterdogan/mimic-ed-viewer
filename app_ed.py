@@ -157,15 +157,22 @@ if not df_summary.empty:
 
     with st.expander("📋 Hasta Profili Detayı"):
         if not hasta_detay.empty:
+            genel_bilgiler = hasta_detay.iloc[0]
+            st.markdown(f"""
+            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+                <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
+                <b>Yaş:</b> {genel_bilgiler.get('Yaş', '-')} &nbsp;&nbsp; 
+                <b>Cinsiyet:</b> {genel_bilgiler.get('Cinsiyet', '-')} &nbsp;&nbsp;
+                <b>Irk:</b> {genel_bilgiler.get('Irk', '-')} &nbsp;&nbsp;
+                <b>Medeni Durum:</b> {genel_bilgiler.get('Medeni Durum', '-')}
+            </div>
+            """, unsafe_allow_html=True)
+
             for _, row in hasta_detay.iterrows():
                 st.markdown(f"""
                 <div style='padding: 10px; background-color: #f9f9f9; border-radius: 10px; margin-bottom: 10px;'>
-                    <h4>Hasta ID: {row['Hasta ID']} | Yatış ID: {row.get('Yatış ID', '-')}</h4>
+                    <h5>Yatış ID: {row.get('Yatış ID', '-')} | Klinik Kalış ID: {row.get('Klinik Kalış ID', '-')}</h5>
                     <ul>
-                        <li><b>Yaş:</b> {row.get('Yaş', '-')}</li>
-                        <li><b>Cinsiyet:</b> {row.get('Cinsiyet', '-')}</li>
-                        <li><b>Irk:</b> {row.get('Irk', '-')}</li>
-                        <li><b>Medeni Durum:</b> {row.get('Medeni Durum', '-')}</li>
                         <li><b>Yatış Türü:</b> {row.get('Yatış Türü', '-')}</li>
                         <li><b>Başvuru Yeri:</b> {row.get('Başvuru Yeri', '-')}</li>
                         <li><b>Taburcu Yeri:</b> {row.get('Taburcu Yeri', '-')}</li>
