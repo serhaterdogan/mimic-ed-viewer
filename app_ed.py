@@ -118,6 +118,7 @@ df_summary = load_and_filter_data()
 
 if not df_summary.empty:
     selected_columns = [
+        "intime",
         "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
         "marital_status", "race", "admission_type", "admission_location", "discharge_location",
         "chiefcomplaint",
@@ -126,6 +127,7 @@ if not df_summary.empty:
     df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
 
     pretty_columns = {
+        "intime": "Başvuru Zamanı",
         "subject_id": "Hasta ID",
         "hadm_id": "Yatış ID",
         "stay_id": "Klinik Kalış ID",
