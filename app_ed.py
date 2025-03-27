@@ -29,7 +29,7 @@ try:
 except:
     icd_options = []
 chiefcomplaint_filter = st.sidebar.text_input("Hasta Şikayeti ile Filtrele", value="", key="cc_filter", label_visibility="visible")
-icd_filter = st.sidebar.selectbox("Tanı Seçin (ICD Açıklaması)", [""] + icd_options, key="icd_filter_dropdown")
+icd_filter = st.sidebar.multiselect("Tanı Seçin (ICD Açıklaması)", icd_options, key="icd_filter_dropdown")
 icd_code_filter = st.sidebar.text_input("ICD Kodu ile Arama", value="", key="icd_code_filter")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 18, 120, (18, 101), key="age_slider")
@@ -88,7 +88,7 @@ def load_and_filter_data():
             matched = False
             for col in icd_cols:
                 if col in diagnoses_df.columns:
-                    diagnoses_df = diagnoses_df[diagnoses_df[col].astype(str).str.contains(icd_filter, case=False, na=False)]
+                    diagnoses_df = diagnoses_df[diagnoses_df[col].isin(icd_filter)]
                     matched = True
                     break
             if not matched:
