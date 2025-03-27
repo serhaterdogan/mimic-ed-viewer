@@ -187,6 +187,26 @@ if not df_summary.empty:
             st.write("Hasta bilgisi bulunamadı.")
         st.markdown("---")
 
+        # 🔬 Laboratuvar Sonuçları
+        try:
+            labs_df = pd.read_csv("data/neuro_psych_labs.csv")
+            hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
+            if not hasta_labs.empty:
+                st.markdown("### 🔬 Laboratuvar Sonuçları")
+                st.dataframe(
+                    hasta_labs[["charttime", "test_name", "valuenum", "valueuom", "flag"]]
+                    .rename(columns={
+                        "charttime": "Zaman",
+                        "test_name": "Test",
+                        "valuenum": "Sonuç",
+                        "valueuom": "Birim",
+                        "flag": "Durum"
+                    }),
+                    use_container_width=True
+                )
+        except Exception as e:
+            st.error(f"Laboratuvar verisi yüklenemedi: {e}")
+
     st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
 
     # 📥 CSV olarak indirme özelliği
