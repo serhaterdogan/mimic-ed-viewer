@@ -45,6 +45,16 @@ except:
     disposition_options = []
 disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", disposition_options, default=disposition_options)
 
+# Notları yükle (sadece nöropsikiyatrik hastalar için)
+def load_notes():
+    try:
+        notes_df = pd.read_csv("data/neuro_psych_notes.csv")
+        return notes_df
+    except:
+        return pd.DataFrame()
+
+notes_df = load_notes()
+
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
     try:
@@ -82,6 +92,7 @@ def load_and_filter_data():
         if disch_loc_filter != "All" and "discharge_location" in patients_df.columns:
             patients_df = patients_df[patients_df["discharge_location"] == disch_loc_filter]
 
+        # ICD filtrelemesi
         if icd_filter:
             icd_cols = ['long_title']
             matched = False
@@ -102,56 +113,125 @@ def load_and_filter_data():
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
             patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
 
-        if 'disposition' in patients_df.columns and disposition_filter:
-            patients_df = patients_df[patients_df['disposition'].isin(disposition_filter)]
-
         merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
+        if 'disposition' in patients_df.columns and disposition_filter:
+            merged_df = merged_df[merged_df['disposition'].isin(disposition_filter)]
+
         return merged_df
 
     except Exception as e:
         st.error(f"Veri yükleme/filtreleme hatası: {e}")
         return pd.DataFrame()
 
-# Notları yükle (sadece nöropsikiyatrik hastalar için)
-def load_notes():
-    try:
-        notes_df = pd.read_csv("data/neuro_psych_notes.csv")
-        return notes_df
-    except:
-        return pd.DataFrame()
-
-# Notlar
-notes_df = load_notes()
-
 # Veriyi al
 st.subheader("Nöropsikiyatrik Hasta Özeti")
 df_summary = load_and_filter_data()
 
-# Hasta özet tablosu göster
 if not df_summary.empty:
-    st.dataframe(df_summary[["subject_id", "hadm_id", "stay_id", "gender", "anchor_age", "race", "marital_status", "icd_code", "icd_title", "long_title"]].rename(columns={
+    selected_columns = [
+        "intime",
+        "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
+        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
+        "chiefcomplaint",
+        "icd_code", "icd_title", "long_title"
+    ]
+    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
+
+    pretty_columns = {
+        "intime": "Başvuru Zamanı",
         "subject_id": "Hasta ID",
         "hadm_id": "Yatış ID",
-        "stay_id": "ED Kalış ID",
+        "stay_id": "Klinik Kalış ID",
         "gender": "Cinsiyet",
         "anchor_age": "Yaş",
-        "race": "Irk",
         "marital_status": "Medeni Durum",
+        "race": "Irk",
+        "admission_type": "Yatış Türü",
+        "admission_location": "Başvuru Yeri",
+        "discharge_location": "Taburcu Yeri",
+        "chiefcomplaint": "Hasta Şikayeti",
         "icd_code": "ICD Kodu",
         "icd_title": "ICD Başlığı",
         "long_title": "Tanı Açıklaması"
-    }))
+    }
+    df_summary.rename(columns=pretty_columns, inplace=True)
 
-# Hasta notlarını göster
-if not df_summary.empty and not notes_df.empty:
-    selected_subjects = df_summary['subject_id'].unique().tolist()
-    filtered_notes = notes_df[notes_df['subject_id'].isin(selected_subjects)]
+    total_rows = len(df_summary)
+    unique_patients = df_summary['Hasta ID'].nunique()
 
-    with st.expander("📝 Hasta Klinik Notları (Epikriz ve Radyoloji)"):
-        for subj in selected_subjects[:5]:  # çok uzun liste olmasın diye ilk 5 hasta gösteriliyor
-            st.markdown(f"### Hasta ID: {subj}")
-            subj_notes = filtered_notes[filtered_notes['subject_id'] == subj]
-            for _, row in subj_notes.iterrows():
-                st.markdown(f"**Not Tipi:** {row['note_type']} | **Zaman:** {row['charttime']}")
-                st.text_area("Not İçeriği:", value=row['text'], height=200, key=f"note_{row['note_id']}")
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
+
+    page_size = 100
+    page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(total_rows - 1) // page_size + 1, value=1, step=1)
+    start_index = (page_number - 1) * page_size
+    end_index = start_index + page_size
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
+    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
+
+    with st.expander("📋 Hasta Profili Detayı"):
+        if not hasta_detay.empty:
+            genel_bilgiler = hasta_detay.iloc[0]
+            st.markdown(f"""
+            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+                <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
+                <b>Yaş:</b> {genel_bilgiler.get('Yaş', '-')} &nbsp;&nbsp; 
+                <b>Cinsiyet:</b> {genel_bilgiler.get('Cinsiyet', '-')} &nbsp;&nbsp;
+                <b>Irk:</b> {genel_bilgiler.get('Irk', '-')} &nbsp;&nbsp;
+                <b>Medeni Durum:</b> {genel_bilgiler.get('Medeni Durum', '-')}
+            </div>
+            """, unsafe_allow_html=True)
+
+            for _, row in hasta_detay.iterrows():
+                st.markdown(f"""
+                <div style='padding: 10px; background-color: #f9f9f9; border-radius: 10px; margin-bottom: 10px;'>
+                    <h5>Yatış ID: {row.get('Yatış ID', '-')} | Klinik Kalış ID: {row.get('Klinik Kalış ID', '-')}</h5>
+                    <ul>
+                        <li><b>Yatış Türü:</b> {row.get('Yatış Türü', '-')}</li>
+                        <li><b>Başvuru Yeri:</b> {row.get('Başvuru Yeri', '-')}</li>
+                        <li><b>Taburcu Yeri:</b> {row.get('Taburcu Yeri', '-')}</li>
+                        <li><b>Hasta Şikayeti:</b> {row.get('Hasta Şikayeti', '-')}</li>
+                        <li><b>Tanı:</b> {row.get('Tanı Açıklaması', '-')} ({row.get('ICD Kodu', '-')})</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            st.write("Hasta bilgisi bulunamadı.")
+
+        st.markdown("---")
+
+        # 🔬 Laboratuvar Sonuçları
+        try:
+            labs_df = pd.read_csv("data/neuro_psych_labs.csv")
+            hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
+            if not hasta_labs.empty:
+                st.markdown("### 🔬 Laboratuvar Sonuçları")
+                st.dataframe(
+                    hasta_labs[["charttime", "test_name", "valuenum", "valueuom", "flag"]]
+                    .rename(columns={
+                        "charttime": "Zaman",
+                        "test_name": "Test",
+                        "valuenum": "Sonuç",
+                        "valueuom": "Birim",
+                        "flag": "Durum"
+                    }),
+                    use_container_width=True
+                )
+        except Exception as e:
+            st.error(f"Laboratuvar verisi yüklenemedi: {e}")
+
+        # 📝 Klinik Notlar
+        hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
+        if not hasta_notes.empty:
+            st.markdown("### 📝 Klinik Notlar")
+            for _, note in hasta_notes.iterrows():
+                st.markdown(f"**Not Tipi:** {note['note_type']} | **Zaman:** {note['charttime']}")
+                st.text_area("Not İçeriği:", value=note['text'], height=200, key=f"note_{note['note_id']}")
                 st.markdown("---")
+
+    st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
+
+    # 📥 CSV olarak indirme özelliği
+    csv_download = df_summary.to_csv(index=False).encode('utf-8')
+    st.download_button("📥 Filtrelenmiş Veriyi İndir", data=csv_download, file_name="filtrelenmis_hasta_verisi.csv", mime="text/csv")
+else:
+    st.warning("Filtrelere uygun veri bulunamadı.")
