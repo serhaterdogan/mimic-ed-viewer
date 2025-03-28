@@ -45,16 +45,6 @@ except:
     disposition_options = []
 disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", disposition_options, default=disposition_options)
 
-# Notları yükle (sadece nöropsikiyatrik hastalar için)
-def load_notes():
-    try:
-        notes_df = pd.read_csv("data/neuro_psych_notes.csv")
-        return notes_df
-    except:
-        return pd.DataFrame()
-
-notes_df = load_notes()
-
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
     try:
@@ -107,7 +97,6 @@ def load_and_filter_data():
         if icd_code_filter:
             if "icd_code" in diagnoses_df.columns:
                 diagnoses_df = diagnoses_df[diagnoses_df["icd_code"].astype(str).str.contains(icd_code_filter, case=False, na=False)]
-            else:
                 st.warning("Filtreleme için uygun tanı sütunu bulunamadı.")
 
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
@@ -122,6 +111,16 @@ def load_and_filter_data():
     except Exception as e:
         st.error(f"Veri yükleme/filtreleme hatası: {e}")
         return pd.DataFrame()
+
+# Notları yükle (sadece nöropsikiyatrik hastalar için)
+def load_notes():
+    try:
+        notes_df = pd.read_csv("data/neuro_psych_notes.csv")
+        return notes_df
+    except:
+        return pd.DataFrame()
+
+notes_df = load_notes()
 
 # Veriyi al
 st.subheader("Nöropsikiyatrik Hasta Özeti")
