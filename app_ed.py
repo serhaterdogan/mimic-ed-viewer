@@ -120,7 +120,14 @@ def load_notes():
     except:
         return pd.DataFrame()
 
+def highlight_keywords(text):
+    keywords = ["History of Present Illness", "Past Medical History", "Social History", "Physical Exam", "Hospital Course", "Discharge Diagnosis", "Discharge Medications", "Followup Instructions"]
+    for kw in keywords:
+        text = re.sub(rf"(\b{re.escape(kw)}\b)", r"\n\n### \1\n", text, flags=re.IGNORECASE)
+    return text
+
 notes_df = load_notes()
+
 
 # Veriyi al
 st.subheader("Nöropsikiyatrik Hasta Özeti")
@@ -224,7 +231,8 @@ if not df_summary.empty:
             st.markdown("### 📝 Klinik Notlar")
             for _, note in hasta_notes.iterrows():
                 st.markdown(f"**Not Tipi:** {note['note_type']} | **Zaman:** {note['charttime']}")
-                st.text_area("Not İçeriği:", value=note['text'], height=200, key=f"note_{note['note_id']}")
+                formatted_note = highlight_keywords(note['text'])
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
                 st.markdown("---")
 
     st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
