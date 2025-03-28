@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import re
 
 # Set page config first
 st.set_page_config(page_title="ED Dashboard", layout="wide")
@@ -123,7 +124,8 @@ def load_notes():
 def highlight_keywords(text):
     keywords = ["History of Present Illness", "Past Medical History", "Social History", "Physical Exam", "Hospital Course", "Discharge Diagnosis", "Discharge Medications", "Followup Instructions"]
     for kw in keywords:
-        text = re.sub(rf"(\b{re.escape(kw)}\b)", r"\n\n### \1\n", text, flags=re.IGNORECASE)
+        pattern = re.compile(rf"(\b{re.escape(kw)}\b)", re.IGNORECASE)
+        text = pattern.sub(r"\n\n### \1\n", text)
     return text
 
 notes_df = load_notes()
