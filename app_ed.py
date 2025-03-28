@@ -127,6 +127,21 @@ notes_df = load_notes()
 st.subheader("Nöropsikiyatrik Hasta Özeti")
 df_summary = load_and_filter_data()
 
+# Hasta özet tablosu göster
+if not df_summary.empty:
+    st.dataframe(df_summary[["subject_id", "hadm_id", "stay_id", "gender", "anchor_age", "race", "marital_status", "icd_code", "icd_title", "long_title"]].rename(columns={
+        "subject_id": "Hasta ID",
+        "hadm_id": "Yatış ID",
+        "stay_id": "ED Kalış ID",
+        "gender": "Cinsiyet",
+        "anchor_age": "Yaş",
+        "race": "Irk",
+        "marital_status": "Medeni Durum",
+        "icd_code": "ICD Kodu",
+        "icd_title": "ICD Başlığı",
+        "long_title": "Tanı Açıklaması"
+    }))
+
 # Hasta notlarını göster
 if not df_summary.empty and not notes_df.empty:
     selected_subjects = df_summary['subject_id'].unique().tolist()
