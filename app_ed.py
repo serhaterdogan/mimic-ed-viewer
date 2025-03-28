@@ -83,7 +83,6 @@ def load_and_filter_data():
         if disch_loc_filter != "All" and "discharge_location" in patients_df.columns:
             patients_df = patients_df[patients_df["discharge_location"] == disch_loc_filter]
 
-        # ICD filtrelemesi
         if icd_filter:
             icd_cols = ['long_title']
             matched = False
@@ -188,6 +187,11 @@ if not df_summary.empty:
 
         # 📝 Klinik Notlar
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
+
+        note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
+        if note_search_query:
+            hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
+
         if not hasta_notes.empty:
             st.markdown("### 📝 Klinik Notlar")
             for _, note in hasta_notes.iterrows():
