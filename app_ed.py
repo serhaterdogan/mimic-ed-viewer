@@ -122,57 +122,37 @@ def load_notes():
         return pd.DataFrame()
 
 def highlight_keywords(text):
-    keywords = ["History of Present Illness", "Past Medical History", "Social History", "Physical Exam", "Hospital Course", "Discharge Diagnosis", "Discharge Medications", "Followup Instructions"]
+    keywords = [
+        "History of Present Illness", "Past Medical History", "Social History",
+        "Physical Exam", "Hospital Course", "Discharge Diagnosis",
+        "Discharge Medications", "Followup Instructions"
+    ]
     for kw in keywords:
         pattern = re.compile(rf"(\b{re.escape(kw)}\b)", re.IGNORECASE)
         text = pattern.sub(r"\n\n### \1\n", text)
     return text
 
 notes_df = load_notes()
-
-
-# Veriyi al
-st.subheader("Nöropsikiyatrik Hasta Özeti")
 df_summary = load_and_filter_data()
 
 if not df_summary.empty:
+    st.subheader("📋 Hasta Özeti")
     selected_columns = [
-        "intime",
-        "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
+        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
         "marital_status", "race", "admission_type", "admission_location", "discharge_location",
-        "chiefcomplaint",
-        "icd_code", "icd_title", "long_title"
+        "chiefcomplaint", "icd_code", "icd_title", "long_title"
     ]
     df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
+    df_summary.rename(columns={
+        "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
+        "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
+        "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
+        "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
+        "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
+        "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
+    }, inplace=True)
+    st.dataframe(df_summary, use_container_width=True)
 
-    pretty_columns = {
-        "intime": "Başvuru Zamanı",
-        "subject_id": "Hasta ID",
-        "hadm_id": "Yatış ID",
-        "stay_id": "Klinik Kalış ID",
-        "gender": "Cinsiyet",
-        "anchor_age": "Yaş",
-        "marital_status": "Medeni Durum",
-        "race": "Irk",
-        "admission_type": "Yatış Türü",
-        "admission_location": "Başvuru Yeri",
-        "discharge_location": "Taburcu Yeri",
-        "chiefcomplaint": "Hasta Şikayeti",
-        "icd_code": "ICD Kodu",
-        "icd_title": "ICD Başlığı",
-        "long_title": "Tanı Açıklaması"
-    }
-    df_summary.rename(columns=pretty_columns, inplace=True)
-
-    total_rows = len(df_summary)
-    unique_patients = df_summary['Hasta ID'].nunique()
-
-    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
-
-    page_size = 100
-    page_number = st.number_input("Sayfa numarası", min_value=1, max_value=(total_rows - 1) // page_size + 1, value=1, step=1)
-    start_index = (page_number - 1) * page_size
-    end_index = start_index + page_size
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
 
@@ -189,24 +169,6 @@ if not df_summary.empty:
             </div>
             """, unsafe_allow_html=True)
 
-            for _, row in hasta_detay.iterrows():
-                st.markdown(f"""
-                <div style='padding: 10px; background-color: #f9f9f9; border-radius: 10px; margin-bottom: 10px;'>
-                    <h5>Yatış ID: {row.get('Yatış ID', '-')} | Klinik Kalış ID: {row.get('Klinik Kalış ID', '-')}</h5>
-                    <ul>
-                        <li><b>Yatış Türü:</b> {row.get('Yatış Türü', '-')}</li>
-                        <li><b>Başvuru Yeri:</b> {row.get('Başvuru Yeri', '-')}</li>
-                        <li><b>Taburcu Yeri:</b> {row.get('Taburcu Yeri', '-')}</li>
-                        <li><b>Hasta Şikayeti:</b> {row.get('Hasta Şikayeti', '-')}</li>
-                        <li><b>Tanı:</b> {row.get('Tanı Açıklaması', '-')} ({row.get('ICD Kodu', '-')})</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-        else:
-            st.write("Hasta bilgisi bulunamadı.")
-
-        st.markdown("---")
-
         # 🔬 Laboratuvar Sonuçları
         try:
             labs_df = pd.read_csv("data/neuro_psych_labs.csv")
@@ -216,11 +178,8 @@ if not df_summary.empty:
                 st.dataframe(
                     hasta_labs[["charttime", "test_name", "valuenum", "valueuom", "flag"]]
                     .rename(columns={
-                        "charttime": "Zaman",
-                        "test_name": "Test",
-                        "valuenum": "Sonuç",
-                        "valueuom": "Birim",
-                        "flag": "Durum"
+                        "charttime": "Zaman", "test_name": "Test", "valuenum": "Sonuç",
+                        "valueuom": "Birim", "flag": "Durum"
                     }),
                     use_container_width=True
                 )
@@ -232,15 +191,9 @@ if not df_summary.empty:
         if not hasta_notes.empty:
             st.markdown("### 📝 Klinik Notlar")
             for _, note in hasta_notes.iterrows():
-                st.markdown(f"**Not Tipi:** {note['note_type']} | **Zaman:** {note['charttime']}")
                 formatted_note = highlight_keywords(note['text'])
-                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
                 st.markdown("---")
-
-    st.dataframe(df_summary.iloc[start_index:end_index], use_container_width=True)
-
-    # 📥 CSV olarak indirme özelliği
-    csv_download = df_summary.to_csv(index=False).encode('utf-8')
-    st.download_button("📥 Filtrelenmiş Veriyi İndir", data=csv_download, file_name="filtrelenmis_hasta_verisi.csv", mime="text/csv")
 else:
     st.warning("Filtrelere uygun veri bulunamadı.")
