@@ -139,6 +139,12 @@ if not df_summary.empty:
         st.dataframe(df_summary, use_container_width=True)
     except Exception as e:
         st.warning(f"Hasta özeti gösterilemiyor: {e}")
+    
+
+    total_rows = len(df_summary)
+    unique_patients = df_summary['Hasta ID'].nunique()
+  
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
     hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
