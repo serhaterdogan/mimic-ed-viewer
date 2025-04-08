@@ -142,7 +142,7 @@ if not df_summary.empty:
     
 
     total_rows = len(df_summary)
-    unique_patients = df_summary['Hasta ID'].nunique()
+    unique_patients = df_summary['subject_id'].nunique()
   
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
