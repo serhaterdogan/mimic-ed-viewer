@@ -155,8 +155,8 @@ if not df_summary.empty:
     unique_patients = df_summary['Hasta ID'].nunique()
   
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
-    
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
+
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
 
     with st.expander("📋 Hasta Profili Detayı"):
