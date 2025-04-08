@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import re
+import matplotlib.pyplot as plt
 
 # Set page config first
 st.set_page_config(page_title="ED Dashboard", layout="wide")
@@ -41,7 +42,7 @@ disch_loc_filter = st.sidebar.selectbox("Taburcu Yeri", ["All"] + filter_options
 # Disposition filtrelemesi
 try:
     edstays_df = pd.read_csv("data/neuro_psych_patients.csv")
-    disposition_options = sorted(edstays_df['disposition'].dropna().unique().tolist()) if 'disposition' in edststays_df.columns else []
+    disposition_options = sorted(edstays_df['disposition'].dropna().unique().tolist()) if 'disposition' in edstays_df.columns else []
 except:
     disposition_options = []
 disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", disposition_options, default=disposition_options)
@@ -135,20 +136,6 @@ df_summary = load_and_filter_data()
 
 if not df_summary.empty:
     st.subheader("📋 Hasta Özeti")
-    selected_columns = [
-        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
-        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
-        "chiefcomplaint", "icd_code", "icd_title", "long_title"
-    ]
-    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
-    df_summary.rename(columns={
-        "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
-        "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
-        "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
-        "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
-        "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
-        "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
-    }, inplace=True)
     st.dataframe(df_summary, use_container_width=True)
  
     total_rows = len(df_summary)
@@ -158,6 +145,32 @@ if not df_summary.empty:
 
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
+
+    st.subheader("📊 En Sık Görülen Tanılar ve Şikayetler")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if "long_title" in df_summary.columns:
+            top_diagnoses = df_summary['long_title'].value_counts().head(10)
+            st.markdown("**En Sık Tanılar**")
+            fig, ax = plt.subplots()
+            top_diagnoses.plot(kind='barh', ax=ax)
+            ax.invert_yaxis()
+            ax.set_xlabel("Hasta Sayısı")
+            st.pyplot(fig)
+
+    with col2:
+        if "chiefcomplaint" in df_summary.columns:
+            top_complaints = df_summary['chiefcomplaint'].value_counts().head(10)
+            st.markdown("**En Sık Şikayetler**")
+            fig, ax = plt.subplots()
+            top_complaints.plot(kind='barh', ax=ax, color='orange')
+            ax.invert_yaxis()
+            ax.set_xlabel("Hasta Sayısı")
+            st.pyplot(fig)
+
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
+    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
 
     with st.expander("📋 Hasta Profili Detayı"):
         if not hasta_detay.empty:
