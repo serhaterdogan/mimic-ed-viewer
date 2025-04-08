@@ -135,16 +135,27 @@ df_summary = load_and_filter_data()
 
 if not df_summary.empty:
     st.subheader("📋 Hasta Özeti")
-    try:
-        st.dataframe(df_summary, use_container_width=True)
-        total_rows = len(df_summary)
-        unique_patients = df_summary['Hasta ID'].nunique()
+    selected_columns = [
+        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
+        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
+        "chiefcomplaint", "icd_code", "icd_title", "long_title"
+    ]
+    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
+    df_summary.rename(columns={
+        "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
+        "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
+        "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
+        "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
+        "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
+        "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
+    }, inplace=True)
+    st.dataframe(df_summary, use_container_width=True)
+ 
+    total_rows = len(df_summary)
+    unique_patients = df_summary['Hasta ID'].nunique()
   
-        st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
-    except Exception as e:
-        st.warning(f"Hasta özeti gösterilemiyor: {e}")
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
     
-
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
     hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
 
