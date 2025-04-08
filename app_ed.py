@@ -143,8 +143,8 @@ if not df_summary.empty:
   
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
-    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
+    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
 
     st.subheader("📊 En Sık Görülen Tanılar ve Şikayetler")
     col1, col2 = st.columns(2)
