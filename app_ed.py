@@ -27,11 +27,13 @@ st.sidebar.header("Filtreler")
 try:
     diag_full = pd.read_csv("data/depress_diagnoses.csv")
     icd_options = sorted(diag_full['long_title'].dropna().unique().tolist()) if 'long_title' in diag_full.columns else []
+    icd_code_options = sorted(diag_full['icd_code'].dropna().unique().tolist()) if 'icd_code' in diag_full.columns else []
 except:
     icd_options = []
+    icd_code_options = []
 chiefcomplaint_filter = st.sidebar.text_input("Hasta Şikayeti ile Filtrele", value="", key="cc_filter", label_visibility="visible")
 icd_filter = st.sidebar.multiselect("Tanı Seçin (ICD Açıklaması)", icd_options, key="icd_filter_dropdown")
-icd_code_filter = st.sidebar.text_input("ICD Kodu ile Arama", value="", key="icd_code_filter")
+icd_code_filter = st.sidebar.multiselect("ICD Kodu Seçin", icd_code_options, key="icd_code_filter_dropdown")
 gender_filter = st.sidebar.selectbox("Cinsiyet Seçin", ("All", "M", "F"), key="gender_filter")
 age_min, age_max = st.sidebar.slider("Yaş Aralığı", 18, 120, (18, 101), key="age_slider")
 adm_type_filter = st.sidebar.selectbox("Yatış Türü", ["All"] + filter_options["admission_type"], key="adm_type")
