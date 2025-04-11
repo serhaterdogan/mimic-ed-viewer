@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 import re
-import matplotlib.pyplot as plt
 
 # Set page config first
 st.set_page_config(page_title="ED Dashboard", layout="wide")
@@ -98,6 +97,7 @@ def load_and_filter_data():
         if icd_code_filter:
             if "icd_code" in diagnoses_df.columns:
                 diagnoses_df = diagnoses_df[diagnoses_df["icd_code"].astype(str).str.contains(icd_code_filter, case=False, na=False)]
+                st.warning("Filtreleme için uygun tanı sütunu bulunamadı.")
 
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
             patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
@@ -137,95 +137,72 @@ df_summary = load_and_filter_data()
 if not df_summary.empty:
     st.subheader("📋 Hasta Özeti")
     selected_columns = [
-         "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
-         "marital_status", "race", "admission_type", "admission_location", "discharge_location",
-         "chiefcomplaint", "icd_code", "icd_title", "long_title"
-     ]
-     df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
-     df_summary.rename(columns={
+        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
+        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
+        "chiefcomplaint", "icd_code", "icd_title", "long_title"
+    ]
+    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
+    df_summary.rename(columns={
         "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
         "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
         "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
         "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
         "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
         "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
-        }, inplace=True)
-        st.dataframe(df_summary, use_container_width=True)
-        
-        total_rows = len(df_summary)
-        unique_patients = df_summary['Hasta ID'].nunique()
-        
-        st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
-        
-        selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
-        
-        hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
+    }, inplace=True)
+    st.dataframe(df_summary, use_container_width=True)
 
-    st.subheader("📊 En Sık Görülen Tanılar ve Şikayetler")
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if "long_title" in df_summary.columns:
-            top_diagnoses = df_summary['long_title'].value_counts().head(10)
-            st.markdown("**En Sık Tanılar**")
-            fig, ax = plt.subplots()
-            top_diagnoses.plot(kind='barh', ax=ax)
-            ax.invert_yaxis()
-            ax.set_xlabel("Hasta Sayısı")
-            st.pyplot(fig)
-
-    with col2:
-        if "chiefcomplaint" in df_summary.columns:
-            top_complaints = df_summary['chiefcomplaint'].value_counts().head(10)
-            st.markdown("**En Sık Şikayetler**")
-            fig, ax = plt.subplots()
-            top_complaints.plot(kind='barh', ax=ax, color='orange')
-            ax.invert_yaxis()
-            ax.set_xlabel("Hasta Sayısı")
-            st.pyplot(fig)
+    total_rows = len(df_summary)
+    unique_patients = df_summary['Hasta ID'].nunique()
+ 
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
 
     with st.expander("📋 Hasta Profili Detayı"):
         if not hasta_detay.empty:
-            try:
-                genel_bilgiler = hasta_detay.iloc[0]
-                st.markdown(f"""
-                <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-                    <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
-                    <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
-                    <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
-                    <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
-                    <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
-                </div>
-                """, unsafe_allow_html=True)
-            except Exception as e:
-                st.warning(f"Hasta detayı gösterilemedi: {e}")
+            genel_bilgiler = hasta_detay.iloc[0]
+            st.markdown(f"""
+            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+                <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
+                <b>Yaş:</b> {genel_bilgiler.get('Yaş', '-')} &nbsp;&nbsp; 
+                <b>Cinsiyet:</b> {genel_bilgiler.get('Cinsiyet', '-')} &nbsp;&nbsp;
+                <b>Irk:</b> {genel_bilgiler.get('Irk', '-')} &nbsp;&nbsp;
+                <b>Medeni Durum:</b> {genel_bilgiler.get('Medeni Durum', '-')}
+            </div>
+            """, unsafe_allow_html=True)
 
+        # 🔬 Laboratuvar Sonuçları
         try:
             labs_df = pd.read_csv("data/neuro_psych_labs.csv")
             hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
             if not hasta_labs.empty:
                 st.markdown("### 🔬 Laboratuvar Sonuçları")
-                st.dataframe(hasta_labs, use_container_width=True)
+                st.dataframe(
+                    hasta_labs[["charttime", "test_name", "valuenum", "valueuom", "flag"]]
+                    .rename(columns={
+                        "charttime": "Zaman", "test_name": "Test", "valuenum": "Sonuç",
+                        "valueuom": "Birim", "flag": "Durum"
+                    }),
+                    use_container_width=True
+                )
         except Exception as e:
-            st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
+            st.error(f"Laboratuvar verisi yüklenemedi: {e}")
 
+        # 📝 Klinik Notlar
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
-        note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: stroke, discharge...")
+
+        note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
         if note_search_query:
             hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
 
         if not hasta_notes.empty:
             st.markdown("### 📝 Klinik Notlar")
             for _, note in hasta_notes.iterrows():
-                try:
-                    formatted_note = highlight_keywords(note['text'])
-                    st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
-                    st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
-                    st.markdown("---")
-                except Exception as e:
-                    st.warning(f"Not gösterilemedi: {e}")
+                formatted_note = highlight_keywords(note['text'])
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
+                st.markdown("---")
 else:
     st.warning("Filtrelere uygun veri bulunamadı.")
