@@ -135,7 +135,7 @@ notes_df = load_notes()
 df_summary = load_and_filter_data()
 
 if not df_summary.empty:
-    st.subheader("📋 Hasta Özeti")
+    st.subheader("📋 Major Depresif Hasta Özeti")
     selected_columns = [
         "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
         "marital_status", "race", "admission_type", "admission_location", "discharge_location",
@@ -156,6 +156,15 @@ if not df_summary.empty:
     unique_patients = df_summary['Hasta ID'].nunique()
  
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
+
+    st.subheader("📊 En Sık Görülen Şikayetler")
+    if "chiefcomplaint" in df_summary.columns:
+        top_complaints = df_summary['chiefcomplaint'].value_counts().head(10)
+        fig, ax = plt.subplots()
+        top_complaints.plot(kind='barh', ax=ax, color='orange')
+        ax.invert_yaxis()
+        ax.set_xlabel("Hasta Sayısı")
+        st.pyplot(fig)
 
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
@@ -188,7 +197,7 @@ if not df_summary.empty:
                     use_container_width=True
                 )
         except Exception as e:
-            st.error(f"Laboratuvar verisi yüklenemedi: {e}")
+            st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
 
         # 📝 Klinik Notlar
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
@@ -205,4 +214,4 @@ if not df_summary.empty:
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
                 st.markdown("---")
 else:
-    st.warning("Filtrelere uygun veri bulunamadı.")
+    st.warning("Major Depresif tanısı almış hasta bulunamadı.")
