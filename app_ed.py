@@ -184,7 +184,7 @@ if not df_summary.empty:
 
         # 🔬 Laboratuvar Sonuçları
         try:
-            labs_df = pd.read_csv("data/neuro_psych_labs.csv")
+            labs_df = pd.read_csv("data/depress_labs.csv")
             hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
             if not hasta_labs.empty:
                 st.markdown("### 🔬 Laboratuvar Sonuçları")

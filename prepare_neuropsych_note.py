@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Nöropsikiyatrik hastaların subject_id'lerini al
-neuro_psych_ids = pd.read_csv("data/migraine.csv")["Hasta ID"].unique()
+neuro_psych_ids = pd.read_csv("data/depress_patients.csv")["subject_id"].unique()
 
 # Discharge ve radyoloji notlarını yükle
 try:
@@ -27,5 +27,5 @@ all_neuro_notes = pd.concat([
 ], ignore_index=True)
 
 # Dosyayı kaydet
-all_neuro_notes.to_csv("data/neuro_psych_notes.csv", index=False)
-print("neuro_psych_notes.csv dosyası başarıyla oluşturuldu.")
+all_neuro_notes.to_csv("data/depress_notes.csv", index=False)
+print("depress_notes.csv dosyası başarıyla oluşturuldu.")
