@@ -122,7 +122,7 @@ def load_and_filter_data():
 # Notları yükle (sadece nöropsikiyatrik hastalar için)
 def load_notes():
     try:
-        notes_df = pd.read_csv("data/neuro_psych_notes.csv")
+        notes_df = pd.read_csv("data/depress_notes.csv")
         return notes_df
     except:
         return pd.DataFrame()
