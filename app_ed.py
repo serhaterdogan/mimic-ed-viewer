@@ -96,9 +96,15 @@ def load_and_filter_data():
                 st.warning("Filtreleme için uygun tanı açıklaması sütunu bulunamadı.")
 
         if icd_code_filter:
-            if "icd_code" in diagnoses_df.columns:
-                diagnoses_df = diagnoses_df[diagnoses_df["icd_code"].astype(str).str.contains(icd_code_filter, case=False, na=False)]
-                st.warning("Filtreleme için uygun tanı sütunu bulunamadı.")
+            icd_cols = ['icd_code']
+            matched = False
+            for col in icd_cols:
+                if col in diagnoses_df.columns:
+                    diagnoses_df = diagnoses_df[diagnoses_df[col].isin(icd_code_filter)]
+                    matched = True
+                    break
+            if not matched:
+                st.warning("Filtreleme için uygun tanı kodu sütunu bulunamadı.")
 
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
             patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
