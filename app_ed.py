@@ -40,7 +40,7 @@ disch_loc_filter = st.sidebar.selectbox("Taburcu Yeri", ["All"] + filter_options
 
 # Disposition filtrelemesi
 try:
-    edstays_df = pd.read_csv("data/neuro_psych_patients.csv")
+    edstays_df = pd.read_csv("data/depress_patients.csv")
     disposition_options = sorted(edstays_df['disposition'].dropna().unique().tolist()) if 'disposition' in edstays_df.columns else []
 except:
     disposition_options = []
@@ -49,7 +49,7 @@ disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", di
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
     try:
-        patients_df = pd.read_csv("data/neuro_psych_patients.csv")
+        patients_df = pd.read_csv("data/depress_patients.csv")
         diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
         base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
         admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
