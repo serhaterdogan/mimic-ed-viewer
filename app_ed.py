@@ -25,7 +25,7 @@ st.sidebar.header("Filtreler")
 
 # ICD kodları dropdown için ICD başlıkları yükleniyor
 try:
-    diag_full = pd.read_csv("data/neuro_psych_diagnoses.csv")
+    diag_full = pd.read_csv("data/depress_diagnoses.csv")
     icd_options = sorted(diag_full['long_title'].dropna().unique().tolist()) if 'long_title' in diag_full.columns else []
 except:
     icd_options = []
@@ -50,7 +50,7 @@ disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", di
 def load_and_filter_data():
     try:
         patients_df = pd.read_csv("data/depress_patients.csv")
-        diagnoses_df = pd.read_csv("data/neuro_psych_diagnoses.csv")
+        diagnoses_df = pd.read_csv("data/depress_diagnoses.csv")
         base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
         admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
         triage_df = pd.read_csv("data/triage.csv") if os.path.exists("data/triage.csv") else pd.DataFrame()
