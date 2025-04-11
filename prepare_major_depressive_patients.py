@@ -11,7 +11,7 @@ OUTPUT_PATIENTS = "data/depress_patients.csv"
 
 # Anahtar kelimelerle eşleşme yapacağız
 keywords = [
-    "depress"
+    "major"
 ]
 
 # Dosyaları yükle
