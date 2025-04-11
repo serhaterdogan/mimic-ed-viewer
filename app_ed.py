@@ -144,7 +144,7 @@ if not df_summary.empty:
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
-    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
+    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
 
     st.subheader("📊 En Sık Görülen Tanılar ve Şikayetler")
     col1, col2 = st.columns(2)
@@ -169,8 +169,8 @@ if not df_summary.empty:
             ax.set_xlabel("Hasta Sayısı")
             st.pyplot(fig)
 
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
-    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
+    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
 
     with st.expander("📋 Hasta Profili Detayı"):
         if not hasta_detay.empty:
@@ -178,7 +178,7 @@ if not df_summary.empty:
                 genel_bilgiler = hasta_detay.iloc[0]
                 st.markdown(f"""
                 <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-                    <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
+                    <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
                     <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
                     <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
                     <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
