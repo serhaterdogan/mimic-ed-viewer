@@ -6,12 +6,12 @@ DIAGNOSIS_PATH = "data/diagnosis.csv"
 ICD_DEF_PATH = "data/d_icd_diagnoses.csv"
 EDSTAYS_PATH = "data/edstays.csv"
 
-OUTPUT_DIAG = "data/depress_diagnoses.csv"
-OUTPUT_PATIENTS = "data/depress_patients.csv"
+OUTPUT_DIAG = "data/depress_diagnoses2.csv"
+OUTPUT_PATIENTS = "data/depress_patients2.csv"
 
 # Anahtar kelimelerle eşleşme yapacağız
 keywords = [
-    "major"
+    "major depress"
 ]
 
 # Dosyaları yükle
