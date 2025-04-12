@@ -135,39 +135,51 @@ def highlight_keywords(text):
         text = pattern.sub(r"\n\n### \1\n", text)
     return text
 
-notes_df = load_notes()
+# Yeni eklenen istatistiksel grafikler bölümü
 df_summary = load_and_filter_data()
-
 if not df_summary.empty:
-    st.subheader("📋 Major Depresif Hasta Özeti")
-    selected_columns = [
-        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
-        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
-        "chiefcomplaint", "icd_code", "icd_title", "long_title"
-    ]
-    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
-    df_summary.rename(columns={
-        "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
-        "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
-        "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
-        "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
-        "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
-        "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
-    }, inplace=True)
-    st.dataframe(df_summary, use_container_width=True)
+    st.subheader("📈 İstatistiksel Görselleştirmeler")
 
-    total_rows = len(df_summary)
-    unique_patients = df_summary['Hasta ID'].nunique()
-
-    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
-
-    st.subheader("📊 En Sık Görülen Şikayetler")
-    if "Hasta Şikayeti" in df_summary.columns:
-        top_complaints = df_summary['Hasta Şikayeti'].value_counts().head(10)
+    if "Tanı Açıklaması" in df_summary.columns:
+        st.markdown("**🔹 En Sık Görülen Tanılar**")
+        top_diagnoses = df_summary["Tanı Açıklaması"].value_counts().head(10)
         fig, ax = plt.subplots()
-        top_complaints.plot(kind='barh', ax=ax, color='orange')
-        ax.invert_yaxis()
+        top_diagnoses.plot(kind='barh', ax=ax)
         ax.set_xlabel("Hasta Sayısı")
+        ax.invert_yaxis()
+        st.pyplot(fig)
+
+    if "Cinsiyet" in df_summary.columns:
+        st.markdown("**🔹 Cinsiyet Dağılımı**")
+        gender_counts = df_summary["Cinsiyet"].value_counts()
+        fig, ax = plt.subplots()
+        gender_counts.plot(kind='pie', autopct='%1.1f%%', ax=ax)
+        ax.set_ylabel("")
+        st.pyplot(fig)
+
+    if "Yaş" in df_summary.columns:
+        st.markdown("**🔹 Yaş Dağılımı**")
+        fig, ax = plt.subplots()
+        df_summary["Yaş"].hist(bins=20, ax=ax)
+        ax.set_xlabel("Yaş")
+        ax.set_ylabel("Hasta Sayısı")
+        st.pyplot(fig)
+
+    if "Başvuru Yeri" in df_summary.columns:
+        st.markdown("**🔹 Başvuru Yerine Göre Dağılım**")
+        loc_counts = df_summary["Başvuru Yeri"].value_counts().head(10)
+        fig, ax = plt.subplots()
+        loc_counts.plot(kind='barh', ax=ax, color='skyblue')
+        ax.set_xlabel("Hasta Sayısı")
+        ax.invert_yaxis()
+        st.pyplot(fig)
+
+    if "disposition" in df_summary.columns:
+        st.markdown("**🔹 Çıkış Durumuna Göre Dağılım**")
+        disp_counts = df_summary["disposition"].value_counts()
+        fig, ax = plt.subplots()
+        disp_counts.plot(kind='bar', ax=ax, color='salmon')
+        ax.set_ylabel("Hasta Sayısı")
         st.pyplot(fig)
 
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
