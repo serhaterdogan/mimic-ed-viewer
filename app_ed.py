@@ -65,7 +65,10 @@ def load_and_filter_data():
 
         if not admissions_df.empty:
             admissions_df = admissions_df[["subject_id", "hadm_id", "admission_type", "admission_location", "discharge_location"]]
-            patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
+            if "hadm_id" in patients_df.columns:
+                patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
+            else:
+                patients_df = pd.merge(patients_df, admissions_df, on="subject_id", how="left")
 
         if not triage_df.empty and "chiefcomplaint" in triage_df.columns:
             triage_df = triage_df[["subject_id", "stay_id", "chiefcomplaint"]]
@@ -96,7 +99,11 @@ def load_and_filter_data():
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
             patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
 
-        merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id", "hadm_id"], how="inner")
+        merge_keys = ["subject_id"]
+        if "hadm_id" in patients_df.columns and "hadm_id" in diagnoses_df.columns:
+            merge_keys.append("hadm_id")
+
+        merged_df = pd.merge(patients_df, diagnoses_df, on=merge_keys, how="inner")
 
         if 'disposition' in patients_df.columns and disposition_filter:
             merged_df = merged_df[merged_df['disposition'].isin(disposition_filter)]
