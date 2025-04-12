@@ -134,3 +134,11 @@ def load_and_filter_data():
     except Exception as e:
         st.error(f"Veri yükleme/filtreleme hatası: {e}")
         return pd.DataFrame()
+
+# 👁️‍🗨️ Görüntüleme
+st.subheader("📋 Filtrelenmiş Veriler")
+df_summary = load_and_filter_data()
+if not df_summary.empty:
+    st.dataframe(df_summary, use_container_width=True)
+else:
+    st.warning("Filtrelere uygun veri bulunamadı.")
