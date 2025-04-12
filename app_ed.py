@@ -65,6 +65,8 @@ def load_and_filter_data():
 
         if not admissions_df.empty:
             admissions_df = admissions_df[["subject_id", "hadm_id", "admission_type", "admission_location", "discharge_location"]]
+            if 'hadm_id' not in patients_df.columns:
+                patients_df['hadm_id'] = None
             patients_df = pd.merge(patients_df, admissions_df, on=["subject_id", "hadm_id"], how="left")
 
         if not triage_df.empty and "chiefcomplaint" in triage_df.columns:
@@ -101,7 +103,6 @@ def load_and_filter_data():
         if 'disposition' in patients_df.columns and disposition_filter:
             merged_df = merged_df[merged_df['disposition'].isin(disposition_filter)]
 
-        # Tekrarları kaldır
         merged_df.drop_duplicates(inplace=True)
 
         return merged_df
