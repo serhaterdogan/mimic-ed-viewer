@@ -140,6 +140,9 @@ df_summary = load_and_filter_data()
 notes_df = load_notes()
 
 if not df_summary.empty:
+    st.subheader("📄 Filtrelenmiş Hasta Verisi")
+    st.dataframe(df_summary, use_container_width=True)
+
     st.subheader("📈 İstatistiksel Görselleştirmeler")
 
     if "Tanı Açıklaması" in df_summary.columns:
