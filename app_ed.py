@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 import re
-import matplotlib.pyplot as plt
 
 # Set page config first
 st.set_page_config(page_title="ED Dashboard", layout="wide")
@@ -110,130 +109,28 @@ def load_and_filter_data():
 
         merged_df.drop_duplicates(subset=["subject_id", "hadm_id", "icd_code"], inplace=True)
 
+        # 💡 Add ML label for admission prediction
+        merged_df["admitted"] = merged_df["admission_type"].apply(lambda x: 0 if pd.isna(x) or x == "" else 1)
+
+        # Klinik notları ekle
+        try:
+            notes_df = pd.read_csv("data/depress_notes.csv")
+            merged_df = pd.merge(merged_df, notes_df, on=["subject_id", "hadm_id"], how="left")
+        except:
+            st.warning("Klinik notlar yüklenemedi.")
+
+        # Laboratuvar verilerini ekle
+        try:
+            labs_df = pd.read_csv("data/depress_labs.csv")
+            merged_df = pd.merge(merged_df, labs_df, on=["subject_id", "hadm_id"], how="left")
+        except:
+            st.warning("Laboratuvar verileri yüklenemedi.")
+
+        # Save for ML
+        merged_df.to_csv("data/ml_admission_dataset.csv", index=False)
+
         return merged_df
 
     except Exception as e:
         st.error(f"Veri yükleme/filtreleme hatası: {e}")
         return pd.DataFrame()
-
-# Notları yükle (sadece nöropsikiyatrik hastalar için)
-def load_notes():
-    try:
-        notes_df = pd.read_csv("data/depress_notes.csv")
-        return notes_df
-    except:
-        return pd.DataFrame()
-
-def highlight_keywords(text):
-    keywords = [
-        "History of Present Illness", "Past Medical History", "Social History",
-        "Physical Exam", "Hospital Course", "Discharge Diagnosis",
-        "Discharge Medications", "Followup Instructions"
-    ]
-    for kw in keywords:
-        pattern = re.compile(rf"(\b{re.escape(kw)}\b)", re.IGNORECASE)
-        text = pattern.sub(r"\n\n### \1\n", text)
-    return text
-
-# Verileri yükle
-df_summary = load_and_filter_data()
-notes_df = load_notes()
-
-if not df_summary.empty:
-    st.subheader("📄 Filtrelenmiş Hasta Verisi")
-    st.dataframe(df_summary, use_container_width=True)
-
-    # Hasta seçimi ve detayları
-    st.subheader("📋 Hasta Profili Detayı")
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
-    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
-
-    if not hasta_detay.empty:
-        genel_bilgiler = hasta_detay.iloc[0]
-        st.markdown(f"""
-        <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-            <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
-            <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
-            <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
-            <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
-            <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
-        </div>
-        """, unsafe_allow_html=True)
-
-        try:
-            labs_df = pd.read_csv("data/depress_labs.csv")
-            hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
-            if not hasta_labs.empty:
-                st.markdown("### 🔬 Laboratuvar Sonuçları")
-                st.dataframe(
-                    hasta_labs[["charttime", "test_name", "valuenum", "valueuom", "flag"]]
-                    .rename(columns={
-                        "charttime": "Zaman", "test_name": "Test", "valuenum": "Sonuç",
-                        "valueuom": "Birim", "flag": "Durum"
-                    }),
-                    use_container_width=True
-                )
-        except Exception as e:
-            st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
-
-        # Klinik Notlar
-        hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
-
-        note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
-        if note_search_query:
-            hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
-
-        if not hasta_notes.empty:
-            st.markdown("### 📝 Klinik Notlar")
-            for _, note in hasta_notes.iterrows():
-                formatted_note = highlight_keywords(note['text'])
-                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
-                st.markdown("---")
-
-    # İstatistiksel Görselleştirmeler
-    st.subheader("📈 İstatistiksel Görselleştirmeler")
-
-    if "Tanı Açıklaması" in df_summary.columns:
-        st.markdown("**🔹 En Sık Görülen Tanılar**")
-        top_diagnoses = df_summary["Tanı Açıklaması"].value_counts().head(10)
-        fig, ax = plt.subplots()
-        top_diagnoses.plot(kind='barh', ax=ax)
-        ax.set_xlabel("Hasta Sayısı")
-        ax.invert_yaxis()
-        st.pyplot(fig)
-
-    if "Cinsiyet" in df_summary.columns:
-        st.markdown("**🔹 Cinsiyet Dağılımı**")
-        gender_counts = df_summary["Cinsiyet"].value_counts()
-        fig, ax = plt.subplots()
-        gender_counts.plot(kind='pie', autopct='%1.1f%%', ax=ax)
-        ax.set_ylabel("")
-        st.pyplot(fig)
-
-    if "Yaş" in df_summary.columns:
-        st.markdown("**🔹 Yaş Dağılımı**")
-        fig, ax = plt.subplots()
-        df_summary["Yaş"].hist(bins=20, ax=ax)
-        ax.set_xlabel("Yaş")
-        ax.set_ylabel("Hasta Sayısı")
-        st.pyplot(fig)
-
-    if "Başvuru Yeri" in df_summary.columns:
-        st.markdown("**🔹 Başvuru Yerine Göre Dağılım**")
-        loc_counts = df_summary["Başvuru Yeri"].value_counts().head(10)
-        fig, ax = plt.subplots()
-        loc_counts.plot(kind='barh', ax=ax, color='skyblue')
-        ax.set_xlabel("Hasta Sayısı")
-        ax.invert_yaxis()
-        st.pyplot(fig)
-
-    if "disposition" in df_summary.columns:
-        st.markdown("**🔹 Çıkış Durumuna Göre Dağılım**")
-        disp_counts = df_summary["disposition"].value_counts()
-        fig, ax = plt.subplots()
-        disp_counts.plot(kind='bar', ax=ax, color='salmon')
-        ax.set_ylabel("Hasta Sayısı")
-        st.pyplot(fig)
-else:
-    st.warning("Major Depresif tanısı almış hasta bulunamadı.")
