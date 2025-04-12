@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import re
+import matplotlib.pyplot as plt
 
 # Set page config first
 st.set_page_config(page_title="ED Dashboard", layout="wide")
@@ -30,6 +31,8 @@ try:
     icd_code_options = sorted(diag_full['icd_code'].dropna().unique().tolist()) if 'icd_code' in diag_full.columns else []
 except:
     icd_options = []
+    icd_code_options = []
+
 chiefcomplaint_filter = st.sidebar.text_input("Hasta Şikayeti ile Filtrele", value="", key="cc_filter", label_visibility="visible")
 icd_filter = st.sidebar.multiselect("Tanı Seçin (ICD Açıklaması)", icd_options, key="icd_filter_dropdown")
 icd_code_filter = st.sidebar.multiselect("ICD Kodu Seçin", icd_code_options, key="icd_code_filter_dropdown")
@@ -85,33 +88,21 @@ def load_and_filter_data():
             patients_df = patients_df[patients_df["discharge_location"] == disch_loc_filter]
 
         if icd_filter:
-            icd_cols = ['long_title']
-            matched = False
-            for col in icd_cols:
-                if col in diagnoses_df.columns:
-                    diagnoses_df = diagnoses_df[diagnoses_df[col].isin(icd_filter)]
-                    matched = True
-                    break
-            if not matched:
-                st.warning("Filtreleme için uygun tanı açıklaması sütunu bulunamadı.")
+            diagnoses_df = diagnoses_df[diagnoses_df['long_title'].isin(icd_filter)]
 
         if icd_code_filter:
-            icd_cols = ['icd_code']
-            matched = False
-            for col in icd_cols:
-                if col in diagnoses_df.columns:
-                    diagnoses_df = diagnoses_df[diagnoses_df[col].isin(icd_code_filter)]
-                    matched = True
-                    break
-            if not matched:
-                st.warning("Filtreleme için uygun tanı kodu sütunu bulunamadı.")
+            diagnoses_df = diagnoses_df[diagnoses_df['icd_code'].isin(icd_code_filter)]
 
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
             patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
 
-        merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id"], how="inner")
+        merged_df = pd.merge(patients_df, diagnoses_df, on=["subject_id", "hadm_id"], how="inner")
+
         if 'disposition' in patients_df.columns and disposition_filter:
             merged_df = merged_df[merged_df['disposition'].isin(disposition_filter)]
+
+        # Tekrarları kaldır
+        merged_df.drop_duplicates(inplace=True)
 
         return merged_df
 
@@ -161,12 +152,12 @@ if not df_summary.empty:
 
     total_rows = len(df_summary)
     unique_patients = df_summary['Hasta ID'].nunique()
- 
+
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
     st.subheader("📊 En Sık Görülen Şikayetler")
-    if "chiefcomplaint" in df_summary.columns:
-        top_complaints = df_summary['chiefcomplaint'].value_counts().head(10)
+    if "Hasta Şikayeti" in df_summary.columns:
+        top_complaints = df_summary['Hasta Şikayeti'].value_counts().head(10)
         fig, ax = plt.subplots()
         top_complaints.plot(kind='barh', ax=ax, color='orange')
         ax.invert_yaxis()
