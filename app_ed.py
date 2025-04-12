@@ -190,50 +190,5 @@ if not df_summary.empty:
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
                 st.markdown("---")
-
-    # İstatistiksel Görselleştirmeler
-    st.subheader("📈 İstatistiksel Görselleştirmeler")
-
-    if "Tanı Açıklaması" in df_summary.columns:
-        st.markdown("**🔹 En Sık Görülen Tanılar**")
-        top_diagnoses = df_summary["Tanı Açıklaması"].value_counts().head(10)
-        fig, ax = plt.subplots()
-        top_diagnoses.plot(kind='barh', ax=ax)
-        ax.set_xlabel("Hasta Sayısı")
-        ax.invert_yaxis()
-        st.pyplot(fig)
-
-    if "Cinsiyet" in df_summary.columns:
-        st.markdown("**🔹 Cinsiyet Dağılımı**")
-        gender_counts = df_summary["Cinsiyet"].value_counts()
-        fig, ax = plt.subplots()
-        gender_counts.plot(kind='pie', autopct='%1.1f%%', ax=ax)
-        ax.set_ylabel("")
-        st.pyplot(fig)
-
-    if "Yaş" in df_summary.columns:
-        st.markdown("**🔹 Yaş Dağılımı**")
-        fig, ax = plt.subplots()
-        df_summary["Yaş"].hist(bins=20, ax=ax)
-        ax.set_xlabel("Yaş")
-        ax.set_ylabel("Hasta Sayısı")
-        st.pyplot(fig)
-
-    if "Başvuru Yeri" in df_summary.columns:
-        st.markdown("**🔹 Başvuru Yerine Göre Dağılım**")
-        loc_counts = df_summary["Başvuru Yeri"].value_counts().head(10)
-        fig, ax = plt.subplots()
-        loc_counts.plot(kind='barh', ax=ax, color='skyblue')
-        ax.set_xlabel("Hasta Sayısı")
-        ax.invert_yaxis()
-        st.pyplot(fig)
-
-    if "disposition" in df_summary.columns:
-        st.markdown("**🔹 Çıkış Durumuna Göre Dağılım**")
-        disp_counts = df_summary["disposition"].value_counts()
-        fig, ax = plt.subplots()
-        disp_counts.plot(kind='bar', ax=ax, color='salmon')
-        ax.set_ylabel("Hasta Sayısı")
-        st.pyplot(fig)
 else:
     st.warning("Major Depresif tanısı almış hasta bulunamadı.")
