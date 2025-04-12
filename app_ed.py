@@ -135,8 +135,10 @@ def highlight_keywords(text):
         text = pattern.sub(r"\n\n### \1\n", text)
     return text
 
-# Yeni eklenen istatistiksel grafikler bölümü
+# Verileri yükle
 df_summary = load_and_filter_data()
+notes_df = load_notes()
+
 if not df_summary.empty:
     st.subheader("📈 İstatistiksel Görselleştirmeler")
 
@@ -182,23 +184,23 @@ if not df_summary.empty:
         ax.set_ylabel("Hasta Sayısı")
         st.pyplot(fig)
 
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
-    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
+    # Hasta seçimi ve detayları
+    st.subheader("📋 Hasta Profili Detayı")
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
+    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
 
-    with st.expander("📋 Hasta Profili Detayı"):
-        if not hasta_detay.empty:
-            genel_bilgiler = hasta_detay.iloc[0]
-            st.markdown(f"""
-            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-                <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
-                <b>Yaş:</b> {genel_bilgiler.get('Yaş', '-')} &nbsp;&nbsp; 
-                <b>Cinsiyet:</b> {genel_bilgiler.get('Cinsiyet', '-')} &nbsp;&nbsp;
-                <b>Irk:</b> {genel_bilgiler.get('Irk', '-')} &nbsp;&nbsp;
-                <b>Medeni Durum:</b> {genel_bilgiler.get('Medeni Durum', '-')}
-            </div>
-            """, unsafe_allow_html=True)
+    if not hasta_detay.empty:
+        genel_bilgiler = hasta_detay.iloc[0]
+        st.markdown(f"""
+        <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+            <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
+            <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
+            <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
+            <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
+            <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
+        </div>
+        """, unsafe_allow_html=True)
 
-        # 🔬 Laboratuvar Sonuçları
         try:
             labs_df = pd.read_csv("data/depress_labs.csv")
             hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
@@ -215,7 +217,7 @@ if not df_summary.empty:
         except Exception as e:
             st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
 
-        # 📝 Klinik Notlar
+        # Klinik Notlar
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
 
         note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
