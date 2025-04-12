@@ -109,9 +109,6 @@ def load_and_filter_data():
 
         merged_df.drop_duplicates(subset=["subject_id", "hadm_id", "icd_code"], inplace=True)
 
-        # 💡 Add ML label for admission prediction
-        merged_df["admitted"] = merged_df["admission_type"].apply(lambda x: 0 if pd.isna(x) or x == "" else 1)
-
         # Klinik notları ekle
         try:
             notes_df = pd.read_csv("data/depress_notes.csv")
@@ -126,16 +123,13 @@ def load_and_filter_data():
         except:
             st.warning("Laboratuvar verileri yüklenemedi.")
 
-        # Save for ML
-        merged_df.to_csv("data/ml_admission_dataset.csv", index=False)
-
         return merged_df
 
     except Exception as e:
         st.error(f"Veri yükleme/filtreleme hatası: {e}")
         return pd.DataFrame()
 
-# 👁️‍🗨️ Görüntüleme
+# 👁️‍🔨 Görüntüleme
 st.subheader("📋 Filtrelenmiş Veriler")
 df_summary = load_and_filter_data()
 if not df_summary.empty:
