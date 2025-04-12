@@ -108,7 +108,7 @@ def load_and_filter_data():
         if 'disposition' in patients_df.columns and disposition_filter:
             merged_df = merged_df[merged_df['disposition'].isin(disposition_filter)]
 
-        merged_df.drop_duplicates(inplace=True)
+        merged_df.drop_duplicates(subset=["subject_id", "hadm_id", "icd_code"], inplace=True)
 
         return merged_df
 
