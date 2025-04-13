@@ -161,15 +161,6 @@ if not df_summary.empty:
 
     st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
-    st.subheader("📊 En Sık Görülen Şikayetler")
-    if "Hasta Şikayeti" in df_summary.columns:
-        top_complaints = df_summary['Hasta Şikayeti'].value_counts().head(10)
-        fig, ax = plt.subplots()
-        top_complaints.plot(kind='barh', ax=ax, color='orange')
-        ax.invert_yaxis()
-        ax.set_xlabel("Hasta Sayısı")
-        st.pyplot(fig)
-
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
     hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
 
