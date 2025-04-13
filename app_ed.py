@@ -135,31 +135,58 @@ def highlight_keywords(text):
         text = pattern.sub(r"\n\n### \1\n", text)
     return text
 
-# Verileri yükle
-df_summary = load_and_filter_data()
 notes_df = load_notes()
+df_summary = load_and_filter_data()
 
 if not df_summary.empty:
-    st.subheader("📄 Filtrelenmiş Hasta Verisi")
+    st.subheader("📋 Major Depresif Hasta Özeti")
+    selected_columns = [
+        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
+        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
+        "chiefcomplaint", "icd_code", "icd_title", "long_title"
+    ]
+    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
+    df_summary.rename(columns={
+        "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
+        "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
+        "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
+        "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
+        "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
+        "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
+    }, inplace=True)
     st.dataframe(df_summary, use_container_width=True)
 
-    # Hasta seçimi ve detayları
-    st.subheader("📋 Hasta Profili Detayı")
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
-    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
+    total_rows = len(df_summary)
+    unique_patients = df_summary['Hasta ID'].nunique()
 
-    if not hasta_detay.empty:
-        genel_bilgiler = hasta_detay.iloc[0]
-        st.markdown(f"""
-        <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-            <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
-            <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
-            <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
-            <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
-            <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
-        </div>
-        """, unsafe_allow_html=True)
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
 
+    st.subheader("📊 En Sık Görülen Şikayetler")
+    if "Hasta Şikayeti" in df_summary.columns:
+        top_complaints = df_summary['Hasta Şikayeti'].value_counts().head(10)
+        fig, ax = plt.subplots()
+        top_complaints.plot(kind='barh', ax=ax, color='orange')
+        ax.invert_yaxis()
+        ax.set_xlabel("Hasta Sayısı")
+        st.pyplot(fig)
+
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
+    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
+
+    with st.expander("📋 Hasta Profili Detayı"):
+        if not hasta_detay.empty:
+            genel_bilgiler = hasta_detay.iloc[0]
+            st.markdown(f"""
+            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+                <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
+                <b>Yaş:</b> {genel_bilgiler.get('Yaş', '-')} &nbsp;&nbsp; 
+                <b>Cinsiyet:</b> {genel_bilgiler.get('Cinsiyet', '-')} &nbsp;&nbsp;
+                <b>Irk:</b> {genel_bilgiler.get('Irk', '-')} &nbsp;&nbsp;
+                <b>Medeni Durum:</b> {genel_bilgiler.get('Medeni Durum', '-')}
+            </div>
+            """, unsafe_allow_html=True)
+
+        # 🔬 Laboratuvar Sonuçları
         try:
             labs_df = pd.read_csv("data/depress_labs.csv")
             hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
@@ -176,7 +203,7 @@ if not df_summary.empty:
         except Exception as e:
             st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
 
-        # Klinik Notlar
+        # 📝 Klinik Notlar
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
 
         note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
