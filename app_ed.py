@@ -97,7 +97,7 @@ def load_and_filter_data():
             diagnoses_df = diagnoses_df[diagnoses_df['icd_code'].isin(icd_code_filter)]
 
         if chiefcomplaint_filter and "chiefcomplaint" in patients_df.columns:
-            patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False)]
+            patients_df = patients_df[patients_df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
 
         merge_keys = ["subject_id"]
         if "hadm_id" in patients_df.columns and "hadm_id" in diagnoses_df.columns:
