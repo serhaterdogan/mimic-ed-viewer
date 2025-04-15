@@ -74,7 +74,7 @@ def highlight_keywords(text):
 # Chiefcomplaint filtresi merge sonrası da uygulanmalı
 def apply_post_merge_filter(df):
     if chiefcomplaint_filter and "chiefcomplaint" in df.columns:
-        df = df[df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
+        df = df[df["chiefcomplaint"].fillna("").astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
     return df
 
 # Hasta ve tanı verilerini yükle
@@ -198,9 +198,9 @@ if not df_summary.empty:
         if not hasta_pyxis.empty:
             st.markdown("### 💉 Acil Serviste Verilen İlaçlar (Pyxis)")
             st.dataframe(
-                hasta_pyxis[["starttime", "medication"]]
+                hasta_pyxis[["charttime", "name"]]
                 .rename(columns={
-                    "starttime": "Zaman", "medication": "İlaç"
+                    "charttime": "Zaman", "name": "İlaç"
                 }),
                 use_container_width=True
             )
