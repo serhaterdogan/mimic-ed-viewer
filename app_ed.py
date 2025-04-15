@@ -227,6 +227,13 @@ if not df_summary.empty:
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
                 st.markdown("---")
+    
+# Chiefcomplaint filtresi merge sonrası da uygulanmalı
+if chiefcomplaint_filter:
+    try:
+        df_summary = df_summary[df_summary["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
+    except:
+        pass
 
 else:
     st.warning("Major Depresif tanısı almış hasta bulunamadı.")
