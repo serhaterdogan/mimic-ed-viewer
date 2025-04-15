@@ -120,6 +120,8 @@ def load_and_filter_data():
 notes_df = pd.read_csv("data/depress_notes.csv") if os.path.exists("data/depress_notes.csv") else pd.DataFrame()
 meds_df = pd.read_csv("data/depress_meds.csv") if os.path.exists("data/depress_meds.csv") else pd.DataFrame()
 medrecon_df = pd.read_csv("data/depress_medrecon.csv") if os.path.exists("data/depress_medrecon.csv") else pd.DataFrame()
+pyxis_df = pd.read_csv("data/depress_pyxis.csv") if os.path.exists("data/depress_pyxis.csv") else pd.DataFrame()
+
 
 # highlight fonksiyonu
 def highlight_keywords(text):
@@ -214,5 +216,17 @@ if not df_summary.empty:
         if not hasta_medrec.empty:
             st.markdown("### 🗂️ İlaç Geçmişi (Medication Reconciliation)")
             st.dataframe(hasta_medrec, use_container_width=True)
+        
+        hasta_pyxis = pyxis_df[pyxis_df['subject_id'] == selected_row] if 'subject_id' in pyxis_df.columns else pd.DataFrame()
+        if not hasta_pyxis.empty:
+            st.markdown("### 💉 Acil Serviste Verilen İlaçlar (Pyxis)")
+            st.dataframe(
+                hasta_pyxis[["starttime", "medication", "amount", "amountuom", "route", "frequency"]]
+                .rename(columns={
+                    "starttime": "Zaman", "medication": "İlaç", "amount": "Doz",
+                    "amountuom": "Birim", "route": "Uygulama Yolu", "frequency": "Sıklık"
+                }),
+                use_container_width=True
+            )
 else:
     st.warning("Major Depresif tanısı almış hasta bulunamadı.")
