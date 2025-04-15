@@ -192,22 +192,8 @@ if not df_summary.empty:
                 )
         except Exception as e:
             st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
-
-        hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
-
-        note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
-        if note_search_query:
-            hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
-
-        if not hasta_notes.empty:
-            st.markdown("### 📝 Klinik Notlar")
-            for _, note in hasta_notes.iterrows():
-                formatted_note = highlight_keywords(note['text'])
-                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
-                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
-                st.markdown("---")
-
-        hasta_meds = meds_df[meds_df['subject_id'] == selected_row] if 'subject_id' in meds_df.columns else pd.DataFrame()
+        
+                hasta_meds = meds_df[meds_df['subject_id'] == selected_row] if 'subject_id' in meds_df.columns else pd.DataFrame()
         if not hasta_meds.empty:
             st.markdown("### 💊 Kullanılan İlaçlar")
             st.dataframe(hasta_meds, use_container_width=True)
@@ -228,5 +214,20 @@ if not df_summary.empty:
                 }),
                 use_container_width=True
             )
+
+        hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
+
+        note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
+        if note_search_query:
+            hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
+
+        if not hasta_notes.empty:
+            st.markdown("### 📝 Klinik Notlar")
+            for _, note in hasta_notes.iterrows():
+                formatted_note = highlight_keywords(note['text'])
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
+                st.markdown("---")
+
 else:
     st.warning("Major Depresif tanısı almış hasta bulunamadı.")
