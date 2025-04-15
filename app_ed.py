@@ -198,9 +198,9 @@ if not df_summary.empty:
         if not hasta_pyxis.empty:
             st.markdown("### 💉 Acil Serviste Verilen İlaçlar (Pyxis)")
             st.dataframe(
-                hasta_pyxis[["charttime", "name"]]
+                hasta_pyxis[["starttime", "medication"]]
                 .rename(columns={
-                    "charttime": "Zaman", "name": "İlaç"
+                    "starttime": "Zaman", "medication": "İlaç"
                 }),
                 use_container_width=True
             )
