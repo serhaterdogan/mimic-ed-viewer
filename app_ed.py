@@ -193,7 +193,7 @@ if not df_summary.empty:
         except Exception as e:
             st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
         
-                hasta_meds = meds_df[meds_df['subject_id'] == selected_row] if 'subject_id' in meds_df.columns else pd.DataFrame()
+        hasta_meds = meds_df[meds_df['subject_id'] == selected_row] if 'subject_id' in meds_df.columns else pd.DataFrame()
         if not hasta_meds.empty:
             st.markdown("### 💊 Kullanılan İlaçlar")
             st.dataframe(hasta_meds, use_container_width=True)
