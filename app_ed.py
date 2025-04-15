@@ -51,12 +51,15 @@ except:
 disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", disposition_options, default=disposition_options)
 
 # Ek verileri yükle
-notes_df = pd.read_csv("data/depress_notes.csv") if os.path.exists("data/depress_notes.csv") else pd.DataFrame()
-meds_df = pd.read_csv("data/depress_meds.csv") if os.path.exists("data/depress_meds.csv") else pd.DataFrame()
-medrecon_df = pd.read_csv("data/depress_medrecon.csv") if os.path.exists("data/depress_medrecon.csv") else pd.DataFrame()
-pyxis_df = pd.read_csv("data/depress_pyxis.csv") if os.path.exists("data/depress_pyxis.csv") else pd.DataFrame()
+def load_optional_data(filename):
+    return pd.read_csv(filename) if os.path.exists(filename) else pd.DataFrame()
 
-# highlight fonksiyonu
+notes_df = load_optional_data("data/depress_notes.csv")
+meds_df = load_optional_data("data/depress_meds.csv")
+medrecon_df = load_optional_data("data/depress_medrecon.csv")
+pyxis_df = load_optional_data("data/depress_pyxis.csv")
+
+# Highlight fonksiyonu
 def highlight_keywords(text):
     keywords = [
         "History of Present Illness", "Past Medical History", "Social History",
@@ -79,9 +82,9 @@ def load_and_filter_data():
     try:
         patients_df = pd.read_csv("data/depress_patients.csv")
         diagnoses_df = pd.read_csv("data/depress_diagnoses.csv")
-        base_patients_df = pd.read_csv("data/patients.csv") if os.path.exists("data/patients.csv") else pd.DataFrame()
-        admissions_df = pd.read_csv("data/admissions.csv") if os.path.exists("data/admissions.csv") else pd.DataFrame()
-        triage_df = pd.read_csv("data/triage.csv") if os.path.exists("data/triage.csv") else pd.DataFrame()
+        base_patients_df = load_optional_data("data/patients.csv")
+        admissions_df = load_optional_data("data/admissions.csv")
+        triage_df = load_optional_data("data/triage.csv")
 
         if not base_patients_df.empty:
             base_patients_df = base_patients_df[["subject_id", "anchor_age"]]
@@ -145,23 +148,28 @@ if not df_summary.empty:
     st.subheader("📋 Major Depresif Hasta Özeti")
     st.dataframe(df_summary, use_container_width=True)
 
+    total_rows = len(df_summary)
+    unique_patients = df_summary['subject_id'].nunique()
+    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
+
     selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
     hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
 
-    if not hasta_detay.empty:
-        genel_bilgiler = hasta_detay.iloc[0]
-        st.markdown(f"""
-        <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-            <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
-            <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
-            <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
-            <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
-            <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
-        </div>
-        """, unsafe_allow_html=True)
+    with st.expander("📋 Hasta Profili Detayı"):
+        if not hasta_detay.empty:
+            genel_bilgiler = hasta_detay.iloc[0]
+            st.markdown(f"""
+            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+                <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
+                <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
+                <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
+                <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
+                <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
+            </div>
+            """, unsafe_allow_html=True)
 
         try:
-            labs_df = pd.read_csv("data/depress_labs.csv")
+            labs_df = load_optional_data("data/depress_labs.csv")
             hasta_labs = labs_df[labs_df['subject_id'] == selected_row]
             if not hasta_labs.empty:
                 st.markdown("### 🔬 Laboratuvar Sonuçları")
@@ -176,26 +184,29 @@ if not df_summary.empty:
         except Exception as e:
             st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
 
-        hasta_meds = meds_df[meds_df['subject_id'] == selected_row]
+        hasta_meds = meds_df[meds_df['subject_id'] == selected_row] if 'subject_id' in meds_df.columns else pd.DataFrame()
         if not hasta_meds.empty:
             st.markdown("### 💊 Kullanılan İlaçlar")
             st.dataframe(hasta_meds, use_container_width=True)
 
-        hasta_medrec = medrecon_df[medrecon_df['subject_id'] == selected_row]
+        hasta_medrec = medrecon_df[medrecon_df['subject_id'] == selected_row] if 'subject_id' in medrecon_df.columns else pd.DataFrame()
         if not hasta_medrec.empty:
             st.markdown("### 🗂️ İlaç Geçmişi (Medication Reconciliation)")
             st.dataframe(hasta_medrec, use_container_width=True)
 
-        hasta_pyxis = pyxis_df[pyxis_df['subject_id'] == selected_row]
+        hasta_pyxis = pyxis_df[pyxis_df['subject_id'] == selected_row] if 'subject_id' in pyxis_df.columns else pd.DataFrame()
         if not hasta_pyxis.empty:
             st.markdown("### 💉 Acil Serviste Verilen İlaçlar (Pyxis)")
             st.dataframe(
                 hasta_pyxis[["charttime", "name"]]
-                .rename(columns={"charttime": "Zaman", "name": "İlaç"}),
+                .rename(columns={
+                    "charttime": "Zaman", "name": "İlaç"
+                }),
                 use_container_width=True
             )
 
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
+
         note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
         if note_search_query:
             hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
