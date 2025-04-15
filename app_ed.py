@@ -50,6 +50,30 @@ except:
     disposition_options = []
 disposition_filter = st.sidebar.multiselect("Çıkış Durumu (Disposition)", disposition_options, default=disposition_options)
 
+# Ek verileri yükle
+notes_df = pd.read_csv("data/depress_notes.csv") if os.path.exists("data/depress_notes.csv") else pd.DataFrame()
+meds_df = pd.read_csv("data/depress_meds.csv") if os.path.exists("data/depress_meds.csv") else pd.DataFrame()
+medrecon_df = pd.read_csv("data/depress_medrecon.csv") if os.path.exists("data/depress_medrecon.csv") else pd.DataFrame()
+pyxis_df = pd.read_csv("data/depress_pyxis.csv") if os.path.exists("data/depress_pyxis.csv") else pd.DataFrame()
+
+# highlight fonksiyonu
+def highlight_keywords(text):
+    keywords = [
+        "History of Present Illness", "Past Medical History", "Social History",
+        "Physical Exam", "Hospital Course", "Discharge Diagnosis",
+        "Discharge Medications", "Followup Instructions"
+    ]
+    for kw in keywords:
+        pattern = re.compile(rf"(\b{re.escape(kw)}\b)", re.IGNORECASE)
+        text = pattern.sub(r"\n\n### \1\n", text)
+    return text
+
+# Chiefcomplaint filtresi merge sonrası da uygulanmalı
+def apply_post_merge_filter(df):
+    if chiefcomplaint_filter and "chiefcomplaint" in df.columns:
+        df = df[df["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
+    return df
+
 # Hasta ve tanı verilerini yükle
 def load_and_filter_data():
     try:
@@ -113,66 +137,28 @@ def load_and_filter_data():
         st.error(f"Veri yükleme/filtreleme hatası: {e}")
         return pd.DataFrame()
 
-# Klinik notları, ilaç ve medrecon verilerini yükle
-notes_df = pd.read_csv("data/depress_notes.csv") if os.path.exists("data/depress_notes.csv") else pd.DataFrame()
-meds_df = pd.read_csv("data/depress_meds.csv") if os.path.exists("data/depress_meds.csv") else pd.DataFrame()
-medrecon_df = pd.read_csv("data/depress_medrecon.csv") if os.path.exists("data/depress_medrecon.csv") else pd.DataFrame()
-pyxis_df = pd.read_csv("data/depress_pyxis.csv") if os.path.exists("data/depress_pyxis.csv") else pd.DataFrame()
-
-
-# highlight fonksiyonu
-def highlight_keywords(text):
-    keywords = [
-        "History of Present Illness", "Past Medical History", "Social History",
-        "Physical Exam", "Hospital Course", "Discharge Diagnosis",
-        "Discharge Medications", "Followup Instructions"
-    ]
-    for kw in keywords:
-        pattern = re.compile(rf"(\b{re.escape(kw)}\b)", re.IGNORECASE)
-        text = pattern.sub(r"\n\n### \1\n", text)
-    return text
-
-# Verileri yükle
+# df_summary oluşturulduktan sonra filtre uygulama
 df_summary = load_and_filter_data()
+df_summary = apply_post_merge_filter(df_summary)
 
 if not df_summary.empty:
     st.subheader("📋 Major Depresif Hasta Özeti")
-    selected_columns = [
-        "intime", "subject_id", "hadm_id", "stay_id", "gender", "anchor_age",
-        "marital_status", "race", "admission_type", "admission_location", "discharge_location",
-        "chiefcomplaint", "icd_code", "icd_title", "long_title"
-    ]
-    df_summary = df_summary[[col for col in selected_columns if col in df_summary.columns]]
-    df_summary.rename(columns={
-        "intime": "Başvuru Zamanı", "subject_id": "Hasta ID", "hadm_id": "Yatış ID",
-        "stay_id": "Klinik Kalış ID", "gender": "Cinsiyet", "anchor_age": "Yaş",
-        "marital_status": "Medeni Durum", "race": "Irk", "admission_type": "Yatış Türü",
-        "admission_location": "Başvuru Yeri", "discharge_location": "Taburcu Yeri",
-        "chiefcomplaint": "Hasta Şikayeti", "icd_code": "ICD Kodu",
-        "icd_title": "ICD Başlığı", "long_title": "Tanı Açıklaması"
-    }, inplace=True)
     st.dataframe(df_summary, use_container_width=True)
 
-    total_rows = len(df_summary)
-    unique_patients = df_summary['Hasta ID'].nunique()
+    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["subject_id"].unique())
+    hasta_detay = df_summary[df_summary["subject_id"] == selected_row]
 
-    st.write(f"Toplam sonuç sayısı: {total_rows:,} | Toplam hasta sayısı: {unique_patients:,}")
-
-    selected_row = st.selectbox("Detayını görüntülemek istediğiniz hastayı seçin:", df_summary["Hasta ID"].unique())
-    hasta_detay = df_summary[df_summary["Hasta ID"] == selected_row]
-
-    with st.expander("📋 Hasta Profili Detayı"):
-        if not hasta_detay.empty:
-            genel_bilgiler = hasta_detay.iloc[0]
-            st.markdown(f"""
-            <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
-                <h4>Hasta: {genel_bilgiler['Hasta ID']}</h4>
-                <b>Yaş:</b> {genel_bilgiler.get('Yaş', '-')} &nbsp;&nbsp; 
-                <b>Cinsiyet:</b> {genel_bilgiler.get('Cinsiyet', '-')} &nbsp;&nbsp;
-                <b>Irk:</b> {genel_bilgiler.get('Irk', '-')} &nbsp;&nbsp;
-                <b>Medeni Durum:</b> {genel_bilgiler.get('Medeni Durum', '-')}
-            </div>
-            """, unsafe_allow_html=True)
+    if not hasta_detay.empty:
+        genel_bilgiler = hasta_detay.iloc[0]
+        st.markdown(f"""
+        <div style='padding: 15px; background-color: #eef6ff; border-radius: 10px; margin-bottom: 20px;'>
+            <h4>Hasta: {genel_bilgiler['subject_id']}</h4>
+            <b>Yaş:</b> {genel_bilgiler.get('anchor_age', '-')} &nbsp;&nbsp;
+            <b>Cinsiyet:</b> {genel_bilgiler.get('gender', '-')} &nbsp;&nbsp;
+            <b>Irk:</b> {genel_bilgiler.get('race', '-')} &nbsp;&nbsp;
+            <b>Medeni Durum:</b> {genel_bilgiler.get('marital_status', '-')}
+        </div>
+        """, unsafe_allow_html=True)
 
         try:
             labs_df = pd.read_csv("data/depress_labs.csv")
@@ -189,30 +175,27 @@ if not df_summary.empty:
                 )
         except Exception as e:
             st.warning(f"Laboratuvar verisi gösterilemedi: {e}")
-        
-        hasta_meds = meds_df[meds_df['subject_id'] == selected_row] if 'subject_id' in meds_df.columns else pd.DataFrame()
+
+        hasta_meds = meds_df[meds_df['subject_id'] == selected_row]
         if not hasta_meds.empty:
             st.markdown("### 💊 Kullanılan İlaçlar")
             st.dataframe(hasta_meds, use_container_width=True)
 
-        hasta_medrec = medrecon_df[medrecon_df['subject_id'] == selected_row] if 'subject_id' in medrecon_df.columns else pd.DataFrame()
+        hasta_medrec = medrecon_df[medrecon_df['subject_id'] == selected_row]
         if not hasta_medrec.empty:
             st.markdown("### 🗂️ İlaç Geçmişi (Medication Reconciliation)")
             st.dataframe(hasta_medrec, use_container_width=True)
-        
-        hasta_pyxis = pyxis_df[pyxis_df['subject_id'] == selected_row] if 'subject_id' in pyxis_df.columns else pd.DataFrame()
+
+        hasta_pyxis = pyxis_df[pyxis_df['subject_id'] == selected_row]
         if not hasta_pyxis.empty:
             st.markdown("### 💉 Acil Serviste Verilen İlaçlar (Pyxis)")
             st.dataframe(
-                hasta_pyxis[["starttime", "medication"]]
-                .rename(columns={
-                    "starttime": "Zaman", "medication": "İlaç"
-                }),
+                hasta_pyxis[["charttime", "name"]]
+                .rename(columns={"charttime": "Zaman", "name": "İlaç"}),
                 use_container_width=True
             )
 
         hasta_notes = notes_df[notes_df['subject_id'] == selected_row]
-
         note_search_query = st.text_input("🔍 Klinik Notlarda Ara", value="", placeholder="örneğin: chest pain, discharge plan...")
         if note_search_query:
             hasta_notes = hasta_notes[hasta_notes['text'].str.contains(note_search_query, case=False, na=False)]
@@ -224,13 +207,5 @@ if not df_summary.empty:
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #f4f4f4; padding: 10px; border-radius: 5px;'>\n<b>Zaman:</b> {note['charttime']}<br><b>Not Tipi:</b> {note['note_type']}<br><b>Yatış ID:</b> {note.get('hadm_id', '-')}</div>", unsafe_allow_html=True)
                 st.markdown(f"<div style='white-space: pre-wrap; font-family: monospace; background-color: #fdfdfd; padding: 10px; border-radius: 5px;'>{formatted_note}</div>", unsafe_allow_html=True)
                 st.markdown("---")
-    
-# Chiefcomplaint filtresi merge sonrası da uygulanmalı
-if chiefcomplaint_filter:
-    try:
-        df_summary = df_summary[df_summary["chiefcomplaint"].astype(str).str.contains(chiefcomplaint_filter, case=False, na=False)]
-    except:
-        pass
-
 else:
     st.warning("Major Depresif tanısı almış hasta bulunamadı.")
